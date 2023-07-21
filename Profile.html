@@ -1,0 +1,90 @@
+<HTML>
+<HEAD>
+<script LANGUAGE="JavaScript"><!-- Hiding Javascript for lower browsers
+function scrollit_r2l(seed)
+{
+        var msg = "Words of wisdom: No matter how bad today is, always hope for a better tomorrow.";
+        var out = " ";
+        var c   = 1;
+        if (seed > 100) {
+                seed--;
+                var cmd="scrollit_r2l(" + seed + ")";
+                timerTwo=window.setTimeout(cmd,100);
+        }
+        else if (seed <= 100 && seed > 0) {
+                for (c=0 ; c < seed ; c++) {
+                        out+=" ";
+                }
+                out+=msg;
+                seed--;
+                var cmd="scrollit_r2l(" + seed + ")";
+                    window.status=out;
+                timerTwo=window.setTimeout(cmd,100);
+        }
+        else if (seed <= 0) {
+                if (-seed < msg.length) {
+                        out+=msg.substring(-seed,msg.length);
+                        seed--;
+                        var cmd="scrollit_r2l(" + seed + ")";
+                        window.status=out;
+                        timerTwo=window.setTimeout(cmd,100);
+                }
+                else {
+                        window.status=" ";
+                        timerTwo=window.setTimeout("scrollit_r2l(100)",75);
+                }
+        }
+
+}
+
+function Go_Dest(form) {
+ var http=form.destinations[form.destinations.selectedIndex].value;
+ location.href=http;
+}
+// -- End of JavaScript code -------------- -->
+</script>
+<TITLE>Kenny Q. Zhu, A Happy Man in the Happy Land!</TITLE></HEAD>
+<BODY onLoad="timerONE=window.setTimeout('scrollit_r2l(100)',500);">
+<body bgcolor="#ffffff" TEXT="#000000">
+<center>
+<A HREF="bio.html"><IMG border=0 SRC="images/gnu-head.jpg" ALT="Kenny is GNU fan!"></A><BR><BR>
+<H2>WELCOME TO KENNY'S MERRYLAND</H2>
+<BR>
+<A HREF="bio.html">About</A> |
+<A HREF="news.html">News</A> |
+<A HREF="comlink.html">Computer</A> |
+<A HREF="bkb.html">NBA</A> |
+<A HREF="music2.html">Music</A> |
+<A HREF="zoo.html">Animals</A> |
+<A HREF="misc.html">Misc</A> <br> 
+<a href="http://guava.comp.nus.edu.sg/~kzhu/gallery/">Gallery</a> |
+<a href="http://guava.comp.nus.edu.sg/~kzhu/cgi-bin/port.cgi">Stocks</a> | 
+<a href="http://guava.comp.nus.edu.sg/~kzhu/investment/unittrust/charts.html">Unit Trust</a> | 
+<a href="http://guava.comp.nus.edu.sg/cgi-bin/we3.22/webevent.cgi?cmd=login&ncmd=startup">Calendar</a> | 
+<a href="http://guava.comp.nus.edu.sg/cgi-bin/webab/webab.cgi">Addressbook</a><BR>
+<BR><BR><BR>
+<FORM><SELECT name="destinations">
+<OPTION VALUE="bio.html">About Kenny</OPTION>
+<OPTION VALUE="news.html">News and Politics</OPTION>
+<OPTION VALUE="comlink.html">Computer and Internet</OPTION>
+<OPTION VALUE="bkb.html">NBA Action</OPTION>
+<OPTION VALUE="music2.html">True Blue Music</OPTION>
+<OPTION VALUE="zoo.html">Animals</OPTION>
+<OPTION VALUE="misc.html">Miscellaneous Links</OPTION>
+</SELECT>
+<INPUT TYPE="button" VALUE="Go!" onClick="Go_Dest(this.form)">
+</FORM>
+</center><BR>
+<p>
+<H4>Click <A HREF="http://www.chebucto.ns.ca/cgi-bin/urlstats?~ah190">here</A> for the access statistic of my pages.</H4>
+<H5>This page is <A HREF="http://home.netscape.com">Netscape 4.7</A> enhanced, and recommended a 1024x768 view.</H5>
+<dl>
+Sent your comments to:
+<DD><A HREF="mailto:ah190@chebucto.ns.ca">ah190@chebucto.ns.ca</A> or
+<A HREF="mailto:kzhu@comp.nus.edu.sg">kzhu@comp.nus.edu.sg</A>
+<A HREF="mailto:kzhu@comp.nus.edu.sg"><IMG border="0" SRC="images/mail_an.gif"></A></B></DL><BR>
+Last Updated on: August 1, 2001
+<BR>
+</BODY>
+</HTML>
+

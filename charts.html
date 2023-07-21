@@ -1,0 +1,106 @@
+<HTML>
+<HEAD>
+<TITLE>Kenny's Music Charts</TITLE>
+</head>
+<body background="images/org_strp.jpg">
+<SCRIPT LANGUAGE = "JavaScript">
+browserName = navigator.appName;
+browserVer = parseInt(navigator.appVersion);
+        if (browserName == "Netscape" && browserVer >= 3) version = "n3";
+        else version = "n2";
+
+        if (version == "n3") {
+        toc1on = new Image();
+        toc1on.src = "images/us1.gif";
+        toc1off = new Image();
+        toc1off.src = "images/us.gif";
+        toc2on = new Image();
+        toc2on.src = "images/uk1.gif";
+        toc2off = new Image();
+        toc2off.src = "images/uk.gif";
+        toc3on = new Image();
+        toc3on.src = "images/ca1.gif";
+        toc3off = new Image();
+        toc3off.src = "images/ca.gif";
+        toc4on = new Image();
+        toc4on.src = "images/sg1.gif";
+        toc4off = new Image();
+        toc4off.src = "images/sg.gif";
+        toc5on = new Image();
+        toc5on.src = "images/cn1.gif";
+        toc5off = new Image();
+        toc5off.src = "images/cn.gif";
+        toc6on = new Image();
+        toc6on.src = "images/tw1.gif";
+        toc6off = new Image();
+        toc6off.src = "images/tw.gif";
+        toc7on = new Image();
+        toc7on.src = "images/au1.gif";
+        toc7off = new Image();
+        toc7off.src = "images/au.gif";
+        toc8on = new Image();
+        toc8on.src = "images/nz1.gif";
+        toc8off = new Image();
+        toc8off.src = "images/nz.gif";
+        toc9on = new Image();
+        toc9on.src = "images/jp1.gif";
+        toc9off = new Image();
+        toc9off.src = "images/jp.gif";
+        }
+
+function img_act(imgName) {
+        if (version == "n3") {
+        imgOn = eval(imgName + "on.src");
+        document [imgName].src = imgOn;
+        }
+}
+
+function img_inact(imgName) {
+        if (version == "n3") {
+        imgOff = eval(imgName + "off.src");
+        document [imgName].src = imgOff;
+        }
+}
+</SCRIPT>
+<font color="#000000">
+<center><IMG SRC="images/charts.gif"></center>
+<center><IMG SRC="images/earthani.gif"><BR>
+<BR><BR>
+<TABLE BORDER=6>
+<TR> 	<TD><BR><A HREF="http://www.billboard.com/bb/charts/hot100.jsp"
+onMouseover = "img_act('toc1')" onMouseout = "img_inact('toc1')">
+<IMG border=0 name="toc1" SRC="images/us.gif" WIDTH="68" HEIGHT="36">US Billboard 100 Top Singles</A><BR><BR></TD>
+     	<TD><A HREF="http://www.dotmusic.com/MWcharts.html"
+onMouseover = "img_act('toc2')" onMouseout = "img_inact('toc2')">
+<IMG border=0 name="toc2" SRC="images/uk.gif" WIDTH="72" HEIGHT="36">Official UK Chart</A></TD>
+     	<TD><A HREF="http://www.canoe.ca/JamMusicCharts/SINGLES.html"
+onMouseover = "img_act('toc3')" onMouseout = "img_inact('toc3')">
+<IMG border=0 name="toc3" SRC="images/ca.gif" WIDTH="72" HEIGHT="36">Canada Top 50</A></TD> </TR>
+<TR> 	<TD><BR><A HREF="http://www.rcs.com.sg/p10/3071.htm"
+onMouseover = "img_act('toc4')" onMouseout = "img_inact('toc4')">
+<IMG border=0 name="toc4" SRC="images/sg.gif" WIDTH="54" HEIGHT="36">Singapore Perfect 10 Top 20</A><BR><BR></TD>
+	<TD><A HREF="http://www.nmuradio.jlonline.com/njradio/njradio/index8.htm"
+onMouseover = "img_act('toc5')" onMouseout = "img_inact('toc5')">
+<IMG border=0 name="toc5" SRC="images/cn.gif" WIDTH="54" HEIGHT="36">China Chart</A></TD>
+	<TD><A HREF="http://www.vot.com.tw/top20/default.asp"
+onMouseover = "img_act('toc6')" onMouseout = "img_inact('toc6')">
+<IMG border=0 name="toc6" SRC="images/tw.gif" WIDTH="54" HEIGHT="36">Taiwan Chart (Big 5)</A></TD> </TR>
+<TR> 	<TD><BR><A HREF="http://www.actonline.com.au/~tony/chart.html"
+onMouseover = "img_act('toc7')" onMouseout = "img_inact('toc7')">
+<IMG border=0 name="toc7" SRC="images/au.gif" WIDTH="72" HEIGHT="36">Australia ARIA Chart</A><BR><BR></TD>
+	<TD><A HREF="http://homepages.ihug.co.nz/~pbaron/singleshr.html"
+onMouseover = "img_act('toc8')" onMouseout = "img_inact('toc8')">
+<IMG border=0 name="toc8" SRC="images/nz.gif" WIDTH="72" HEIGHT="36">New Zealand Weekly Top 50</A></TD>
+	<TD><A HREF="http://www2.j-wave.co.jp/hot100/hot100.shtml"
+onMouseover = "img_act('toc9')" onMouseout = "img_inact('toc9')">
+<IMG border=0 name="toc9" SRC="images/jp.gif" WIDTH="54" HEIGHT="36">Japan Top 100!</A></TD> </TR>
+</TABLE></center>
+
+<BR>
+</font>
+<HR size=10>
+<center><H5>Earth Chart &#153 is another quality product of Kenny's Music Studio &#174 , Copyright &#169 1997-2001. All rights reserved.</H5></center><BR>
+<A HREF="http://www.chebucto.ns.ca/~ah190/Profile.html" TARGET="_top"><IMG border=0 SRC="images/home.gif" WIDTH="72" HEIGHT="50">Go back to Kenny's Home Page!</A>
+</BODY>
+</HTML>
+
