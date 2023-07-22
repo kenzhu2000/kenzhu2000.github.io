@@ -1,0 +1,23 @@
+CS490 Windows Internals Project Peer Review Form
+
+Your Name:
+Your Matric Number:
+
+Instruction:
+For each member of your group, add a row in the following table, 
+which includes the name of the person, a numerical score from 0 to 5 
+(where higher score means better performance/attitude etc.) 
+for each of the two project. For example, if your group has 4 members,
+then the table below should contain the scores for 3 members OTHER 
+THAN yourself.
+
+===================================================================
+Name		Score in Project 1(0-5)	    Score in Project 2(0-5)
+
+
+
+
+
+
+
+===================================================================

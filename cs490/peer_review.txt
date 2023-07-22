@@ -1,0 +1,24 @@
+Note: Please fill up this form and give a score (0-3) to each of the other
+group members in your group. Below is the explanation of scores;
+0: Zero contribution to the project
+1: Some contribution
+2: Equal and fair contribution
+3: Did most of the work, driver (leader) of the project!
+
+*******************************************************************
+My Name:
+Matric Number:
+
+Project 1
+Group Member Name:			Score:
+Group Member Name:			Score:
+Group Member Name:			Score:
+Group Member Name:			Score:
+
+Project 2
+Group Member Name:			Score:
+Group Member Name:			Score:
+Group Member Name:			Score:
+Group Member Name:			Score:
+
+*******************************************************************

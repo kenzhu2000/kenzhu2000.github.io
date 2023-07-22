@@ -1,0 +1,122 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage[usenames]{xcolor}
+\usepackage{hyperref}
+\usepackage{listings}
+%\hypersetup{hidelinks}
+\usepackage[vlined,ruled,commentsnumbered,linesnumbered]{algorithm2e}
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{eg}{Example}
+\newtheorem{ex}{Exercise}
+\newtheorem{defi}{Definition}
+\newtheorem{hw}{Problem}
+\newenvironment{sol}
+  {\par\vspace{3mm}\noindent{\it Solution}.}
+  {\qed}
+
+\newcommand{\ov}{\overline}
+\newcommand{\cb}{{\cal B}}
+\newcommand{\cc}{{\cal C}}
+\newcommand{\cd}{{\cal D}}
+\newcommand{\ce}{{\cal E}}
+\newcommand{\cf}{{\cal F}}
+\newcommand{\ch}{{\cal H}}
+\newcommand{\cl}{{\cal L}}
+\newcommand{\cm}{{\cal M}}
+\newcommand{\cp}{{\cal P}}
+\newcommand{\cz}{{\cal Z}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\dist}{\mbox{\rm dist}}
+\newcommand{\bn}{{\mathbf N}}
+\newcommand{\bz}{{\mathbf Z}}
+
+\setlength{\parindent}{0pt}
+%\setlength{\parskip}{2ex}
+\newenvironment{proofof}[1]{\bigskip\noindent{\itshape #1. }}{\hfill$\Box$\medskip}
+
+\usepackage{enumerate,fullpage,proof}
+\newcommand{\Infer}[2]{\infer{#2}{#1}}
+
+\begin{document}
+
+$\;$\hfill Due: 2022/4/9
+
+\begin{center}
+{\LARGE\bf Homework 8 - MM}
+\end{center}
+
+\begin{center}
+	\footnotesize{\color{red}$*$ If there is any problem, please contact TA.}
+	
+	\footnotesize{\color{blue} \quad Name:\_\_\_\_\_\_\_\_\_  \quad Student ID:\_\_\_\_\_\_\_\_\_ \quad Email: \_\_\_\_\_\_\_\_\_\_\_\_}
+\end{center}
+
+\begin{hw}\rm (25 points)
+	C has functions \texttt{malloc} and \texttt{free} that allow programmers to dynamically allocate and deallocate heap space. Research these two functions and compare their similarities and differences with the function \texttt{new} and \texttt{delete}.
+\end{hw}
+
+\begin{hw}\rm (25 points)
+	Can you think of a better Mark-n-Sweep algorithm that reduces the amount of waiting time when garbage collecting?
+\end{hw}
+
+\begin{hw}\rm (50 points)
+	Read the Java code program below and answer the question.
+	
+	\centering
+	\begin{lstlisting}[language=Java] 
+	Object[] p = new Object[2];
+	Object[] q = new Object[2];
+	Object[] s = new Object[2];
+	Object[] t = new Object[2];
+	p[0] = q;
+	p[1] = s;
+	q[0] = p;
+	q[1] = t;
+	s[0] = t;
+	s[1] = null;
+	t[0] = s;
+	t[1] = null;
+	for (int i = 0; i < 3; i++) {
+	s = new Object[2];
+	t = new Object[2];
+	s[0] = t;
+	s[1] = p;
+	t[0] = s;
+	t[1] = q;
+	p[1] = null;
+	q[1] = null;
+	p = s;
+	q = t;
+	}
+	\end{lstlisting} 
+	
+	\begin{enumerate}[(a)]
+		\item Show the configuration of memory cells under reference counting.(After the final step)
+		\item Suppose we use mark-and-sweep GC on the same program, and the maximum heap
+		size is 20 memory cells (one cell for one object). When GC action happens, and after GC, what is the
+		configuration of the memory?
+	\end{enumerate}
+\end{hw}
+
+
+
+\vspace{20pt}
+
+\textbf{Remark:} 
+You need to use \textbf{LaTeX} to write your homework and \textbf{convert it into .pdf} file.
+
+Please upload both \textbf{.tex and .pdf} files on \textbf{Canvas}.
+
+File name format: {\color{red} HW\_X\_Name\_StudentID.tex/\color{red} HW\_X\_Name\_StudentID.pdf}
+
+\end{document}

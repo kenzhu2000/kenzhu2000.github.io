@@ -1,0 +1,251 @@
+<html>
+<head>
+<title>CS490 Windows Internals</title>
+</head>
+<body>
+<h1> CS490 Windows Internals</h1>
+
+<h2>Course Summary</h2>
+This course emphasizes on a discussion of operating systems concepts, 
+which is closely linked to one particular implementation - 
+the Windows OS family. Given the ease-of-use of today's commercial, 
+off-the-shelf operating systems, students need to be actively motivated 
+not to treat operating systems as black boxes, 
+but to gain in-depth insight in the OS implementation. 
+Using the Windows OS family as primary target of discussion, 
+the course will also provide links and comparison to other operating systems 
+(such as Linux, BSD, Unix System V) where appropriate. 
+The topics covered in this course include Windows architecture, 
+core system mechanisms, Windows APIs, Windows traps, 
+Windows synchronization, 
+Windows processes and threads, scheduling, memory management, 
+I/O, Windows file systems, and (optionally) Windows security.
+<hr>
+<font color=blue>
+<h2>Latest News</h2>
+<ul>
+<li>Jan 6, 2014: Course web site closes. See you next year!
+<!--
+<li>Sep 8, 2013: Course Web Site re-opens.
+<li>Sep 13, 2013: Lab 1 released.
+<li>Sep 16, 2013: Lab 2 released.
+<li>Sept 22, 2013: <a href="Project1.pdf">Project 1</a> released. Due Oct 20, 2013.
+<li>Sep 23, 2013: Lab 3 released.
+<li>Sep 27, 2013: Assignment 1 released, due Sept 30, 2013.
+<li>Sep 28, 2013: Lab 4 released. 
+<li>Sep 29, 2013: Lab 5 released.
+<li>Sep 30, 2013: Lab 6 and Assignment 2 released.
+<li>Oct 9, 2013: Hints to project 1 released below.
+<li>Oct 11, 2013: Assignment 3 and Lab 7 released.
+<li>Oct 12, 2013: Lab 8 released. 
+<li>Oct 14, 2013: Lab 9 released.
+<li>Oct 17, 2013: Assignment and Lab 10 released.
+<li>Oct 21, 2013: Lab 11 released.
+<li>Oct 24, 2013: <a href="Project2.pdf">Project 2</a> released. Due Dec 2, 2013.
+<li>Oct 25, 2013: Assignment 5 and Lab 12 released.
+<li>Oct 25, 2013: Announcement: We will hold a presentation session next Friday,
+Nov 1, during the last lecture of the semester. 
+Each group is required to give a 
+10-15 min Power Point presentation about the design, architecture and 
+implementation of your project 1. Please bring the slides in a USB drive to 
+class on that day. We will score your performance of the presentation and this
+score goes into the final score of the course.
+-->
+</ul>
+</font>
+<hr>
+<!--
+<h2>Administrative Information</h2>
+<p><b>Lectures</b>: Mon 14:00-15:40, Fri 10:00-11:40, Dongxiayuan Room 100. 
+
+<p><b>Instructor</b>: <a href="http://www.cs.sjtu.edu.cn/~kzhu">Kenny Zhu</a> 
+- SEIEE 03-541  Phone: 3420-4592 Email: kzhu[at]cs[dot]sjtu[dot]edu[dot]cn</a><br>
+Office hours: by appointment via email or ask after class
+<br>
+
+<p><b>Teaching Assistant</b>:
+Jack Sun - SEIEE 03-341  Phone: 150-217-37919<br>
+Email: jacksunwei[at]gmail[dot]com<br>
+Office hours: Mon 4-6 PM.
+
+<p><b>Textbooks</b>: <a href="http://www.amazon.cn/mn/detailApp/ref=sr_1_2/476-2769346-2624236?_encoding=UTF8&s=books&qid=1286770873&asin=B002PEX4Y8&sr=8-2">Windows Internals (5th ed.)</a> By Mark E. Russinovich, 
+David A. Solomon and Alex Ionescu. (Available at the University Textbook Center).
+
+<p><b>Lab Setup</b>: <a href="Lab-Setup.pdf">Guide (pdf)</a>, 
+<a href="SysinternalsSuite.zip">Sysinternal tools suite</a>,
+<a href="CRK-Tools.zip">CRK tools suite</a>.
+
+<p><b>Assessment</b>: <br>
+<ol>
+<li>Labs, Assignments and Quizzes: 50%  (Labs are for your own exercise and not for submission)
+<li>Two Projects: 50%
+</ol>
+
+<p><b>Group Projects</b>: 
+<ol>
+<li><a href="Project1.pdf">Project 1: A Simple Process Manager</a>. 
+Released: Sept 22, 2013. Due: Oct 20, 2013. 
+<a href="Project1_hint.pdf">[Hints]</a>
+<li><a href="Project2.pdf">Project 2: Device Drivers: Username and Password
+Management</a>. 
+Released: Oct 24, 2013. Due: Dec 2, 2013. 
+<a href="WDK80_samples.zip">The Windows Driver Kit (WDK) 8.0 Samples</a>
+<li><a href="Project2.pdf">Project 2: A Tool to Resolve File Handle Conflict</a>. Released; Oct 21, 2013. Due: Nov 29, 2013. 
+<li><b>Note</b>: Each member of a project group must <i>individually</i> 
+complete a 
+<a href="peer_review.txt">peer review form</a> and submit it by email to 
+<a href="mailto:luckyvega@163.com">Zhiyuan</a> by Dec 20, 2013. 
+</ol>
+<hr>
+
+<h2>Schedule</h2>
+<table width="100%" border="1">
+<tr><td><b>Lecture</b></td><td><b>Date</b></td><td><b>Topic</b></td>
+<td><b>Slides</b></td><td><b>Resources</b></td><td><b>Homework</b></td>
+</tr>
+<tr>
+<td>1</td><td>09/09/2013</td>
+<td>Introduction, OS Evolution and Reviews</td><td><a href="1/1_Intro_Evol.pdf">[pdf]</a>
+</td>
+<td>Textbook pp.1</td><td>
+<a href="1/q1-sol.ppt">[Quiz 1]</a>
+</td>
+</tr>
+<tr>
+<td>2</td><td>09/13/2013</td>
+<td>Windows Concepts and Tools</td><td><a href="2/2_Win-concepts-tools.pdf">[pdf]</a></td>
+<td>Textbook pp.2-32</td>
+<td>
+<a href="2/Lab1.pdf">[Lab]</a>
+</td>
+</tr>
+<tr>
+<td>3</td><td>09/16/2013</td>
+<td>Windows Structuring</td><td><a href="3/3_Win-Structuring.pdf">[pdf]</a></td>
+<td>Textbook pp.33-83</td>
+<td>
+<a href="3/Lab2.pdf">[Lab]</a>
+</td>
+</tr>
+<tr>
+<td>4</td><td>09/23/2013</td>
+<td>Core System Mechanisms and Windows API</td><td><a href="4/4_Win-CoreSysMechanisms.pdf">[pdf]</a></td>
+<td>Textbook pp.133-169, 198-199, 202-206,211-215</td>
+<td>
+<a href="4/Lab3.pdf">[Lab]</a>
+</td>
+</tr>
+<tr>
+<td>5</td><td>09/27/2013</td>
+<td>Concurrency (I) - Windows Traps</td><td><a href="5/5_WindowsTraps.pdf">[pdf]</a></td>
+<td>Textbook pp. 85 - </td>
+<td>
+<a href="5/Assignment1.doc">[Assignment 1]</a> 
+<a href="5/Assignment1_Solution.doc">[Assignment 1 (Soln)]</a> 
+<a href="5/Lab4.pdf">[Lab]</a>
+
+</td>
+</tr>
+<tr>
+<td>6</td><td>09/29/2013</td>
+<td>Concurrency (II) - Windows Synchronization</td><td><a href="6/6_WinSync.pdf">[pdf]</a></td>
+<td>Textbook pp. 170-198, 1021- </td>
+<td>
+<a href="6/q2-sol.ppt">[Quiz 2]</a>
+<a href="6/Lab5.pdf">[Lab]</a>
+</td>
+</tr>
+<tr>
+<td>7</td><td>09/30/2013</td>
+<td>Windows Processes and Threads</td><td><a href="7/7_ProcThread.pdf">[pdf]</a></td>
+<td>Textbook pp. 335 -</td>
+<td>
+<a href="7/Lab6.pdf">[Lab]</a>
+<a href="7/Assignment2.docx">[Assignment 2]</a>
+<a href="7/Assignment2_Solution.docx">[Assignment 2 (Soln)]</a>
+</td>
+</tr>
+<tr>
+<td>8</td><td>10/11/2013</td>
+<td>Thread Scheduling</td><td><a href="8/8_Scheduling.pdf">[pdf]</a></td>
+<td>Textbook pp. 391 -</td>
+<td>
+<a href="8/Assignment3.docx">[Assignment 3]</a>
+<a href="8/Assignment3_Solution.docx">[Assignment 3 (Soln)]</a>
+<a href="8/Lab7.doc">[Lab]</a>
+</td>
+</tr>
+<tr>
+<td>9</td><td>10/12/2013</td>
+<td>Memory Management (I) </td><td><a href="9/9_MemMan.pdf">[pdf]</a></td>
+<td>Textbook pp.699-735, 818-835</td>
+<td>
+<a href="9/Lab8.doc">[Lab]</a>
+</td>
+</tr>
+<tr>
+<td>10</td><td>10/14/2013</td>
+<td>Memory Management (II) </td>
+<td><a href="10/10_MemMan.pdf">[pdf]</a></td>
+<td>Textbook pp. 736-784, 803-818</td>
+<td>
+<a href="10/Lab9.doc">[Lab]</a> 
+</td>
+</tr>
+<tr>
+<td>11</td><td>10/17/2013</td>
+<td>I/O System (I) </td><td><a href="11/11_IO.pdf">[pdf]</a></td>
+<td>Textbook pp. 537-, 541-, 562-</td>
+<td>
+<a href="11/Assignment4.docx">[Assignment]</a>
+<a href="11/Assignment4_Solution.docx">[Assignment 4 (Soln)]</a>
+<a href="11/Lab10.pdf">[Lab]</a> 
+</td>
+</tr>
+<tr>
+<td>12</td><td>10/21/2013</td>
+<td>I/O System (II)</td><td><a href="12/12_IO.pdf">[pdf]</a></td>
+<td>Textbook pp. 606- </td><td>
+<a href="12/Lab11.doc">[Lab]</a>
+<a href="12/quiz4_sol.docx">[Quiz soln]</a>
+</td>
+</tr>
+<tr>
+<td>13</td><td>10/25/2013</td>
+<td>Windows File Systems (I)</td><td><a href="13/13_FS.pdf">[pdf]</a></td>
+<td>Textbook pp.890-, 895-, 918-, 937-</td>
+<td>
+<a href="13/Assignment5.doc">[Assignment]</a> 
+<a href="13/Assignment5_Solution.docx">[Solution]</a> 
+<a href="13/Lab12.doc">[Lab]</a>
+</td>
+</tr>
+<tr>
+<td>14</td><td>10/28/2013</td>
+<td>Windows File System (II)</td><td><a href="14/14_FS.pdf">[pdf]</a></td>
+<td>Textbook pp. 890-</td><td>
+<a href="14/quiz5-sol.pptx">[Quiz_Soln]</a>
+</td>
+</tr>
+<tr>
+<td>15</td><td>11/01/2013</td>
+<td>Project II Overview</td><td><a href="Windows_Driver.pdf">[pdf]</a></td>
+<td>Textbook Ch. 6, Wikipedia Kerberos Page</td><td>
+<a href="15/q6_soln.doc">[Quiz soln]</a>
+<a href="15/Assignment6.doc">[Assignment]</a>
+<a href="15/Assignment6_Solution.doc">[Solution]</a>
+</td>
+</tr>
+<tr>
+<td>16</td><td>10/5/2013</td>
+<td>Project 1 Presentation</td><td></td>
+<td></td><td>[Assignment] [Lab]</td>
+</tr>
+</table>
+-->
+<h5>Copyright (c) Kenny Q. Zhu, 2010-2014.</h5>
+<br>
+</body>
+</html>
+
+
