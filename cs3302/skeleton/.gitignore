@@ -1,7 +1,0 @@
-bin/
-*.class
-.DS_Store
-*.log
-*.aux
-*.synctex.gz
-.settings/
