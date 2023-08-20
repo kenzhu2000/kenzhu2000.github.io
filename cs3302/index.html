@@ -1,0 +1,288 @@
+<html>
+<head>
+<title>CS383 Programming Languages</title>
+</head>
+<body>
+<h1> CS383 Programming Languages</h1>
+
+<h2>Course Summary</h2>
+A small number of concepts underline the hundreds of programming languages that have been designed and implemented. This course introduces the concepts that serve as a basis for programming languages. It aims to provide the students with a basic understanding and appreciation of the various essential programming language constructs, programming paradigms, evaluation criteria and language implementation issues. The course covers concepts from functional, imperative, 
+object-oriented, logic programming and optionally scripting languages. 
+These concepts are demonstrated by incrementally adding 
+more features to a simple functional language called Lambda
+Calculus to eventually arrive at a full-fledged, user-friendly
+general purpose programming language. At the end of the 
+course, a number of modern programming languages from various
+paradigms are presented as case studies. 
+<hr>
+<font color=orange>
+<h2>Latest News and Announcements</h2>
+<ul>
+<li>Feb 14, 2022: Assignment 1 released, due Feb 19.
+<li>Feb 21, 2022: Assignment 2 released, due Feb 26.
+<li>Mar 1, 2022: Assignment 3 released, due Mar 5.
+<li>Mar 7, 2022: Assignment 4 released, due Mar 12.
+<li>Mar 15, 2022: Assignment 5 released, due Mar 19.
+<li>Mar 22, 2022: Assignment 6 released, due Mar 26.
+<li>Mar 29, 2022: Assignment 7 released, due Apr 2.
+<li>Apr 2, 2022: Assignment 8 released, due Apr 9.
+<li>Apr 11, 2022: Assignment 9 released, due Apr 16.
+<li>Apr 14, 2022: Project released. Please check out the
+<a href="web/project.html">Project Website</a>.
+<li>Apr 21, 2022: Assignment 10 released, due Apr 23.
+<li>Apr 26, 2022: Assignment 11 released, due Apr 30.
+<li>Apr 27, 2022: Our class next Monday will be as usual in spite of the Labor day holiday.
+<li>May 02, 2022: Assignment 12 released, due May 7.
+<li>May 09, 2022: Assignment 13 released, due May 14.
+<li>May 16, 2022: Assignment 14 released, due May 21.
+<li>May 24, 2022: Slides of Lecture 15 and previous tutorials released.
+</ul>
+</font>
+<hr>
+
+<h2>Administrative Information</h2>
+<p><b>Lectures</b>: Mon 12:55-3:40, Dongshangyuan 105.
+
+<p><b>Instructor</b>: <a href="http://www.cs.sjtu.edu.cn/~kzhu">Kenny Zhu</a> 
+- SEIEE 03-407 Phone: 3420-4592  Email: kzhu[at]cs[dot]sjtu[dot]edu[dot]cn<br>
+Office hours: by appointment via email or ask after class
+<br>
+
+<p><b>Teaching Assistant</b>:
+Bran Li, Yvonne Huang<br>
+Email: likaijian[at]sjtu[dot]edu[dot]cn, huang_yvonne[at]foxmail[dot]com<br>
+Office hours: Thu 16:00-17:00 @ SEIEE 03-341
+
+<p><b>Reference Textbooks</b>: 
+<ol>
+<li><a href="Pierce_Types_Programming_Languages.pdf">Types and Programming Languages</a> by Benjamin C. Pierce, The MIT Press.
+<li><a href="Practical_Foundation_PL.pdf">Practical Foundations for Programming Languages</a>  by Robert Harper, Cambridge University Press.<br>
+<li><a href="http://www.amazon.cn/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E5%8E%9F%E7%90%86%E4%B8%8E%E8%8C%83%E5%9E%8B-%E5%A1%94%E5%85%8B/dp/B0028Y498U/ref=sr_1_1?ie=UTF8&qid=1316583392&sr=8-1">Programming Languages Principles and Paradigms</a> by Allen Tucker and Robert Noonan, McGraw Hill / 2009-5-1 (Also published by Tsinghua University Press and available at the University Textbook Office).<br>
+<li>Programming Languages: Application and Interpretation by Shriram Krishnamurthi, <a href="http://cs.brown.edu/courses/cs173/2012/book/">Brown, Online</a>.
+</ol>
+
+<p><b>Assessment</b>: <br>
+<ol>
+<li>In-class quizzes: 10%
+<li>Tutorial participation: 5%
+<li>Assignments: 30%  
+<li>Project: 25% <a href="web/project.html">Project Website</a>
+<li>Final Exam: 30%
+</ol>
+
+<h2>Schedule</h2>
+<table width="100%" border="1">
+<tr><td><b>Class</b></td><td><b>Date</b></td><td><b>Topic</b></td>
+<td><b>Slides</b></td><td><b>Resources</b></td><td><b>Homework</b></td>
+</tr>
+<tr>
+<td>1</td><td>02/15/2022</td>
+<td>Introduction</td><td><a href="01-overview.pdf">[lecture] 
+<a href="t1.pdf">[tutorial]</a>
+</td>
+<td>Tucker Ch.1</td><td>
+<a href="hw1.pdf">hw1 (pdf)</a>
+<a href="hw1.tex">hw1 (tex)</a>
+<a href="hw1-sol.zip">hw1 (sol)</a>
+</td>
+</tr>
+<tr>
+<td>2</td><td>02/21/2022</td>
+<td>Inductive Definition and Proofs</td><td>
+<a href="02-inductive-proof.pdf">[lecture]
+</a>
+<a href="t2.pdf">[tutorial]</a></td>
+</td>
+<td>Harper Ch. 1-4</td>
+<td>
+<a href="hw2.pdf">hw2 (pdf)</a>
+<a href="hw2.tex">hw2 (tex)</a>
+<a href="hw2-sol.pdf">hw2 (sol)</a>
+</td>
+</tr>
+<tr>
+<td>3</td><td>2/29/2022</td>
+<td>Untyped Lambda Calculus</td>
+<td><a href="03-lambda.pdf">[lecture]</a>
+<a href="t3.pdf">[tutorial]</a></td>
+<td>Pierce Ch 5, 8, 9</td>
+<td>
+<a href="hw3.pdf">hw3 (pdf)</a>
+<a href="hw3.tex">hw3 (tex)</a>
+<a href="hw3-sol.pdf">hw3 (sol)</a>
+</td>
+</tr>
+<tr>
+<td>4</td><td>3/7/2022</td>
+<td>Untyped Lambda Calculus (II), Simply-typed Lambda Calculus</td>
+<td><a href="04-typed.pdf">[lecture]</a> 
+<a href="t4.pdf">[tutorial]</a></td>
+</td>
+<td>Pierce Ch 8, 9</td>
+<td>
+<a href="hw4.pdf">hw4 (pdf)</a>
+<a href="hw4.tex">hw4 (tex)</a>
+<a href="hw4-sol.pdf">hw4 (sol)</a>
+</td>
+</tr>
+<tr>
+<td>5</td><td>03/30/2022</td>
+<td>Extension to Simply-typed Lambda Calculus (I)</td><td>
+<a href="05-extend.pdf">[lecture]</a>
+<a href="t5.pdf">[tutorial]</a></td>
+</td>
+<td>Pierce Ch. 11</td>
+<td>
+<a href="hw5.pdf">hw5 (pdf)</a>
+<a href="hw5.tex">hw5 (tex)</a>
+<a href="hw5-sol.pdf">hw5 (sol)</a>
+</td>
+</tr>
+<tr>
+<td>6</td><td>03/21/2022</td>
+<td>Extension to Simply-typed Lambda Calculus (II)</td>
+<td><a href="06-extend2.pdf">[lecture]</a>
+<a href="t6.zip">[tutorial]</a></td>
+</td>
+<td>Pierce Ch. 11</td>
+<td>
+<a href="hw6.pdf">hw6 (pdf)</a>
+<a href="hw6.tex">hw6 (tex)</a>
+<a href="hw6-sol.pdf">hw6 (sol)</a>
+</td>
+</td>
+</tr>
+<tr>
+<td>7</td><td>03/28/2022</td>
+<td>Going Imperative
+</td><td><a href="07-imp.pdf">[lecture]</a>
+<a href="t7.zip">[tutorial]</a>
+</td>
+<td>Pierce Ch. 12</td>
+<td>
+<a href="hw7.pdf">hw7 (pdf)</a>
+<a href="hw7.tex">hw7 (tex)</a>
+<a href="hw7-sol.pdf">hw7 (sol)</a>
+</td>
+</tr>
+<tr>
+<td>8</td><td>04/02/2022</td>
+<td>Memory Management
+</td><td><a href="08-mm.pdf">[lecture]</a>
+<a href="t8.pdf">[tutorial]</a>
+</td>
+<td>Tucker Ch. 11</td>
+<td>
+<a href="hw8.pdf">hw8 (pdf)</a>
+<a href="hw8.tex">hw8 (tex)</a>
+<a href="hw8-sol.pdf">hw8 (sol)</a>
+</td>
+</tr>
+<tr>
+<td>9</td><td>04/11/2022</td>
+<td>Type Inference (I)</td><td><a href="09-inference.pdf">[lecture]</a>
+<a href="t9.pdf">[tutorial]</a>
+<td>Pierce Ch. 22, 23</td>
+<td>
+<a href="hw9.pdf">hw9 (pdf)</a>
+<a href="hw9.tex">hw9 (tex)</a>
+<a href="hw9-sol.pdf">hw9 (sol)</a>
+</td>
+</tr>
+
+<td>10</td><td>04/20/2022</td>
+<td>Type Inference (II)
+</td><td><a href="10-inference2.pdf">[lecture]</a>
+<a href="t10.pdf">[tutorial]</a>
+</td>
+<td>Pierce Ch. 22, 23</td>
+<td>
+<a href="hw10.pdf">hw10 (pdf)</a>
+<a href="hw10.tex">hw10 (tex)</a>
+<a href="hw10-sol.pdf">hw10 (sol)</a>
+</td>
+</tr>
+
+<tr>
+<td>11</td><td>04/25/2022</td>
+<td>Subtyping
+</td><td><a href="11-subtyping.pdf">[lecture]</a>
+<a href="t11.pdf">[tutorial]</a>
+</td>
+<td>Pierce Ch. 15</td>
+<td>
+<a href="hw11.pdf">hw11 (pdf)</a>
+<a href="hw11.tex">hw11 (tex)</a>
+<a href="hw11-sol.pdf">hw11 (sol)</a>
+</td>
+</tr>
+<tr>
+<td>12</td><td>05/17/2022</td>
+<td>Object-Oriented Programming
+</td><td><a href="12-oo.pdf">[lecture]</a>
+<a href="t12.pdf">[tutorial]</a>
+</td>
+<td>Tucker Ch. 14</td>
+<td>
+<a href="hw12.pdf">hw12 (pdf)</a>
+<a href="hw12.tex">hw12 (tex)</a>
+<a href="hw12-sol.zip">hw12 (sol)</a>
+</td>
+</tr>
+<tr>
+<td>13</td><td>05/09/2022</td>
+<td>Logic Programming 
+</td><td><a href="13-logic.pdf">[lecture]</a>
+<a href="t13.pdf">[tutorial]</a>
+</td>
+<td>Tucker Ch. 15</td>
+<td>
+<a href="hw13.zip">hw13 (zip)</a>
+<a href="hw13-sol.zip">hw13 (sol)</a>
+</td>
+</tr>
+
+<tr>
+<td>14</td><td>05/15/2022</td>
+<td>OCaml (I)
+</td><td><a href="14-ocaml.pdf">[lecture]</a>
+<a href="t14.zip">[tutorial]</a>
+</td>
+<td>N/A</td>
+<td>
+<a href="hw14.zip">hw13 (zip)</a>
+</td>
+</tr>
+<tr>
+<td>15</td><td>05/23/2022</td>
+<td>OCaml (II)
+</td><td><a href="15-ocaml.pdf">[lecture]</a>
+<a href="t15.pdf">[tutorial]</a>
+</td>
+<td>N/A</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>15</td><td>06/09/2022</td>
+<td>Concurrent Programming 
+</td><td><a href="15-concurrent.pdf">[lecture]</a>
+<a href="http://adapt.seiee.sjtu.edu.cn/~bran/cs383/15.mp4">[video]</a>
+<a href="hw14-sol.zip">[tutorial]</a>
+</td>
+<td>Tucker Ch. 18</td>
+<td>
+<a href="hw15.pdf">hw15 (pdf)</a>
+<a href="hw15.zip">hw15 (tex)</a>
+</td>
+</tr>
+</table>
+
+
+<h5>Copyright (c) Kenny Q. Zhu, 2012-2022.</h5>
+<br>
+
+</body>
+</html>
+
+
