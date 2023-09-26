@@ -1,0 +1,93 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage[usenames]{xcolor}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 3302/5307 Programming Language Concepts}
+\rhead{Homework5:Extentions to Sim-Typed LC}
+\lfoot{2023 Kenny Zhu}
+%----Documentation----%
+\begin{document}
+
+\title{CSE 3302/5307 Programming Language Concepts}
+\author{Homework5 - Fall 2023}
+\date{Due Date: Sep.30, 2023, 8:00p.m. Central Time}
+\maketitle
+\thispagestyle{fancy}
+
+%----Homeworks----%
+
+\section*{Problem1 - 30\%}
+
+Consider the following program which is written in C syntax.
+\begin{verbatim}
+int x = 1;
+
+void f1() {
+int x = 2;
+f2();
+printf(x)
+}
+
+void f2() {
+int x = 3;
+printf(x)
+}
+
+int main() {
+f1();
+printf(x)
+}
+\end{verbatim}
+\begin{enumerate}[(a)]
+    \item What will be printed after running \texttt{main()} when it uses static scoping?
+    dynamic scoping?
+\end{enumerate}
+
+\section*{Problem2 - 40\%}
+
+Extend tuples to records, and write the (a) syntax and (b) semantic rules for records.
+Example usage:
+\begin{itemize}
+    \item Elements are indexed by labels:
+    \begin{itemize}
+        \item $\{y=10\}$
+        \item $\{id=1,salary=50000,active=\mathbf{true}\}$
+    \end{itemize}
+    \item The order of the record fields is insignificant:
+    \begin{itemize}
+        \item $\{y=10,x=5\}$ is the same as $\{x=5,y=10\}$
+    \end{itemize}
+    \item To access fields of a record:
+    \begin{itemize}
+        \item $a.id$
+        \item $b.salary$
+    \end{itemize}
+\end{itemize}
+
+\section*{Problem3 - 30\%}
+
+Another way of defining \textbf{let} as derived form might be to desugar it by "executing" it immediately-i.e., to regard \textbf{Let x=$t_1$ in $t_2$} as an abbreviation for the substituted body \textbf{$t_2[t_1/x]$}. Is this a good idea ?
+
+\section*{}
+
+\textbf{Remark:} 
+
+Please upload \textbf{.pdf} files to Canvas.
+
+File name format: {\color{red} HW\_X\_FirstName\_10digitID.pdf}
+
+Example: {HW\_5\_Sinong\_1001001000.pdf}
+
+\end{document}
