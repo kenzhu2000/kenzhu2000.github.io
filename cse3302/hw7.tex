@@ -1,0 +1,63 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage[usenames]{xcolor}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 3302/5307 Programming Language Concepts}
+\rhead{Homework7:Going Imperative}
+\lfoot{2023 Kenny Zhu}
+%----Documentation----%
+\begin{document}
+
+\title{CSE 3302/5307 Programming Language Concepts}
+\author{Homework7 - Fall 2023}
+\date{Due Date: Oct.14, 2023, 8:00p.m. Central Time}
+\maketitle
+\thispagestyle{fancy}
+
+%----Homeworks----%
+
+\section*{Problem1 - 30\%}
+
+Wouldn't it be simpler just to require the programmer to annotate error with its intended type in each context where it is used ? Why ?
+
+
+\section*{Problem2 - 35\%}
+
+In lecture \emph{Going Imperative}, the language is extended with while loop.
+In this problem, you are required to define the syntax and the semantics
+(including evaluation rules and typing rules) of while loop with \texttt{break} and \texttt{continue}
+
+
+\section*{Problem3 - 35\%}
+
+Proof \textbf{Preservation Theorem}: If $\Sigma;\Gamma \vdash e:t, \Sigma;\Gamma \vdash M$, and $(M,e)\rightarrow(M',e')$, then for some $\Sigma' \supseteq \Sigma, \Sigma';\Gamma \vdash e':t, \Sigma';\Gamma \vdash M'$. ($\Sigma' \supseteq \Sigma$ means $\Sigma'$ agrees with $\Sigma$ on all the old locations.)
+	
+Hint: You don't need to write ``need to prove..." in this problem since in all cases it's quite similar. Also, you can use directly the following two lemma whose proofs are quite easy:
+\begin{lemma}
+
+\textbf{Substitution:} If $\Sigma;\Gamma, x:t_1 \vdash e:t_2$ and $\Sigma;\Gamma \vdash v:t_1$, then $\Sigma;\Gamma \vdash e[v/x]:t_2$
+(similar to the proof of previous substitution lemma)
+\end{lemma}
+
+\begin{lemma}
+If $\Sigma;\Gamma \vdash e:t$ and $\Sigma' \supseteq \Sigma$, then $\Sigma';\Gamma \vdash e:t$
+(easy induction)
+\end{lemma}
+
+
+\end{document}
