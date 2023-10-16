@@ -1,0 +1,84 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage{listings}
+\usepackage[usenames]{xcolor}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 3302/5307 Programming Language Concepts}
+\rhead{Homework8:Managing Memory}
+\lfoot{2023 Kenny Zhu}
+%----Documentation----%
+\begin{document}
+
+\title{CSE 3302/5307 Programming Language Concepts}
+\author{Homework8 - Fall 2023}
+\date{Due Date: Oct.21, 2023, 11:59p.m. Central Time}
+\maketitle
+\thispagestyle{fancy}
+
+%----Homeworks----%
+
+\section*{Problem1 - 25\%}
+
+C has functions \texttt{malloc} and \texttt{free} that allow programmers to dynamically allocate and deallocate heap space. Research these two functions and compare their similarities and differences with the function \texttt{new} and \texttt{delete}.
+
+
+\section*{Problem2 - 25\%}
+
+Can you think of a better Mark-n-Sweep algorithm that reduces the amount of waiting time when garbage collecting?
+
+\section*{Problem3 - 50\%}
+
+Read the Java code program below and answer the question.
+	
+\centering
+\begin{lstlisting}[language=Java] 
+Object[] p = new Object[2];
+Object[] q = new Object[2];
+Object[] s = new Object[2];
+Object[] t = new Object[2];
+p[0] = q;
+p[1] = s;
+q[0] = p;
+q[1] = t;
+s[0] = t;
+s[1] = null;
+t[0] = s;
+t[1] = null;
+for (int i = 0; i < 3; i++) {
+s = new Object[2];
+t = new Object[2];
+s[0] = t;
+s[1] = p;
+t[0] = s;
+t[1] = q;
+p[1] = null;
+q[1] = null;
+p = s;
+q = t;
+}
+\end{lstlisting} 
+
+\begin{enumerate}[(a)]
+    \item Show the configuration of memory cells under reference counting.(After the final step)
+    \item Suppose we use mark-and-sweep GC on the same program, and the maximum heap
+    size is 20 memory cells (one cell for one object). When GC action happens, and after GC, what is the
+    configuration of the memory?
+\end{enumerate}
+
+
+\end{document}
