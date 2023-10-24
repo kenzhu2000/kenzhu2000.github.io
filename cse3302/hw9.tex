@@ -1,0 +1,103 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage{listings}
+\usepackage[usenames]{xcolor}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 3302/5307 Programming Language Concepts}
+\rhead{Homework9:Type Inference I}
+\lfoot{2023 Kenny Zhu}
+%----Documentation----%
+\begin{document}
+
+\title{CSE 3302/5307 Programming Language Concepts}
+\author{Homework9 - Fall 2023}
+\date{Due Date: Oct.28, 2023, 11:59p.m. Central Time}
+\maketitle
+\thispagestyle{fancy}
+
+%----Homeworks----%
+
+\section*{Problem1 - 60\%}
+
+Given the following variant of untyped lambda calculus:
+\newline
+\begin{verbatim}
+e::=
+x (variables)
+| c (constants)
+| \x.e
+| e1 e2
+| e1 bop e2 (binary op)
+| let x = e1 in e2
+| if e1 then e2 else e3
+| letfun f(x) = e1 in e2  (defining a recursive function f(x) for use in e2)
+| inl e
+| inr e
+| case e1 of inl x => e2 | inr x => e3
+| nil
+| e1 :: e2
+| case e1 of nil => e2 | x1 :: x2 => e3
+| (e)
+\end{verbatim}
+
+\begin{enumerate}[(a)]
+	\item Inductively define the constraint generation judgement:
+	\begin{verbatim}
+	G |- u ==> e:t, q
+	\end{verbatim}
+	
+	\item Give the detailed derivation of the following expressions and obtain the set of equations, then solve these equations to get the principle solution and give the universal polymorphic types:
+	\begin{enumerate}[(1)]
+		\item
+		\begin{verbatim}
+		letfun sum(l) = case l of nil => 0 | x1 :: x2 => x1 + sum(x2) 
+		in sum(12::10::0::nil)
+		\end{verbatim}
+		\item
+		\begin{verbatim}
+		let x = inr (5::4::3) in 
+		case x of inl y => 0 | 
+		          inr y => (case y of nil => 0 | h::l => h)
+		\end{verbatim}
+		\item 
+		==BONUS POINT==
+		\begin{verbatim}
+		let x = inl {3::2::1, nil} in
+		case x of inl y => (if y.2 == nil 
+		then case y.1 of nil => 0 | h::l => h 
+		else 0)
+		inr y => (case y of nil => 0 | h::l => h)
+		
+		\end{verbatim}
+		
+	\end{enumerate}
+\end{enumerate}
+
+
+\section*{Problem2 - 40\%}
+
+\begin{lemma}
+    If a set of constraints q has a solution, then it has a most general one.
+\end{lemma}
+
+Prove this lemma.
+
+
+
+
+\end{document}
