@@ -1,0 +1,56 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage{listings}
+\usepackage[usenames]{xcolor}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 3302/5307 Programming Language Concepts}
+\rhead{Homework 11:Subtyping}
+\lfoot{2023 Kenny Zhu}
+%----Documentation----%
+\begin{document}
+
+\title{CSE 3302/5307 Programming Language Concepts}
+\author{Homework 11 - Fall 2023}
+\date{Due Date: Nov.11, 2023, 11:59p.m. Central Time}
+\maketitle
+\thispagestyle{fancy}
+
+%----Homeworks----%
+
+\section*{Problem 1 - 30\%}
+
+Remember in hw5, we extent tuples to records. Now we extend subtypes to records. Please give some subtyping rules for record type, then draw a derivation showing that $\{x:Nat, y:Nat, z:Nat\}$ is a subtype of $\{y:Nat\}$.
+
+
+
+\section*{Problem 2 - 50\%}
+
+Prove Lemma [Inversion of the subtype relation]:
+	
+	1. If $S <= T_1 \rightarrow T_2$, then $S$ has the form $S_1 \rightarrow S_2$, with $T_1 <= S_1$ and $S_2 <= T_2$.
+	
+	2. If $S <= \{l_i:T_i^{i \in l...n}\}$, then $S$ has the form $\{k_j:S_j^{j \in l...m}\}$, with at least the labels $\{l_i^{i \in l...n}\}$ (i.e., $\{l_i^{i \in l...n}\} \subseteq \{k_j^{j \in l...m}\}$) and with $S_j <= T_i$ for each common label $l_i=k_j$.
+
+\section*{Problem 3 - 20\%}
+In Christopher Strachey's seminal paper\cite{strachey2000}, he gave the classification of polymorphism of only two kinds: parametric polymorphism and ad hoc
+polymorphism. After learning about let-polymorphism and subtype-polymorphism
+in the last couple of lectures, please do a little literature review, and explain what let- and subtype-polymorphism belong to, parametric polymorphism, or
+ad hoc polymorphism. Why?
+\bibliography{cse3302}
+\bibliographystyle{plain}
+\end{document}
