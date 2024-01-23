@@ -1,0 +1,146 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage{listings}
+\usepackage[usenames]{xcolor}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 4392 Special Topic: Natural Language Processing}
+\rhead{Homework 1: Introduction}
+\lfoot{2024 Kenny Zhu}
+%----Documentation----%
+\begin{document}
+
+\title{CSE 4392 Special Topic: Natural Language Processing}
+\author{Homework 1 - Spring 2024}
+\date{Due Date: Jan 27, 2024, 11:59 p.m. Central Time}
+\maketitle
+\thispagestyle{fancy}
+
+%----Homeworks----%
+
+\section*{Problem 1 - 50\%}
+
+Please read the following carefully and put your name and ID number
+in all the places indicated to acknowledge that you have understood it.
+
+\subsection*{Honor Code Acknowledgement:}
+\textit{I pledge, on my honor, to uphold UT Arlington’s tradition of academic integrity, a tradition that
+values hard work and honest effort in the pursuit of academic excellence.\\
+\newline
+I promise that I will submit only work that I personally create or contribute to group collaborations,
+and I will appropriately reference any work from other sources. I will follow the highest standards
+of integrity and uphold the spirit of the Honor Code.}\\
+\newline
+As a student enrolled in CSE 4392, I will adhere to the UT Arlington Honor Code given above.\\
+\newline
+Name:\\
+Student ID:\\
+
+\subsection*{Assignment Policy Acknowledgement:}
+\textit{There will be several homework assignments in this course. Most of the tasks will require
+handwritten or typed solutions. Some assignments may have programming tasks. The solution to
+programming tasks can be programmed in base versions of specific programming language which will be specify in homeworks. 
+\textbf{All homework submissions must be submitted via Canvas. No other method of
+submission accepted under any circumstances.} All homework scores (other than the lowest
+one) will contribute to your final grade. If you find yourself in an emergency and cannot deliver
+homework on time, immediately inform the instructor. Also, while working with other persons on
+non-graded example problems from the textbook is a good way to help you develop your
+understanding and insight into the techniques of problem solving, homework solutions must be
+your work only. Violations of this will not be tolerated and result in severe penalties for all parties
+involved, in strict compliance to official UTA policy.}\\
+\newline
+\textit{The points each assignment graded out of will be provided as part of its description. Assignments
+submitted late will be automatically penalized, at a rate of \textbf{30\% of assignment max points per
+day late. Late submission will not be accepted 2 days after due date.} Note that for some
+assignments, submissions may not be accepted after the deadline (such assignments will
+be announced in class beforehand). The submission due time (and the time the link will be
+available till) will be shown in homeworks and Canvas. Exceptions will only be made for documented emergencies,
+in strict adherence to UTA policy. Computer/Network crashes, Submission of Incomplete files,
+Submission of Incorrect Files, Submitting at Incorrect Link are NOT acceptable excuses for late
+submissions. \textbf{No exceptions will be made.} To avoid problems with such crashes and last-minute
+problems, students are encouraged to submit as early as possible. They are also advised to
+ensure that their file was uploaded correctly before submitting it. You can always revise your
+submission till the deadline. If you are unable to work on/submit an assignment due to a valid
+documented reason (illness, critical family emergencies, military service obligations, observance
+of major religious holidays, and certain university service commitments) one makeup assignment
+may be provided that will be due during finals week.}\\
+\newline
+As a student enrolled in CSE 4392, I have read and understood the assignment policy
+described above.\\
+\newline
+Name:\\
+Student ID:\\
+
+\subsection*{Academic Dishonesty Policy Acknowledgement:}
+\textit{If you are caught colluding or copying in the assignments or exams the following consequences will
+be applied.}\\
+\textit{Per offence:}
+\begin{itemize}
+    \item You will be given a score of 0 points for that assignment or exam.
+    \item Your final grade will be reduced by 2 letter grades (Up to a minimum of F)
+    \item An academic integrity violation form will be filed.
+    \begin{itemize}
+        \item If you agree to sign the form
+        \begin{itemize}
+            \item You will be placed on disciplinary probation for 1 year and a 7 year reportable
+            disciplinary record will be created.
+            \item Additional violations may result in increasing sanctions up to and including
+            suspension or expulsion.
+        \end{itemize}
+        \item If you do not agree to sign the form
+        \begin{itemize}
+            \item You will be temporarily given a grade of Incomplete (I)
+            \item The Office of Academic Integrity will conduct a formal investigation based on
+            evidence provided
+            \item Based on decision, either the grade will be calculated with the penalty and with
+            the consequences discussed above or grade will be calculated without
+            penalties and no forms being filed.
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\textit{This policy is not up for discussion/negotiation \textbf{under any circumstances}.}
+\newline
+As a student enrolled in CSE 4392, I have read and understood the academic dishonesty policy
+described above.\\
+\newline
+Name:\\
+Student ID:\\
+
+
+\section*{Problem 2 - 10\%}
+Find a team mate for your Project! 
+Please write down the names of your team members (including yourself):\\
+Team Member 1 (my name):\\
+Team Member 2 (my team mate's name, optional):
+
+\section*{Problem 3 - 40\%}
+Choose a specific task in the field of Natural Language Processing (NLP) that 
+interests you, such as a kind of text summarization, a specific type of
+text classification, or machine translation between two minority languages or
+in some special domains. 
+Find out what are the state-of-the-art (SOTA) model or 
+method used for this task (usually from some latest papers). 
+Briefly describe the SOTA and critically evaluate its performance. 
+This can be done by either analysis of the paper(s), or actually trying out 
+the systems/models (many papers provide demo systems or code), and many of
+them use ChatGPT or GPT 3.5/4 as the SOTA.
+Highlight any notable shortcomings or areas where improvements are needed.
+You need to show actual examples that demonstrate the weaknesses and make sure 
+these "bad examples" could be reproduced. Please clearify where you can get the model,
+what are the inputs and outputs. E.g. for ChatGPT, you need to provide the questions you asked,
+the prompts you used and the responses the ChatGPT made.
+\end{document}
