@@ -1,0 +1,81 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage{listings}
+\usepackage[usenames]{xcolor}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 4392 Special Topic: Natural Language Processing}
+\rhead{Homework 3: Text Classification}
+\lfoot{2024 Kenny Zhu}
+%----Documentation----%
+\begin{document}
+
+\title{CSE 4392 Special Topic: Natural Language Processing}
+\author{Homework 3 - Spring 2024}
+\date{Due Date: Feb 10, 2024, 11:59 p.m. Central Time}
+\maketitle
+\thispagestyle{fancy}
+
+%----Homeworks----%
+
+
+
+As we delved into the Naive Bayes classifier, a foundational algorithm for text classification tasks such as spam detection, sentiment analysis, and more.\\
+\newline
+This homework is designed to reinforce your understanding of the Naive Bayes algorithm's principles and applications. You will engage in a practical exercise to manually calculate classification probabilities and make predictions using a predefined Naive Bayes model.\\
+
+\section*{Problem 1 - 40\%}
+Given the below training documents $d_1$ to $d_5$, and their class labels, compute ${P(c \mid d_{6})}$, after applying add-1 smoothing. Please write down all the intermediate steps.
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+     & Doc & Words & Class \\ \hline
+    Training & 1 & excellent definitly good & P \\ \hline
+            & 2 & not bad & P \\ \hline
+            & 3 & not good enough & N \\ \hline
+            & 4 & so good & P \\ \hline
+            & 5 & so so bad & N \\ \hline
+    Test    & 6 & so so good & ? \\ \hline
+    \end{tabular}
+\end{center}
+
+\newpage
+
+\section*{Problem 2 - 60\%}
+
+How do we measure the performance of a Naive Bayes classifier? In this lecture, we learned how to evaluate a classifier. Please use the knowledge you gained from this class to train and test a Naive Bayes classifier using the dataset provided below. What method are you using? How does it perform on this dataset? Why?
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+     & Doc & Words & Class \\ \hline
+    Training & 1 & leaf floats gently water & 1 \\ \hline
+            & 2 & sky reflects blue leaf & 0 \\ \hline
+            & 3 & water ripples under sky & 1 \\ \hline
+            & 4 & star glimmers night gently & 0 \\ \hline
+            & 5 & night embraces cold star & 1 \\ \hline
+            & 6 & glimmers reflects cold floats & 0 \\ \hline
+            & 7 & ripples night blue water & 1 \\ \hline
+            & 8 & leaf under star sky & 0 \\ \hline
+            & 9 & cold water night floats & 1 \\ \hline
+    Test    & 10 & gently embraces blue ripples & 0 \\ \hline
+
+    \end{tabular}
+\end{center}
+
+\end{document}
