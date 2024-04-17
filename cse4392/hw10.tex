@@ -1,0 +1,112 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage{listings}
+\usepackage{bbm}
+\usepackage[usenames]{xcolor}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 4392 Special Topic: Natural Language Processing}
+\rhead{Homework 10: Dialogue System}
+\lfoot{2024 Kenny Zhu}
+%----Documentation----%
+\begin{document}
+
+\title{CSE 4392 Special Topic: Natural Language Processing}
+\author{Homework 10 - Spring 2024}
+\date{Due Date: Apr 23rd, 2024, 11:59 p.m. Central Standard Time}
+\maketitle
+\thispagestyle{fancy}
+
+%----Homeworks----%
+
+Welcome to this week's NLP homework assignment! 
+Your task is to design and implement a real-time communication robot that can
+talk to you with audio, just like Siri or Google Assistant!
+This bot consists of three key components: speech-to-text conversion (ASR), 
+ dialogue response generation, and text-to-speech synthesis (TTS). 
+ \textbf{You're encouraged to utilize any API or tool} available for each component, 
+ allowing you to explore various NLP techniques and 
+ unleash your creativity in crafting an engaging and 
+ responsive communication robot. Whether you envision a virtual assistant,
+ chatbot, or conversationalist, this assignment offers the opportunity
+ to experiment with cutting-edge NLP technologies and bring your ideas to life. 
+ %Get ready to dive into the world of NLP and 
+ %let your imagination soar as you embark on this exciting journey! 
+ Happy coding!
+
+\section*{Problem 1 - 100\%}
+
+This assignment is to examine the abilities of:
+\begin{itemize}
+    \item Information Retrieval
+    \item Application of existing APIs
+    \item Product design
+    \item Engineering efforts
+\end{itemize}
+
+\subsection*{Real Time System}
+You need to design a real-time system that can:
+\begin{enumerate}
+    \item Once the system is started, it should be able to listen to the user's voice.
+    \item The system could automatically stop listening when the user stops speaking.
+    \item A response should be generated in real-time in the form of audio.
+    \item After the response is generated, the system should be able to listen to the 
+user's voice again.
+    \item Once the system hears a specific keyword (e.g., "Exit the bot"), 
+it should stop listening and terminate the program.
+\end{enumerate}
+
+\subsection*{Speech to Text}
+For the speech-to-text conversion, you can use any API or tool available. For example:
+\begin{itemize}
+    \item \href{https://pypi.org/project/SpeechRecognition/}{SpeechRecognition Library}
+    \item \href{https://platform.openai.com/docs/guides/speech-to-text}{OpenAI Speech to Text}
+    \item \href{https://cloud.google.com/speech-to-text}{Google Cloud Speech-to-Text}
+    \item ...
+\end{itemize}
+
+\subsection*{Response Generation}
+For the text generation, you can use any API or tool available. For example:
+\begin{itemize}
+    \item \href{https://pypi.org/project/chatbotAI/}{ChatbotAI Library}
+    \item \href{https://chatterbot.readthedocs.io/en/stable/index.html}{Chatterbot Library}
+    \item \href{https://platform.openai.com/docs/api-reference}{OpenAI GPT 3 API}
+    \item ...
+\end{itemize}
+
+\subsection*{Text to Speech}
+For the text-to-speech synthesis, you can use any API or tool available. For example:
+\begin{itemize}
+    \item \href{https://platform.openai.com/docs/guides/text-to-speech}{OpenAI Text to Speech}
+    \item \href{https://pypi.org/project/pyttsx3/}{pyttsx3 Library}
+    \item \href{https://pypi.org/project/text-to-speech/}{text-to-speech Library}
+    \item ...
+\end{itemize}
+
+\subsection*{}
+\textbf{Bonus:} 
+If you can design a system with a nice front end, you will receive a bonus of 10\%.
+
+If you can design a system that can answer questions about worldly facts, 
+such as ``Who is the president of the United States?'' or ``When did the total eclipse in Dallas happen this year?,'' you will receive a bonus of 20\%.
+
+\subsection*{}
+\textbf{Attach your codes and a captured video demo that explains how your app works.}
+\end{document}
+
+
+
