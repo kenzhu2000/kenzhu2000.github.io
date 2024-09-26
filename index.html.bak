@@ -1,0 +1,392 @@
+<html>
+<head>
+<title>Kenny Q. Zhu's Home Page</title>
+</head>
+<!-- keword: Kenny Zhu, Zhu Qili, Kenny Q. Zhu, Kenny Qili Zhu
+-->
+<table cellspacing="10" border="0" cellpadding="1">
+<tr>
+<td nowrap valign="bottom">
+<H2>Kenny Q. Zhu (朱其立)
+<!--<font size="-1">(PhD., NUS)</font><br>-->
+<!--<img height="20" align="bottom" src="images/zhuqili_chinese.jpg">-->
+</H2>
+<font size="4">
+Professor <br>
+</font>
+<a href="https://www.uta.edu/academics/schools-colleges/engineering/academics/departments/cse">
+Dept. of Computer Science &amp; Engineering</a><br>
+<a href="https://uta.edu">University of Texas at Arlington</a><br>
+<br><br>
+<br><br>
+<!--
+Room 206<br>
+Princeton University<br>
+35 Olden St. <br>
+Princeton, NJ 08540<br>
+USA<br>
+-->
+</td>
+<td>
+<img align=top width="180" src="images/ken-wall.jpg" alt="Kenny Zhu">
+<!--
+<center>
+[<a href="jobs/">Application Materials</a>] 
+[<a href="resume.html">CV (html)</a>] [<a href="#research">Research</a>]
+</center>
+-->
+</td>
+<td>
+<a href="bio.html"><strong>Bio &amp; Contact</strong></a><p>
+<a href="publications.html"><strong>Publications</strong></a>
+<a href="https://dblp.org/pid/z/KennyQiliZhu.html">
+<strong>(DBLP)</strong></a>
+<a href="http://scholar.google.com/citations?user=ZIRJ6lIAAAAJ&hl=en">
+<strong>(Google Scholar)</strong></a>
+<p>
+<a href="kzhu-cv.pdf"><strong>Vita</strong></a> <p>
+<a href="https://acl-group.github.io/people.html"><strong>My Students</strong></a> <a href="https://acl-group.github.io/">(ACL Lab)</a><p>
+<a href="#links"><strong>Links</strong></a>
+</tr></table><hr>
+
+<p><b>Prospective graduate students:</b><br>
+I am recruiting PhD students for the Fall 2024 admission. 
+If you are <b>curious</b>, <b>honest</b>, <b>independent</b>
+and <b>hardworking</b>, and want to work on :<br> 
+<b><i>Natural Language Processing</i></b> 
+and <b><i>Artificial Intelligence</i></b>, 
+<!--If you are applying to
+<b>a PhD program</b>, I expect you to work with me on a short campus visit or
+brief <b>internship for at least two weeks</b> prior to the application.<br>-->
+please <a href="mailto:kenny.zhu@uta.edu">email your CV and transcripts to me</a>! <br><br>
+
+<p><b>Prospective undergraduate students:</b><br>
+Please check out our wonderful summer REU site research opportunity funded by National
+Science Foundation (NSF):
+<a href="https://acl-group.github.io/reu">Animal Language Processing and
+Understanding</a>!
+
+<!--
+<P><b>Sem I, 04/05 <br>
+<a href="http://www.comp.nus.edu.sg/~cs3212">CS3212 
+Programming Languages</a></b><br>
+Lectured by <a href="http://www.comp.nus.edu.sg/~henz">Dr. Martin Henz</a><br>
+Consultation: Monday, 1030-1230. Please send advance email.<br>
+<a href="http://ivle.nus.edu.sg">IVLE</a> <a href="https://aces01.nus.edu.sg/NASApp/cors/Login">Tutorial Swap</a> | <a href="https://mysoc.nus.edu.sg/oratut/swap/">SoC Tutorial List</a>
+-->
+
+<!--
+<a href="http://www-appn.comp.nus.edu.sg/~cs3212/cgi-bin/classlist.cgi">CS3212 Class Profile</a><br>
+-->
+
+<hr>
+<h2><a name ="news">News</a></h2>
+<ul>
+	<li>Kenny Zhu appeared on <a href="https://www.cbsnews.com/texas/news/do-dogs-talk-uta-researcher-working-to-find-out/">CBS 11 Texas</a> and <a href="https://www.wfaa.com/article/news/local/do-dogs-have-their-own-language-the-unbelievable-project-underway-at-ut-arlington/287-db55b8f1-8e2d-4074-bee2-d2d2cc035ad3">ABC 8 (DFW)</a> news to discuss his research on animal language processing and understanding.
+	<li>Kenny Zhu interviewed by UTA correspondent on <a href="https://www.uta.edu/news/news-releases/2024/06/05/bark-woof-ruff-uta-scientist-aims-to-decode-dog-speech">the dog communications</a>.
+<li>One paper accepted by ICLR 2024. Congrats to Roy!
+<li>On Jan 5, 2024, I received my first NSF award (PI) from CISE/OAC program on "<a href="https://acl-group.github.io/reu/">REU Site: Animal Language Processing and Understanding</a>". Thank you, UTA and NSF!
+<li>Four papers accepted by EMNLP 2023 main conference, and one by EMNLP Findings. See you in Singapore!
+<li>One paper *finally* accepted by ACM Computing Surveys, Sept, 2023!
+<li>One paper accepted by ACM MM 2023 (main track) and one paper by ECAI 2023.
+<li>Two papers accepted by ACL 2023 (main and industry track) and 
+four accepted by ACL Findings 2023.
+<li>Two full papers accepted by EMNLP 2022 main conference.
+<li>Yizhu Liu is conferred with PhD of distinctions from ADAPT.
+<li>One full paper accepted by IJCAI 2022 (AI for good track).
+<li>Two papers accepted by NAACL 2022 (main conference) and two papers
+accepted by Findings of NAACL 2022.
+<li>One full paper accepted by SIGIR 2022.
+<li>Two full papers accepted by ACL 2022 (main conference).
+<li>One paper accepted by ICASSP 2022.
+<li>One short paper accepted by CIKM 2021.
+<li>One full paper accepted by ACL Findings 2021.
+<li>One full paper accepted by IJCAI 2021.
+<li>Two full papers accepted by WWW 2021.
+<li>Two full papers accepted by AAAI 2021.
+</ul>
+
+<hr>
+<h2><a name ="research">Research</a></h2>
+My work has been focused on enabling machines to understand natural
+languages and further generate these languages. This is one of the most 
+challenging tasks in artificial intelligence. My recent focus has been
+making NLP models <i>smaller, more accessible and interpretable</i>,
+and developing interdisciplinary NLP techniques, such as 
+<i>animal language processing</i> (<a href="http://202.120.38.146:8079">view demo)</a> and <i>NLP for mental health</i>. 
+<!--is to transform <i>unstructured text data</i> into <i>structured knowledge</i>, 
+and use such knowledge to better understand text. I have also worked on 
+the design and implementation of domain specific programming languages 
+for data processing and data mining.
+In particular, I use programming languages
+and other techniques to solve data processing problems. 
+By data processing, I mean all tasks involving the accumulation, distribution,<br> 
+assembly, query, transformation and computation of data. 
+I currently do research with three types of data:
+<i>ad hoc data</i>, <i>free text</i> and <i>mobile data</i>.
+Ad hoc data is any semi-structured, non-standard data formats such as system
+log files. Free text is any sequences of textual data written in human
+language. Mobile data are spatio-temporal data such as movement trajectories.
+-->
+<br><br>
+I'm leading <a href="https://acl-group.github.io/"><b>the Arlington Computational Linguistics Group (ACL-G)</b></a>.
+
+<h4>Current Research</h4> 
+<ul>
+<li><a href="https://acl-group.github.io/research.html#nlp">Natural Languages Processing</a></li>
+<li><a href="https://acl-group.github.io/research.html#ie">Knowledge Engineering</a></li>
+</ul>
+<!--
+<li>Automatic data synthesizer based on PADS</li>
+<li><a href="http://www.padsproj.org/learning-demo.cgi">LearnPADS</a>: 
+inferencing of PADS descriptions and automatic tool
+generation from ad hoc data using machine learning techniques 
+(<a href="papers/learningpopl08.pdf">POPL'08</a>, 
+<a href="papers/sigmod08learning.pdf">SIGMOD'08</a>,
+<a href="papers/tap08.pdf">PADL'09</a>)
+</ul>
+
+<h4>Past Research Projects</h4>
+<ul>
+<li><a href="http://adapt.seiee.sjtu.edu.cn/project_tip.html">
+TIP: Trace Inference Problem</a></li>
+<li><a href="http://adapt.seiee.sjtu.edu.cn/speculate">Speculative Nondeterminism: A Programming Framework for Multi-agent Coordination (and Competition)</a></li>
+<li><a href="http://adapt.seiee.sjtu.edu.cn/SetDemo/">Set-valued Data 
+Anonymization using Partial Suppression</a>
+<li><a href="richip.html">RICH-IP: A High-level Declarative Language for IP Core Synthesis</a></li>
+<li><a href="pads.html">Processing of Ad Hoc Data</a></li> 
+<li>Gloves: distributed ad-hoc data processing system
+(<a href="papers/padsd09.pdf">PPDP'09</a>)
+<li> Pawk: a light-weight ad-hoc data processing system
+<li> PADS/ML compiler and runtime infrastracture
+<li>Open Constraint Programming (OCP): a coordination language and system
+for programming against knowledge bases
+(<a href="papers/zhu-trigger.pdf">ICLP'05</a>, 
+<a href="papers/zhu-gcc07.pdf">Coord'07</a>, 
+<a href="papers/phd_thesis.pdf">thesis</a>)
+<li>RC-tree: an efficient spatial indexing technique 
+(<a href="papers/zhu-rc-tree.pdf">ICDE'06</a>)
+<li>Combinatorial optimization with applications in 
+vehicle routing problems
+</ul>
+
+<P><h4>Open Constraint Programming (OCP)</h4>
+<a href=http://tosai.comp.nus.edu.sg/~kzhu/cgi-bin/react.cgi>Guava's OCP reactor web interface</a><br>
+<a href="http://tosai.comp.nus.edu.sg/~kzhu/ocp/">OCP Stock Trading Presentation (slides)</a>, demonstrated to Dr. Tony Tan, Deputy Prime Minister of Singapore<br>
+<a href=http://tosai.comp.nus.edu.sg/~kzhu/docs/talk.pdf>A seminar on OCP (slides)</a><br>
+<a href="http://tosai.comp.nus.edu.sg/~kzhu/docs/multi-index.pdf">A survey on multi-dimensional indexing</a><br>
+Reactor language library for VRP and alike problems<br>
+<a href="http://tosai.comp.nus.edu.sg/~kzhu/docs/movement/slide00.html">Online Presentation of 2-D War Game Simulation Example</a><br>
+Open Constraint Programming <br>
+Speculative Reaction 
+<br>
+Distributed Fault Tolerant Divide and Conquer <br>
+Scalable Depth-First Search on Network of Computers <br>
+
+<P><h4>Combinatorial Optimization and Evolutionary Computing</h4>
+Vehicle Routing Problem with Time Windows (VRPTW)<br>
+Real Time Dynamic Vehicle Routing Problem (RTDVRP)<br>
+Genetic Algorithm to solve VRPTW<br>
+Dial-a-ride taxi routing<br>
+
+-->
+<h4>Good Research Advices</h4>
+<ul>
+<li><a href="writing-a-paper-slides.pdf">How to write a good research paper</a>. Simon Peyton Jones.
+<li><a href="errors-in-writing.pdf">Common errors
+in technical writing.</a>. John Owens @ UC Davis and Kenny Zhu @ UTA.
+<li><a href="giving-a-talk-slides.pdf">How to give a good research talk</a>. 
+Simon Peyton Jones.
+<li><a href="experiment-slides.pptx">What's the right way to do scientific experiments</a>. Amer Diwan @ PLDI 2012.
+</ul>
+
+<!--
+<h4>My Talks and Presentations (2001 - )</h4>
+<ul>
+<li>"Computing Term Similarity", tutorial at WAIM 2013 Summer School, 
+Qinghuangdao, China.
+<li>"Automatic Extraction of Top-K Lists from the Web", ICDE 2013, Brisbane, Australia.
+<li>"Research Highlights at ADAPT-Lab, SJTU", invited talk at Oracle Labs,
+Brisbane, Australia, 04/10/2013.
+<li>"LearnPADS++: An Incremental Inference Algorithm for Ad Hoc Data", PADL 2012, Philadelphia, PA, USA.
+<li>"Data Processing: a Programming Language Perspective", invited talk at AWFS 2011.
+<li>"From dirt to shovels: automatic tool generation from ad hoc data",
+invited talk at the Industrial Affiliates Day, Princeton. 09/17/2008.
+<li>"LearnPADS: Automatic format inference from ad-hoc data", demo at SIGMOD 2008.
+(<a href="talks/sigmod08-talk.ppt">slides</a>)
+<li>"PADS: A Language and System for Processing Ad Hoc Data", invited talk at
+PL/Compiler visit day, Princeton University. 03/08/2008.
+(<a href="talks/PL-visit-day-03-08.ppt">slides</a>)
+<li>"From dirt to shovels: automatic tool generation from ad hoc data",
+invited talk at IBM TJ Watson Research. 02/25/2008.
+(<a href="talks/ibm-02-08-talk.ppt">slides</a>)
+<li>"From dirt to shovels: automatic tool generation from ad hoc data", 
+POPL 2008, San Francisco, CA. (<a href="talks/popl08-talk.ppt">slides</a>)
+<li>"From dirt to shovels", System lunch talk at 
+Princeton CS department. 11/2007. (<a href="talks/systemslunch-kzhu-0907.ppt">part1</a>) and (<a href="talks/systemslunch-dave-0907.ppt">part2</a> by David Walker)
+<li>"Generalized Committed Choice", Coordination 2007. (<a href="talks/Coor07-Talk.ppt">slides</a>)
+<li>"Indexing of dynamic abstract regions", ICDE 2006. (<a href="talks/icde06-talk.ppt">slides</a>)
+<li>"Open constraint programming", invited talk at Singapore Management
+University. (<a href="talks/ocp-smu-talk.ppt">slides</a>)
+<li>"Open constraint programming", PhD. defense talk. 
+(<a href="talks/ocp.ppt">slides</a>)
+<li>"Coordination of many agents", ICLP 2005. (<a href="talks/coma.ppt">slides</a>)
+<li>"Distributed DFS with greedy work stealing", ICTAI 2004. (<a href="talks/dcspposter.ppt">poster</a>)
+<li>"Population diversity in permutation-based genetic algorithm", ECML 2004.
+(<a href="talks/ecml2004.ppt">slides</a>)
+<li>"Empirical study of population diversity in permutation-based genetic algorithm", GECCO 2004. (<a href="talks/gecco-poster.ppt">poster</a>) 
+<li>"A Diversity-controlling Adaptive GA for the VRP with Time Windows", ICTAI 2003. (<a href="talks/ictai03-present.ppt">slides</a>) 
+<li>"A Meeting Scheduling System Based on Open Constraint Programming", CAiSE 2002. (<a href="talks/caise.ppt">slides</a>)
+<li>"Reactive Web Agents with OCP", the Fifth International Symposium on 
+Autonomous Decentralized Systems (ISADS 2001). (<a href="talks/isads2001-talk.pdf">slides</a>)
+</ul>
+-->
+<h4>My Students' Top Cited Papers (>50 cites)</h4>
+<ul>
+<li>Ke Wu, Song Yang, Kenny Q. Zhu. False rumors detection on sina weibo by propagation structures. ICDE 2015. <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ZIRJ6lIAAAAJ&citation_for_view=ZIRJ6lIAAAAJ:2P1L_qKh6hAC">Citations</a>
+<li>Bill Y. Lin, Frank F. Xu, Zhiyi Luo, Kenny Q. Zhu. Multi-channel bilstm-crf model for emerging named entity recognition in social media. ACL NUT 2017. <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ZIRJ6lIAAAAJ&citation_for_view=ZIRJ6lIAAAAJ:SP6oXDckpogC">Citations</a>
+<li>Kangqi Luo, Fengli Lin, Xusheng Luo, Kenny Q. Zhu. Knowledge base question answering via encoding of complex query graphs. EMNLP 2018. <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ZIRJ6lIAAAAJ&citation_for_view=ZIRJ6lIAAAAJ:q3oQSFYPqjQC">Citations<a/>
+<li>Kaiqi Zhao, Gao Cong, Quan Yuan, Kenny Q. Zhu. SAR: A sentiment-aspect-region model for user preference analysis in geo-tagged reviews. ICDE 2015. <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ZIRJ6lIAAAAJ&citation_for_view=ZIRJ6lIAAAAJ:ldfaerwXgEUChttps://scholar.google.com/citations?view_op=view_citation&hl=en&user=ZIRJ6lIAAAAJ&citation_for_view=ZIRJ6lIAAAAJ:ldfaerwXgEUC">Citations</a>
+<li>Zhiyi Luo, Yuchen Sha, Kenny Q. Zhu, S Hwang, Z Wang. Commonsense causal reasoning between short texts. KR 2016. <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ZIRJ6lIAAAAJ&citation_for_view=ZIRJ6lIAAAAJ:ZHo1McVdvXMChttps://scholar.google.com/citations?view_op=view_citation&hl=en&user=ZIRJ6lIAAAAJ&citation_for_view=ZIRJ6lIAAAAJ:ZHo1McVdvXMC">Citations</a>
+<li>Yuding Liang, Kenny Q. Zhu. Automatic generation of text descriptive comments for code blocks. AAAI 2018. <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ZIRJ6lIAAAAJ&citation_for_view=ZIRJ6lIAAAAJ:D_sINldO8mEC">Citations</a>
+<li>Yizhu Liu, Zhiyi Luo, Kenny Q. Zhu. Controlling length in abstractive summarization using a convolutional neural network. EMNLP 2018. <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ZIRJ6lIAAAAJ&citation_for_view=ZIRJ6lIAAAAJ:mvPsJ3kp5DgC">Citations</a>
+<li>
+Xusheng Luo, Luxin Liu, Yonghua Yang, Le Bo, Yuanpeng Cao, Jinghang Wu, Qiang Li, Keping Yang, Kenny Q. Zhu.
+AliCoCo: Alibaba e-commerce cognitive concept net. SIGMOD 2020. <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ZIRJ6lIAAAAJ&citation_for_view=ZIRJ6lIAAAAJ:eMMeJKvmdy0C">Citations</a>
+<li>
+Zhiyi Luo, Shanshan Huang, Kenny Q. Zhu. 
+Knowledge empowered prominent aspect extraction from product review.
+Information Processing &#38; Management 56 (2).
+<a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ZIRJ6lIAAAAJ&citation_for_view=ZIRJ6lIAAAAJ:V3AGJWp-ZtQC">Citations</a>
+</ul>
+
+<h4>Interesting Electronic Conference Proceedings</h4>
+<a href="http://www.aaai.org/Library/AAAI/aaai-library.php">AAAI</a>
+<a href="http://www.informatik.uni-trier.de/~ley/db/conf/ijcai/index.html">IJCAI</a>
+<a href="http://aclweb.org/anthology/">ACL/EMNLP/NAACL/COLING</a>
+<a href="http://portal.acm.org/browse_dl.cfm?linked=1&part=series&idx=SERIES473&coll=portal&dl=ACM&CFID=4299017&CFTOKEN=49971457">SIGMOD/PODS</a>
+<a href="http://www.vldb.org/">VLDB</a>
+<a href="http://www.informatik.uni-trier.de/~ley/db/conf/icde/index.html">ICDE</a>
+<a href="http://portal.acm.org/browse_dl.cfm?linked=1&part=series&idx=SERIES363&coll=portal&dl=ACM&CFID=4299017&CFTOKEN=49971457">PLDI</a>
+<a href="http://portal.acm.org/browse_dl.cfm?linked=1&part=series&idx=SERIES317&coll=portal&dl=ACM&CFID=4299017&CFTOKEN=49971457">POPL</a>
+<a href="http://dblp.uni-trier.de/db/conf/cp/index.html">CP</a>
+<!---
+<a href="http://portal.acm.org/browse_dl.cfm?linked=1&part=series&idx=SERIES391&coll=portal&dl=ACM&CFID=4299017&CFTOKEN=49971457">PODC</a>
+<a href="http://portal.acm.org/browse_dl.cfm?linked=1&part=series&idx=SERIES396&coll=portal&dl=ACM&CFID=4299017&CFTOKEN=49971457">STOC</a>
+<a href="http://portal.acm.org/browse_dl.cfm?linked=1&part=series&idx=SERIES362&coll=portal&dl=ACM&CFID=3664583&CFTOKEN=64626102">SPAA</a>
+<a href="http://portal.acm.org/browse_dl.cfm?linked=1&part=series&idx=SERIES300&coll=portal&dl=ACM&CFID=3664583&CFTOKEN=64626102">PPoPP</a>
+<a href="http://portal.acm.org/browse_dl.cfm?linked=1&part=series&idx=SERIES412&coll=portal&dl=ACM&CFID=3664583&CFTOKEN=64626102">PADS</a>
+<a href="http://portal.acm.org/browse_dl.cfm?linked=1&part=series&idx=SERIES361&coll=portal&dl=ACM&CFID=4620417&CFTOKEN=41874994">SCG</a>
+-->
+<br>
+
+<hr>
+
+<h2>Teaching</h2>
+<a href="cse3302">CSE3302/5307 Programming Languages</a> (2023 Fall)<br>
+Lecture: MW 2:30PM-3:50PM <br>
+Office Hour: Wed 4-5 PM <br>
+<a href="http://adapt.seiee.sjtu.edu.cn/~kzhu/videos/cs383-160926.mp4">Video
+of class on simply typed lambda calculus on Sept 26, 2016</a><br>
+<br>
+
+<a href="cse4392">CSE4392 Special Topics: Natural Language Processing</a> (2024 Spring)<br>
+Lecture: MW 2:30PM-3:50PM <br>
+Office Hour: Wed 4-5 PM <br>
+<br>
+
+<!--
+<a href="cs179">CS179 Programming in C++</a> (2023 Summer) <br>
+Lecture: TTh 8:00am-11:40am<br>
+Office Hour: By appointment<br>
+<br>
+
+<a href="wsm">CS7330 Introduction to Web Search and Mining</a> (2016-2023 Spring)<br>
+Lecture: F 12:55pm-3:30pm <br>
+Office Hour: By appointment <br>
+<br>
+
+<a href="se305">SE305 Database System Technology</a> 
+(2011-2018, Fall)<br>
+Lecture: Tue 8:00AM - 9:40AM, Thu 4:00PM - 5:40PM <br>
+Office Hour: By appointment <br>
+<br>
+
+<a href="cs490">CS490 Windows Internals</a> (2010-2014 Fall)<br>
+Lecture: M 14:00-15:40 F 10:00-11:40 <br>
+Office Hour: By appointment <br>
+<a href="http://adapt.seiee.sjtu.edu.cn/~kzhu/videos/Windows-internals-overview.asf">Video of my first class of CS490 on Sept 9, 2013.</a><br>
+<br>
+
+<a href="ei326">EI326 Science and Technology Innovation III-G</a> (2014, Spring)<br>
+Lecture: M 4PM-5:30PM, W 2:55PM-4:15PM <br>
+Office Hour: By appointment <br>
+<br>
+
+<br>
+<a href="http://www.cs.princeton.edu/~cos441">COS 441 Programming Languages </a>
+(2007/2008)<br>
+Lecture MWF 10:00 - 10:50 <br>
+Office Hour TTH 11:00 - 11:30 <br>
+Mailing list: <a href = 
+"https://lists.cs.princeton.edu/mailman/listinfo/cos441">https://lists.cs.princeton.edu/mailman/listinfo/cos441</a><br>
+-->
+<hr>
+
+<h2><a name="links">Useful Links</a></h2>
+<table border=0>
+<tr>
+<td width=50% valign=top>
+<a href=news.html>News Portal</a><br>
+<a href=https://finance.yahoo.com/world-indices/>World Major Indices</a><br>
+<a href=https://annas-archive.org/>z-lib</a><br>
+<a href="https://docs.google.com/document/u/0/">Google Docs</a><br>
+<a href="https://onedrive.live.com/">One Drive</a><br>
+<a href=https://www.cs.sjtu.edu.cn/roundcube/>SJTU CS Webmail</a><br>
+<a href=https://webmail.princeton.edu>Princeton Webmail</a><br>
+<a href=https://webmail.cs.princeton.edu>Princeton CS Webmail</a><br>
+<!--<a href="http://mysoc.nus.edu.sg">MySOC</a><br>
+<a href="http://sg.classifieds.yahoo.com/?intl=sg">Yahoo! Classified</a> 
+<a href="http://sg.auctions.yahoo.com/">Yahoo! Auction</a> 
+<a href="http://my.yahoo.com">My Yahoo!</a>
+<a href="http://mystock.cn.yahoo.com/">My Stocks</a><br>
+-->
+<!--
+<a href="http://tosai.comp.nus.edu.sg/~kzhu/cgi-bin/up.cgi">Upload files</a><br>
+-->
+<!--<a href="http://tosai.comp.nus.edu.sg/~kzhu/cgi-bin/craig.cgi">Craigs List Car Search</a><br>
+<a href="http://www-appn.comp.nus.edu.sg/~rpocp/sharefiles/">Joxan's Sharefiles</a><br>
+ -->
+</td>
+<td>
+<a href="http://catalog.princeton.edu/">Princeton Library Catalog</a><br>
+<a href="http://vistaweb.nlb.gov.sg">Singapore National Library</a><br>
+<a href="http://www.acm.org">ACM</a><br>
+<a href="confs.html">Conferece Listing</a> / <a href="http://www.guide2research.com/topconf/">Guide2Research CS Conf Ranking</a>/ <a href="http://citeseer.ist.psu.edu/stats/venues">Impact ratio</a><br>
+<a href="http://www.scopus.com/search/form.url?zone=TopNavBar&origin=searchauthorlookup">Scorpus Search</a>
+<a href="http://apps.webofknowledge.com/">SCI Search</a>
+<a href="http://www.engineeringvillage2.org">EI Search</a> <br>
+<a href="http://www.giss.nasa.gov/tools/latex/">LaTeX Online Help</a> <a href="http://garsia.math.yorku.ca/MPWP/LATEXmath/latexsym.html">Math symbols</a><br> 
+<!-- <a href="http://www.usnews.com/usnews/edu/beyond/gradrank/gbcompsc.htm">US Grad School CS Ranking</a><img src="images/new.gif"><br>
+-->
+<a href="http://dblp.uni-trier.de/">DBLP</a> 
+<a href="http://citeseer.ist.psu.edu/">Citeceer</a><br>
+<a href="http://www.cra.org/">CRA</a> 
+<a href="http://engineering.academickeys.com/seeker_job.php">Acad Keys</a>
+<a href="http://jobs.acm.org">ACM Career</a>
+<a href="http://www.chronicle.com/jobs/100/700/2500/">Chronicle</a>
+<a href="http://www.jobs.ac.uk/sector/computing/">Jobs.ac.uk</a>
+<br>
+<!--<a href="http://www.postdocjobs.com/">Postdocs</a><br> -->
+</td>
+</tr>
+</table>
+
+
+<hr>
+This page was last modified on Sept 8, 2023<br><br>
+<!--#exec cgi="/cgi-bin/pagecount"
+<a href="/cgi-bin/pagecount?/~kzhu/index.html">statistics</a>
+-->
+</body>
+</html>
