@@ -15,77 +15,90 @@
 \headsep = 25pt
 \fancyhf{}
 \lhead{CSE 3302/5307 Programming Language Concepts}
-\rhead{Homework2:Inductive Proof}
-\lfoot{2023 Kenny Zhu}
+\rhead{Homework 2: Inductive Proofs}
+\lfoot{2024 Kenny Zhu & Essam Abdelghany}
+\rfoot{Plagiarism will not be tolerated. We are here to help.}
+
+% New command for blank spaces after questions
+\newcommand{\answerbox}{
+    \vspace{7cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxbig}{
+    \vspace{20cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxsmall}{
+    \vspace{3cm} % Adjust the space size as needed
+}
+
+% New command for personal info at the end of the document
+\newcommand{\studentinfo}{
+    \noindent Name: \underline{\hspace{5cm}} UTA ID: \underline{\hspace{5cm}}\\
+    \vspace{0.5cm} % Space after the fields
+}
+
 %----Documentation----%
 \begin{document}
 
 \title{CSE 3302/5307 Programming Language Concepts}
-\author{Homework2 - Fall 2023}
-\date{Due Date: Sep.4, 2023, 8:00p.m. Central Time}
+\author{Homework 2 - Fall 2024}
+\date{Due Date: Sep. 2, 2024, 11:59p.m. Central Time}
 \maketitle
 \thispagestyle{fancy}
-
 %----Homeworks----%
 
 \section*{Problem1 - 30\%}
 \fontsize{12pt}{0}
-\begin{enumerate}[(a)]
-	\item Please look at page 21 in slide "inductive-proof". In the proof of the second case $\frac{n\ nat}{S(n)\ nat}$, what is the assumption in this case and what is the difference between assumption and I.H.?
-	
-	\item We define a judgment form $IsNat\ x\ a$.
-	\[
-	\frac{x\ nat}{IsNat\ x\ true}NatRule
-	\qquad
-	\frac{x\ list}{IsNat\ x\ false}ListRule
-	\qquad
-	\frac{x\ tree}{IsNat\ x\ false}TreeRule
-	\]
-	For which rule we can use its inversion rule? If there exists such rule, point it out and give an explanation. If no rules can be inverted, give an explanation.
-	
-	\item We define a judgment form $add'\ n_{1}\ n_{2}\ n_{3}$ (another definition for addition):
-	\[
-	\frac{}{add'\ Z\ Z\ Z}add'Z
-	\qquad
-	\frac{add'\ n_{1}\ n_{2}\ n_{3}}{add'\ (S n_{1})\ n_{2}\ (S n_{3})}add'-l
-	\qquad
-	\frac{add'\ n_{1}\ n_{2}\ n_{3}}{add'\ n_{1}\ (S n_{2})\ (S n_{3})}add'-r
-	\]
-	For which rule we can use its inversion rule? If there exists such rule, point it out and give an explanation. If no rules can be inverted, give an explanation. 
-	
+\begin{enumerate}[(a)]    
+    \item Consider looking at page 21 in slide "inductive-proof". In the proof of the second case $\frac{n\ nat}{S(n)\ nat}$, what is the assumption in this case and what is the difference between assumption and I.H.?
+    \answerboxsmall
+
+    \item We define a judgment form $add'\ n_{1}\ n_{2}\ n_{3}$ (another definition for addition):
+    \[
+    \frac{}{add'\ Z\ Z\ Z}add'Z
+    \qquad
+    \frac{add'\ n_{1}\ n_{2}\ n_{3}}{add'\ (S n_{1})\ n_{2}\ (S n_{3})}add'l
+    \qquad
+    \frac{add'\ n_{1}\ n_{2}\ n_{3}}{add'\ n_{1}\ (S n_{2})\ (S n_{3})}add'r
+    \]
+    For which rule we can use its inversion rule? If there exists such rule, point it out and give an explanation. If no rules can be inverted, give an explanation. 
+    \answerboxsmall
+
+    \item We define a judgment form $IsNat\ x\ a$.
+    \[
+    \frac{x\ nat}{IsNat\ x\ true}Nat
+    \qquad
+    \frac{x\ list}{IsNat\ x\ false}List
+    \]
+    For which rule we can use its inversion rule? If there exists such rule, point it out and give an explanation. If no rules can be inverted, give an explanation.
+    \answerboxsmall
 \end{enumerate}
 
-\section*{Problem2 - 20\%}
+\section*{Problem2 - 35\%}
 
 \begin{enumerate}[(a)]
     \item Give an inductive definition of the judgment form
-    $\mbox{max}\ n_1\ n_2\ n_3$, which indicates the max number between $n_1$ and $n_2$ is $n_3$.
+    $\mbox{max}\ n_1\ n_2\ n_3$, which indicates the max number between $n_1$ and $n_2$ is $n_3$. 
+    \newline
+    \textbf{Hint}: think of how we defined $add$ by knowledge of $nat$. 
+    \answerboxsmall
+
     \item Prove by induction:
     if $\mbox{max}\ n_1\ n_2\ n_3$, then  $\mbox{max}\ n_2\ n_1\ n_3$.
+    \answerbox
 \end{enumerate}
 
-\section*{Problem3 - 20\%}
+\section*{Problem3 - 35\%}
 
 \begin{enumerate}[(a)]
-    \item Recall the definition of addition by $add\ n_{1}\ n_{2}\ n_{3}$ judgment taught in the lecture.
-    \item (15 points) Prove by induction: If$\ add\ n_{1}\ n_{2}\ n_{3}$, then $add\ n_{2}\ n_{1}\ n_{3}$ (Commutative law of add).
-    
-    (\textbf{Hint}: You can begin with proof of this lemma: If$\ n\ nat$, then $add\ n\ Z\ n$.)
+    \item Write the inductive definitions of \( \text{len} \ l \ n \) and \( \text{append} \ l_1 \ n \ l_2 \) and explain with natural language each rule in the inductive definition.
+    \answerbox
+
+    \item Prove by induction: \( \text{if} \ \text{len} \ l \ n \) and \( \text{append} \ l \ n_1 \ l' \) then \( \text{len} \ l' \ (S \ n) \). Attempt the prove using induction on two different derivations.
+    \answerboxbig
+
 \end{enumerate}
 
-\section*{Problem4 - 30\%}
-
-Recall the definition of natural numbers by $n\ \mbox{nat}$ judgment taught in the lecture.
-\begin{enumerate}[(a)]
-    \item Give an inductive definition of the judgment form
-    $\mbox{fib}\ n_1\ n_2$, which indicates the $n_1^{th}$ Fibonacci number is $n_2$.
-    \item Give an inductive definition of the judgment form
-    $\mbox{fibsum}\ n_1\ n_2$, which indicates the sum of the first $n_1$ Fibonacci
-    numbers is $n_2$.
-    \item Prove by induction:
-    If $\mbox{fibsum}\ n\ m$ then $\mbox{fib}\
-    \mbox{succ}(\mbox{succ}(n))\ \mbox{succ}(m)$, that is
-    $$\sum_{i=1}^n F_i = F_{n+2} - 1.$$
-\end{enumerate}
+% Include personal info fields at the end of the document
+\studentinfo
 
 \end{document}

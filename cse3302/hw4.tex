@@ -8,6 +8,10 @@
 \usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
 \usepackage{epsfig,graphicx,subfigure}
 \usepackage[usenames]{xcolor}
+\usepackage{tcolorbox}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
 
 \pagestyle{fancy}
 \pagenumbering{Alph}
@@ -15,57 +19,66 @@
 \headsep = 25pt
 \fancyhf{}
 \lhead{CSE 3302/5307 Programming Language Concepts}
-\rhead{Homework4:Untyped Lambda Calculus \uppercase\expandafter{\romannumeral2}}
-\lfoot{2023 Kenny Zhu}
+\rhead{Homework 3: Untyped Lambda Calculus}
+\lfoot{2024 Kenny Zhu & Essam Abdelghany}
+\rfoot{Plagiarism will not be tolerated. We are here to help.}
+
+% New command for blank spaces after questions
+\newcommand{\answerbox}{
+    \vspace{7cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxbig}{
+    \vspace{20cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxsmall}{
+    \vspace{3cm} % Adjust the space size as needed
+}
+
+% New command for personal info at the end of the document
+\newcommand{\studentinfo}{
+    \noindent Name: \underline{\hspace{5cm}} UTA ID: \underline{\hspace{5cm}}\\
+    \vspace{0.5cm} % Space after the fields
+}
+
+
+
 %----Documentation----%
 \begin{document}
 
 \title{CSE 3302/5307 Programming Language Concepts}
 \author{Homework4 - Fall 2023}
-\date{Due Date: Sep.23, 2023, 8:00p.m. Central Time}
+\date{Due Date: Sep.23, 2024, 11:59p.m. Central Time}
 \maketitle
 \thispagestyle{fancy}
 
 %----Homeworks----%
+\tcolorbox[]
+In the proofs for this assignment, failure to follow the step-justify proof format demonstrated in the lecture, or providing incorrect or missing "need to prove" statements, may result in significant loss of marks. This is to motivate you to write more correct proofs and seek help when needed.
+\endtcolorbox
 
-\section*{Problem1 - 40\%}
+\section*{Problem1 - 25\%}
 
-Given the definition of \textit{pred n} (predecessor of n):
-\[pred = \lambda n.\lambda f.\lambda x.n\ (\lambda g.\lambda h.h\ (g\ f))\ (\lambda u.x)\ (\lambda u.u)\]    
+Define the judgment $\Gamma \vdash e : t$ inductively and provide a natural language explanation for each inference rule. Additionally, for each inference rule, specify the corresponding expression form using the Backus-Naur form (BNF) of Simply-typed Lambda calculus.
+\newpage
 
-Please define following terms using lambda calculus:
-
-\begin{enumerate}
-    \item sub m n (subtraction)
-    \item iszero n
-    \item leq m n (m is less or equal than n)
-    \item equal m n
-    \item factorial n (hint: try to define it using pair)
-\end{enumerate}
-(You can directly use the definition in the slides and the last homework, like add, tru, etc.)
-
-
-\section*{Problem2 - 20\%}
+\section*{Problem2 - 25\%}
 
 Prove the \textbf{exchange lemma}: If $\Gamma, x:t_1,y:t_2, \Gamma'\vdash e:t, $ then $\Gamma, y:t_2, x:t_1, \Gamma' \vdash e:t.$ (proof by induction on derivation of $\Gamma, x:t_1, y:t_2, \Gamma' \vdash e:t$).
+\newpage
 
 
-\section*{Problem3 - 20\%}
+\section*{Problem3 - 25\%}
 
-Prove the \textbf{weakening lemma}: If $\Gamma \vdash e:t$ then $\Gamma,x:t' \vdash e:t$ (provided x not in Dom($\Gamma$)).
-
-
-\section*{Problem4 - 30\%}
-
-Prove the \textbf{substitution lemma}: If $\Gamma,x:t' \vdash e:t$ and $\Gamma \vdash v:t'$ then $\Gamma \vdash e[v/x]:t$.
+Prove the \textbf{weakening lemma}: If $\Gamma \vdash e:t$ then $\Gamma,x:t' \vdash e:t$ (provided x not in Dom($\Gamma$)). Hint: you may need to use the Exchange lemma.
+\newpage
 
 
-\textbf{Remark:} 
+\section*{Problem4 - 25\%}
 
-Please email \textbf{.pdf} files to TA.
+Prove the \textbf{substitution lemma}: If $\Gamma,x:t' \vdash e:t$ and $\Gamma \vdash v:t'$ then $\Gamma \vdash e[v/x]:t$. Hint: you may need to use the Exchange and Weakening lemmas.
+\newpage
 
-File name format: {\color{red} HW\_X\_FirstName\_10digitID.pdf}
 
-Example: {HW\_3\_Sinong\_1001001000.pdf}
+\studentinfo
 
 \end{document}

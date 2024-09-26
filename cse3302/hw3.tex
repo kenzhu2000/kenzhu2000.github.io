@@ -18,37 +18,57 @@
 \headsep = 25pt
 \fancyhf{}
 \lhead{CSE 3302/5307 Programming Language Concepts}
-\rhead{Homework3:Untyped Lambda Calculus}
-\lfoot{2023 Kenny Zhu}
+\rhead{Homework 3: Untyped Lambda Calculus}
+\lfoot{2024 Kenny Zhu & Essam Abdelghany}
+\rfoot{Plagiarism will not be tolerated. We are here to help.}
+
+% New command for blank spaces after questions
+\newcommand{\answerbox}{
+    \vspace{7cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxbig}{
+    \vspace{20cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxsmall}{
+    \vspace{3cm} % Adjust the space size as needed
+}
+
+% New command for personal info at the end of the document
+\newcommand{\studentinfo}{
+    \noindent Name: \underline{\hspace{5cm}} UTA ID: \underline{\hspace{5cm}}\\
+    \vspace{0.5cm} % Space after the fields
+}
+
+
+
 %----Documentation----%
 \begin{document}
 
 \title{CSE 3302/5307 Programming Language Concepts}
 \author{Homework3 - Fall 2023}
-\date{Due Date: Sep.16, 2023, 8:00p.m. Central Time}
+\date{Due Date: Sep.16, 2023, 11:59p.m. Central Time}
 \maketitle
 \thispagestyle{fancy}
 
 %----Homeworks----%
 
-\section*{Problem1 - 40\%}
+\section*{Problem1 - 20\%}
 
-Evaluate the following $\lambda$ expressions using call-by-value and call-by-name. Show the complete steps of evaluation.
-\begin{enumerate}[(a)]
-    \item $(\lambda x.\ ((\lambda y.\ x+z+3 )\ 3 )5)$
-    \item $((\lambda v.(\lambda w.w))\ ((\lambda x.x)\ (y\ (\lambda z.z))))$
-    \item $((\lambda x.\ x\ x)\ (\lambda y.\ y\ y))$
-    \item $((\lambda x. \lambda y. x)\ (\lambda z.z\ \lambda u.u))$
-\end{enumerate}
+Evaluate $(\lambda x.\ ((\lambda y.\ x+z+3 )\ 3 )5)$ using call-by-value and call-by-name. Show the complete steps of evaluation. 
+\answerbox
+\answerbox
 
-\section*{Problem2 - 30\%}
+\section*{Problem2 - 20\%}
+Given $Y = \lambda f . (\lambda x . f (x \, x)) (\lambda x . f (x \, x))$, show that $g\:(Y\:g) = Y\:g$ by performing call-by-name evaluation on $Y g$.
+\answerbox
 
-Prove by induction: If $e_{1}$ is closed and $e_{1} \rightarrow e_{2}$, then $e_{2}$ is closed.
-Suppose using call by value evaluation. 
+\section*{Problem3 - 30\%}
+
+Prove by induction: If $FV(e_{1})=\emptyset$ and $e_{1} \rightarrow e_{2}$, then $FV(e_{2})=\emptyset$.
 \begin{itemize}
 \item Given the following definitions:
 \begin{enumerate}
-    \item Rules of free variables (You can use these rules directly without writing "By ...")
+    \item Rules of free variables 
     \[
     \frac{}{FV(x)=\{x\}} \qquad
     \frac{FV(e_1) = S_1\quad FV(e_2) = S_2}{FV(e_1\ e_2)=S_1\cup S_2} \qquad
@@ -62,26 +82,32 @@ Suppose using call by value evaluation.
     \qquad
     \frac{e_2 \rightarrow e_2^{'}}{v\ e_2 \rightarrow v\ e_2^{'}}
     \]
-    
-    \item Judgment form: \textbf{define} $e_1{\rightarrow}^*e_2$
-    \[
-    \frac{}{e_1\rightarrow^* e_1}
-    \qquad
-    \frac{e_1\rightarrow e_2\qquad e_2\rightarrow^*e_3}{e_1\rightarrow^*e_3}
-    \]
 \end{enumerate}
-\newpage
 \item And given this lemma:
     \begin{lemma}\label{fv}
         $FV(e_1[e_2/x]) \subseteq (FV(e_1) - \{x\}) \cup FV(e_2)$
     \end{lemma}
-You can use this lemma directly. (Proof is in the appendix)
 \end{itemize}
 \vspace{20pt}
-\section*{Problem3 - 30\%}
+\newpage
+\textbf{By induction on derivation} of $e_1\rightarrow e_2$
 
-Church encoding is a means of embedding data and operators into the $\lambda$ calculus, the most familiar form being the Church numerals, a representation of the natural numbers using $\lambda$ notation. 
-Church numerals $\mathbf{0}, \mathbf{1}, \mathbf{2}, ...,$ are defined as follows:
+1. Case $\frac{}{(\lambda x.e)\ v \rightarrow e [v/x]}$
+Need to Prove:
+\answerbox
+
+2. Case $\frac{e_1 \rightarrow e_1^{'}}{e_1\ e_2 \rightarrow e_1^{'}\ e_2}$
+Need to Prove:
+\answerbox
+
+3. Case $\frac{e_2 \rightarrow e_2^{'}}{v\ e_2 \rightarrow v\ e_2^{'}}$
+Need to Prove:
+\answerbox
+
+
+\section*{Problem4 - 30\%}
+Church numerals use lambdas to create a representation of numbers.
+They can represent natural numbers $\mathbf{0}, \mathbf{1}, \mathbf{2}, ...,$ as follows:
 \begin{align*}
     \mathbf{0} &= \lambda f.\lambda x.\ x \\
     \mathbf{1} &= \lambda f.\lambda x.\ f\ x \\
@@ -91,107 +117,14 @@ Church numerals $\mathbf{0}, \mathbf{1}, \mathbf{2}, ...,$ are defined as follow
     \mathbf{n} &= \lambda f.\lambda x.\ f^n\ x \\
     &\dots
 \end{align*}
-Church numerals takes two parameters $f$ and $x$. Church numerals $n$ means apply $f$ to $x$ $n$ times.
-(You can refer to Wikipedia or other references about Church encoding to know more about the idea of church encoding)
+Church numerals takes two parameters $f$ and $x$. Church numerals $n$ means apply $f$ to $x$ $n$ times. You can read more about church numerals on the internet.
 \begin{enumerate}[(a)]
     \item Define addition in $\lambda$ calculus, and then show the evaluation of $3+2$.
-    \item Define multiplication in $\lambda$ calculus (Hint: use definition of addition), and then show the evaluation of $3\times2$.
-    \item Give a definition of multiplication on Church numerals without using addition.
+    \answerbox
+    \item Define multiplication in $\lambda$ calculus (Hint: you can use definition of addition), and then show the evaluation of $3\times2$.
+    \answerbox
+
 \end{enumerate}
 
 \vspace{20pt}
-
-\textbf{Remark:} 
-
-Please email \textbf{.pdf} files to TA.
-
-File name format: {\color{red} HW\_X\_FirstName\_10digitID.pdf}
-
-Example: {HW\_3\_Sinong\_1001001000.pdf}
-
-\newpage
-
-\appendix
-\renewcommand{\appendixname}{Appendix~\Alph{section}}
-
-\section{Proof of Lemma 1}
-
-
-\textbf{Lemma}	$FV(e_1[e/x]) \subseteq (FV(e_1) - \{x\}) \cup FV(e)$
-
-
-\begin{proof}
-	By induction on the derivation of substitution. (Actually you can treat substitution as a special judgement form and the definitions as rules)
-	\begin{enumerate}
-		\item case $x[e/x] = e$
-		
-		Need to prove: $FV(x[e/x]) \subseteq (FV(x)-\{x\}) \cup FV(e)$
-		
-		(1) $FV(x[e/x])=FV(e)$ (by assumption)
-		
-		(2) $FV(e) \subseteq (FV(x) - \{x\}) \cup FV(e)$
-		
-		(3) $FV(x[e/x]) \subseteq (FV(x)-\{x\}) \cup FV(e)$ (by (1) and (2))
-		
-		\item case $y[e/x] = y$
-		
-		Need to prove: $FV(y[e/x]) \subseteq (FV(y)-\{x\}) \cup FV(e)$
-		
-		(1) $FV(y[e/x])=FV(y)$ (by assumption)
-		
-		(2) $FV(y) \subseteq FV(y)-\{x\} \subseteq (FV(y)-\{x\}) \cup FV(e)$
-		
-		(3) $FV(y[e/x]) \subseteq (FV(y)-\{x\}) \cup FV(e)$ (by (1) and (2))
-		
-		\item case $(e_1\ e_2)[e/x] = e_1[e/x]\ e_2[e/x]$ (rule format: $\frac{e_1[e/x]=a\ e_2[e/x]=b}{(e_1\ e_2)[e/x] = a\ b}$)
-		
-		Need to prove: $FV((e_1\ e_2)[e/x]) \subseteq (FV(e_1\ e_2) -\{x\}) \cup FV(e)$
-		
-		(1) $FV((e_1\ e_2)[e/x]) = FV(e_1[e/x]) \cup FV(e_2[e/x])$ (by assumption)
-		
-		(2) $FV(e_1[e/x]) \subseteq (FV(e_1) -\{x\}) \cup FV(e)$ (by I.H.)
-		
-		(3) $FV(e_2[e/x]) \subseteq (FV(e_2) -\{x\}) \cup FV(e)$ (by I.H.)
-		
-		(4) $FV((e_1\ e_2)[e/x]) \subseteq (FV(e_1) -\{x\}) \cup (FV(e_2) -\{x\}) \cup FV(e) \subseteq (FV(e_1\ e_2) -\{x\}) \cup FV(e)$ (by (1), (2) and (3))
-		
-		\item case $(\lambda x.e_1)[e/x] = \lambda x.e_1$
-		
-		Need to prove $FV((\lambda x.e_1)[e/x]) \subseteq (FV(\lambda x.e_1) -\{x\}) \cup FV(e)$
-		
-		(1) $FV((\lambda x.e_1)[e/x]) = FV(\lambda x.e_1)$ (by assumption)
-		
-		(2) $FV((\lambda x.e_1)[e/x]) \subseteq (FV(\lambda x.e_1) -\{x\}) \cup FV(e)$ (by (1))
-		
-		\item case $(\lambda y.e_1)[e/x] = \lambda y.(e_1[e/x])$ ($y \neq x$ and $y \notin FV(e)$)
-		
-		Need to prove $FV((\lambda y.e_1)[e/x]) \subseteq (FV(\lambda y.e_1) -\{x\}) \cup FV(e)$
-		
-		(1) $FV((\lambda y.e_1)[e/x]) = FV(\lambda y.(e_1[e/x])) = FV(e_1[e/x]) - \{y\}$ (by assumption)
-		
-		(2) $FV(e_1[e/x]) \subseteq (FV(e_1) - \{x\}) \cup FV(e)$ (by I.H.)
-		
-		(3) $FV(\lambda y.e_1) = FV(e_1) -\{y\}$
-		
-		(4) $FV((\lambda y.e_1)[e/x]) \subseteq (FV(\lambda y.e_1) -\{x\}) \cup FV(e)$ (by (1), (2) and (3))
-		
-		\item case $(\lambda y.e_1)[e/x] = \lambda z.(e_1[[z/y]][e/x])$ ($y \neq x$, $y \in FV(e)$ and $z \notin FV(e) \cup Vars(e_1)$)
-		
-		Need to prove $FV((\lambda y.e_1)[e/x]) \subseteq (FV(\lambda y.e_1) -\{x\}) \cup FV(e)$
-		
-		(1) $FV((\lambda y.e_1)[e/x]) = FV(\lambda z.(e_1[[z/y]][e/x])) = FV(e_1[[z/y]][e/x]) - \{z\}$ (by assumption)
-		
-		(2) $FV(e_1[[z/y]][e/x]) \subseteq (FV(e_1[[z/y]]) - \{x\}) \cup FV(e)$ (by I.H.)
-		
-		(3) $FV(e_1[[z/y]]) \subseteq (FV(e_1) - \{y\}) \cup FV(z)$ (by I.H.)
-		
-		(4) $FV(\lambda y.e_1) = FV(e_1) - \{y\}$
-		
-		(5) $FV((\lambda y.e_1)[e/x]) \subseteq (FV(\lambda y.e_1) -\{x\}) \cup FV(e)$ (by (1), (2), (3) and (4))
-		
-	\end{enumerate}
-\end{proof}
-About the proof of this Lemma, you just need to know the idea. I found another proof ( \href{https://www.cs.bham.ac.uk/research/projects/poplog/paradigms_lectures/lambda_calculus_html.d/substitution.html}{This is another proof}) from the internet. You will find the idea is the same. Both proofs use induction to prove this property.
-
-
 \end{document}
