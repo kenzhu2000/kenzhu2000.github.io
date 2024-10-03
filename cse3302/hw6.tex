@@ -1,0 +1,138 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage[usenames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 3302/5307 Programming Language Concepts}
+\rhead{Homework 6: Simply-typed Extensions II}
+\lfoot{2024 Kenny Zhu & Essam Abdelghany}
+\rfoot{Plagiarism will not be tolerated. We are here to help.}
+
+% New command for blank spaces after questions
+\newcommand{\answerbox}{
+    \vspace{7cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxbig}{
+    \vspace{20cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxsmall}{
+    \vspace{3cm} % Adjust the space size as needed
+}
+
+% New command for personal info at the end of the document
+\newcommand{\studentinfo}{
+    \noindent Name: \underline{\hspace{5cm}} UTA ID: \underline{\hspace{5cm}}\\
+    \vspace{0.5cm} % Space after the fields
+}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    language=C,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{orange},
+    numbers=none, % Hides line numbers
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    rulecolor=\color{black},
+}
+
+
+%----Documentation----%
+\begin{document}
+
+\title{CSE 3302/5307 Programming Language Concepts}
+\author{Homework6 - Fall 2023}
+\date{Due Date: Sep.30, 2024, 11:59p.m. Central Time}
+\maketitle
+\thispagestyle{fancy}
+
+%----Homeworks----%
+
+\section*{Problem1 - 30\%}
+
+	We've seen how to define natural numbers using church encoding in untyped lambda calculus:
+	\begin{align*}
+		\mathbf{0} &= \lambda f.\lambda x.\ x \\
+		\mathbf{1} &= \lambda f.\lambda x.\ f\ x \\
+		&\dots \\
+		\mathbf{n} &= \lambda f.\lambda x.\ f^n\ x \\
+		&\dots
+	\end{align*}
+	Note that church encoding cannot represent negative integers.
+	\begin{enumerate}[(a)]
+	\item Propose a \textbf{simple} method to extend church numerals to representation of integers. Give a concrete example for representation of integer \textbf{-5} with your proposed method. Hint: you may try to use pairs.
+	
+	\item Define the XOR function given two boolean inputs in lambda calculus and test that it works. 
+
+ \item Define a new multiplication operation $mulint$ that works on the representation of integers you defined.
+\end{enumerate}
+
+ \noindent For the last two points, you can directly use basic logical functions defined in the lecture such as $not$, $and$ and $or$ as well as the $mul$ you wrote for natural numbers in an earlier assignment as well as .
+
+
+\newpage 
+\ % The empty page
+\newpage 
+
+
+\section*{Problem2 - 30\%}
+
+Given the definition of Fibonacci number
+\[F_0 = 0, F_1 = 1, F_i = F_{i-1} + F_{i-2}\]
+\begin{enumerate}[(a)]
+\item Use \textit{fix} to write a lambda function called \textit{fib}: int $\rightarrow$ int to compute the n-th Fibonacci number.
+\item Test that your function works by showing detailed steps for $fib \, 3$. Use the Z combinator defined in the lecture for $fix$ and do not treat it as a black box.
+\end{enumerate}
+\answerboxbig
+
+\section*{Problem3 - 40\%}
+
+	Given the following $\lambda$ expression:
+ 
+	\begin{verbatim}
+	let x = 2 in
+	  let y = 4 in
+	    let f1 = \x.\y.x+2*y in
+	      let f2 = \x.\y.2*x-y in
+	      f2 (f1 y x) 3
+	\end{verbatim}
+
+
+	
+	Using the environment model for lambda calculus with let,
+		
+	(a) Define closures. (Be careful and refer to lecture slides);
+	 
+	(b) Show detailed multi-step evaluation process of the $\lambda$ expression above. 
+ 
+ 
+ The environment should be clearly shown in each step.
+
+\section*{}
+\answerboxbig
+
+\studentinfo
+
+
+\end{document}
