@@ -1,0 +1,135 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage[usenames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{enumitem}   % For customizing the enumerate environment
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 3302/5307 Programming Language Concepts}
+\rhead{Homework 10: Type Inference II}
+\lfoot{2024 Kenny Zhu & Essam Abdelghany}
+\rfoot{Plagiarism will not be tolerated. We are here to help.}
+
+\lstset{
+  language=[Objective]Caml,
+  basicstyle=\ttfamily,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{green},
+  showstringspaces=false,
+  numbers=left,
+  numberstyle=\tiny,
+  breaklines=true,
+  frame=single
+}
+
+% New command for blank spaces after questions
+\newcommand{\answerbox}{
+    \vspace{7cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxbig}{
+    \vspace{20cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxsmall}{
+    \vspace{3cm} % Adjust the space size as needed
+}
+
+% New command for personal info at the end of the document
+\newcommand{\studentinfo}{
+    \noindent Name: \underline{\hspace{5cm}} UTA ID: \underline{\hspace{5cm}}\\
+    \vspace{0.5cm} % Space after the fields
+}
+
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{placeins}
+
+\lstset{
+    language=C,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{orange},
+    numbers=none, % Hides line numbers
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    rulecolor=\color{black},
+}
+
+
+%----Documentation----%
+\begin{document}
+
+\title{CSE 3302/5307 Programming Language Concepts}
+\author{Homework10 - Fall 2023}
+\date{Due Date: Nov. 4th, 2024, 11:59p.m. Central Time}
+\maketitle
+\thispagestyle{fancy}
+
+%----Homeworks----%
+
+\section*{Problem1 - 20\%}
+
+Specify the inference rules that could be applied by the unification algorithm in a transition $(S,q)\rightarrow(S',q)$ and number each.
+
+\answerboxbig
+
+\section*{Problem2 - 30\%}
+
+Use the unification algorithm to solve each of the following sets of constraints. In each step of the solution, mention the inference rule used.
+	\begin{enumerate}[(a)]
+		\item $\{X = Int,\ Y = X\rightarrow X\, Z=Z\}$
+		\item $\{Int\rightarrow Int = Z\rightarrow X\}$
+		\item $\{Z\rightarrow Y = Y\rightarrow X,\ X = U\rightarrow W\}$
+		\item $\{Int = Int\rightarrow X\}$
+		\item $\{\}$
+	\end{enumerate} 
+
+\answerboxbig
+
+\section*{Problem3 - 50\%}
+
+\begin{lstlisting}
+c = lambda(l:List Z, z:Z)->List Z...  # library function
+
+fun m(a, g) =
+  case a of
+    nil => nil
+    | h :: t => c(m(t, g), g(h))
+\end{lstlisting}
+
+
+\noindent
+Generate the polymorphic types for the function $m$ shown. Your solution must clearly distinguish different steps (adding type schemes, generating constraints, solving constraints, etc.). The source of each constraint should be mentioned and unification should be used to solve the constraints.
+
+\answerboxbig
+
+\newpage 
+\mbox{}
+\newpage 
+
+
+
+
+\studentinfo
+
+
+\end{document}
