@@ -1,0 +1,132 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage{listings}
+\usepackage[usenames]{xcolor}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 3302/5307 Programming Language Concepts}
+\rhead{Homework 13:OCaml}
+\lfoot{2024 Kenny Zhu & Essam Abdelghany}
+\rfoot{Plagiarism will not be tolerated. We are here to help.}
+
+\lstset{
+  language=[Objective]Caml,
+  basicstyle=\ttfamily,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{green},
+  showstringspaces=false,
+  numbers=left,
+  numberstyle=\tiny,
+  breaklines=true,
+  frame=single
+}
+
+% New command for blank spaces after questions
+\newcommand{\answerbox}{
+    \vspace{7cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxbig}{
+    \vspace{20cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxsmall}{
+    \vspace{3cm} % Adjust the space size as needed
+}
+
+% New command for personal info at the end of the document
+\newcommand{\studentinfo}{
+    \noindent Name: \underline{\hspace{5cm}} UTA ID: \underline{\hspace{5cm}}\\
+    \vspace{0.5cm} % Space after the fields
+}
+
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{placeins}
+
+\lstset{
+    language=C,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{orange},
+    numbers=none, % Hides line numbers
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    rulecolor=\color{black},
+}
+
+
+\begin{document}
+
+\title{CSE 3302/5307 Programming Language Concepts}
+\author{Homework 13 - Fall 2024}
+\date{Due Date: Nov.24, 2024, 11:59p.m. Central Time}
+\maketitle
+\thispagestyle{fancy}
+
+%----Homeworks----%
+
+\section*{Problem 1 - 40\%}
+
+\begin{lstlisting}[language=OCaml]
+(* question 1 *)
+let rec sum (n : int) : int = (* change this *) 0;;
+
+(* question 2 *)
+let add2 (x : int * int) : int = (* change this *) 0;;
+
+(* question 3 *)
+
+type tree = (* change this *)..;;
+
+(* question 4 *)
+let rec tree_size (t : tree) : int = (* change this *) 0;;
+\end{lstlisting}
+
+	
+	To begin with, you have to set up OCaml on your computer first. You can find instruction  \href{https://ocaml.org/docs/up-and-running}{here}. Please make sure that you can run OCaml in the \textbf{OCaml top level}. You may use any IDE you want, like Visual Studio Code with the OCaml Platform extension. For simple tests, you can also try interactive toplevel along with \href{https://github.com/ocaml-community/utop}{UTop}.
+	\\
+	
+	\textbf{Problems}
+	
+	Finish in the code in file \texttt{p1-base.ml} (shown above)  for the following functions:
+	\begin{enumerate}[a)]
+	\item A function called \texttt{sum} that takes an integer \texttt{n} and returns the sum of the numbers from \texttt{1} to \texttt{n}.
+	\item A function called \texttt{add2} that takes a tuple of ints (type \texttt{int} * \texttt{int}) and adds the two ints together.
+	\item An inductive type called \texttt{tree} that is either a \texttt{Leaf} with an \texttt{int} value, or a \texttt{Node} with two subtrees (each of type \texttt{tree}).
+	\item A function called \texttt{tree\_size} that takes a \texttt{tree} and returns the total number of elements (nodes and leaves) in it.
+	\end{enumerate}
+	
+	\textbf{Remark:} The PDF you submit should include: (i), the OCaml code for these functions and (ii), a test for each of them and (iii), a screenshot for the output of the test from each of them.
+	
+
+\answerboxbig
+
+
+\section*{Problem 2 - 60\%}
+
+Consider extending the interpreter implemented in the slides to also handle exponentiation,  modulo operation as well as greater than, smaller than and is equal operators.
+
+\textbf{Remark:} 
+    Show each of scanner.mll and ast.mli and parser.mly and calc.ml in the submitted PDF and show seven test cases and their output where five of the test cases should be designated to test the five added operations.
+
+\answerboxbig
+
+
+\bibliographystyle{plain}
+\end{document}
