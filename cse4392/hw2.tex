@@ -1,0 +1,146 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage{listings}
+\usepackage[usenames]{xcolor}
+\usepackage{tcolorbox}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 4392 Special Topic: Natural Language Processing}
+\rhead{Homework 1: Introduction}
+\lfoot{2025 Kenny Zhu & Essam Abdelghany}
+\rfoot{Plagiarism will not be tolerated. We are here to help.}
+
+
+% New command for blank spaces after questions
+\newcommand{\answerbox}{
+    \vspace{7cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxbig}{
+    \vspace{20cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxsmall}{
+    \vspace{3cm} % Adjust the space size as needed
+}
+
+
+%----Documentation----%
+\begin{document}
+
+\title{CSE 4392 Special Topic: Natural Language Processing}
+\author{Homework 2 - Spring 2025}
+\date{Due Date: Jan 31, 2025, 11:59 p.m. Central Time}
+\maketitle
+\thispagestyle{fancy}
+
+%----Homeworks----%
+
+\section*{Problem 1 (Written)}
+The corpus provided for training the bi-gram model consists of the following four sentences:
+
+\begin{itemize}
+    \item Cats chase after playful mice
+    \item Birds sing at morning dawn
+    \item Fish swim in the pond
+    \item Dogs bark at passing cars
+\end{itemize}
+
+The corpus provided for testing the bi-gram model consists of the following two sentences:
+
+\begin{itemize}
+    \item Cats sing and dogs swim
+    \item Playful dogs chase birds at dawn
+\end{itemize}
+
+\newpage
+
+\subsection*{Question 1.1 - 15\%}
+Define the vocabulary $V$ corresponding to the training set shown.
+
+\answerboxsmall
+
+\subsection*{Question 1.2 - 15\%}
+Compute the matrix of bigram counts $B$ and vector of unigram counts $u$. Write the probability of an arbitrary bigram $P(V_j|V_i)$ in terms of $B$ and $u$.
+
+\answerboxbig
+
+
+\subsection*{Question 1.3 - 15\%}
+Incorporate add-1 Laplace smoothing to $B$ and justify why it is helpful in this particular case. Adapt $u$ accordingly as well so that the probability is computed using the same formula you defined the previous question.
+\answerbox
+
+\subsection*{Question 1.4 - 10\%}
+Please calculate the PPL of the \textbf{whole test set} after Laplace Smoothing. 
+\answerboxbig
+
+
+\section*{Problem 2 (Python)}
+The corpus provided for training the trigram model consists of the 
+following sentences:
+
+\begin{itemize}
+    \item the cat watched children play in the park.
+    \item their laughter echoed near the fragrant garden.
+    \item the breeze spread the garden's scent into the city.
+    \item it wafted past the cafe, famous for apple pie.
+    \item the cafe's aroma reminded people of the nearby library.
+    \item the library held tales of the ancient clock tower.
+    \item the tower tolled, echoing in the quiet morning streets.
+    \item these streets, bustling by day, were peaceful at dawn.
+    \item at night, they lay under a star-filled sky.
+    \item the moonlight shone on the lake where a fisherman waited.
+\end{itemize}
+
+The corpus provided for testing the trigram model consists of the following 
+three sentences:
+
+\begin{itemize}
+    \item the cat watched the moonlight.
+    \item the library held the ancient clock.
+    \item the park was peaceful in the morning.
+\end{itemize}
+
+Note that punctuation and 's are treated as separate tokens.
+
+\subsection*{Question 2.1 - 30\%}
+Define a class \textbf{TrigramModel} that has a train method that computes the trigram tensor, bigram matrix and unigram vector needed to compute any $P(w_k|w_{k-1},.., w_{k-n}) \\ n<3$ involving words in the training vocabulary given a list of training sequences. Outside the class, write a test function that ensures the trigram counts are computed correctly using at least three examples that you compute manually.
+
+\subsection*{Question 2.2 - 20\%}
+Create an inference function that computes the conditional probability using \textbf{Linear Interpolation} smoothing technique given a word and a bigram.
+You can set the $\lambda_1$ as 0.5, $\lambda_2$ as 0.4, $\lambda_3$ as 0.1 for initialization. Outside the class, write a test function that ensures the probabilities are computed correctly using at least three examples that you compute manually.
+\answerbox
+
+You can perform smoothing to avoid undefined probabilities as a bonus but we will also accept submissions that simply ignore such probabilities by setting them to zero for simplicity.
+
+
+\subsection*{Question 2.3 - 10\%}
+Calculate the perplexity of the \textbf{whole test set} by adding an evaluation function to the class. Use a helper function that first computes the probability of an entire sequence using the inference function previously defined.
+
+
+\subsection*{}
+
+\begin{tcolorbox}[colframe=orange!50!black, colback=orange!10, coltitle=black]
+Your submission should include:
+\begin{itemize}
+    \item Written answer to the first problem (ideally in LaTeX), but could be handwritten.
+    \item A \texttt{.py} file for your answer to the second problem. Please note that the implemented class should not contain any information about the data (i.e., implement generically). When this file is run, it should print the test cases used in the two functions and the result, as well as the final perplexity.
+    \item Include a screenshot of the output from running your \texttt{.py} file. This should include all the information mentioned in the last bullet.
+    \item Convert the \texttt{.py} file to a PDF using a tool such as \url{https://www.i2pdf.com/source-code-to-pdf} and include it in your submission.
+    \item Using libraries is okay as long as they do not do the probability computation end-to-end (ie, you can use libraries to construct the count matrices or equivalent datastructures to that will be used to later compute conditional and joint probabilities in inference and evaluation)
+\end{itemize}
+\end{tcolorbox}
+
+\end{document}
