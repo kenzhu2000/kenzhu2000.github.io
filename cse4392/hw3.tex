@@ -1,0 +1,107 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage{listings}
+\usepackage[usenames]{xcolor}
+\usepackage{tcolorbox}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 4392 Special Topic: Natural Language Processing}
+\rhead{Homework 1: Introduction}
+\lfoot{2025 Kenny Zhu & Essam Abdelghany}
+\rfoot{Plagiarism will not be tolerated. We are here to help.}
+
+
+% New command for blank spaces after questions
+\newcommand{\answerbox}{
+    \vspace{7cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxbig}{
+    \vspace{20cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxsmall}{
+    \vspace{3cm} % Adjust the space size as needed
+}
+
+
+%----Documentation----%
+\begin{document}
+
+\title{CSE 4392 Special Topic: Natural Language Processing}
+\author{Homework 3 - Spring 2025}
+\date{Due Date: Feb 11, 2025, 11:59 p.m. Central Time}
+\maketitle
+\thispagestyle{fancy}
+
+%----Homeworks----%
+
+
+\section*{Problem 1 - 40\%}
+You are given the below training set.
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+     & Email ID & Content & Class \\ \hline
+    Training & 1 & Limited offer, apply now & Spam \\ \hline
+             & 2 & Your subscription offer expires soon & Spam \\ \hline
+             & 3 & Meeting scheduled for tomorrow & Ham \\ \hline
+             & 4 & Congratulations! You won a prize & Spam \\ \hline
+             & 5 & Can we reschedule the meeting? & Ham \\ \hline
+    Test    & 6 & Your prize offer expires tomorrow & ? \\ \hline
+    \end{tabular}
+\end{center}
+
+\subsection*{Question 1.1 - 30\%}
+Compute the conditional probabilities matrix $P$ with add-1 smoothing and the prior probabilities vector $p$.
+
+\answerboxbig
+
+\subsection*{Question 1.2 - 10\%}
+Compute ${P(c \mid d_{6})}$. You must write the original inference formula as covered in the slides then write it in terms of your defined parameter tensors. 
+
+\answerboxsmall
+
+
+
+\newpage
+
+\section*{Problem 2 - 60\%}
+
+\subsection*{Question 2.1 - 30\%}
+
+Define a class \textbf{NaiveBayesClassifier} that has a train method that computes the training parameters given an arbitrary list of sentences (with optional add-1 smoothing). Apply the class on the training data presented in the previous problem to ensure the results are correct.
+
+\subsection*{Question 2.2 - 20\%}
+Add to the class an inference method that given a sentences returns the most likely class. Test it on the previous problem and ensure it returns the same probability and the correct class.
+
+\subsection*{Question 2.3 - 10\%}
+Write an evaluate function that given a list of test sentences and a list of corresponding labels, returns the corresponding F1-Score by running inference on each sentence then comparing the result to the true labels. In comments, precisely explain why your computes the F1-Score correctly.
+
+\begin{tcolorbox}[colframe=orange!50!black, colback=orange!10, coltitle=black]
+Your submission should include:
+\begin{itemize}
+    \item Written answer to the first problem (ideally in LaTeX), but could be handwritten.
+    \item A \texttt{.py} file for your answer to the second problem. Please note that the implemented class should not contain any information about the data (i.e., implement generically). When this file is run, it should print the test cases used in the two functions and the results (i.e., the first problem as test case).
+    \item Include a screenshot of the output from running your \texttt{.py} file. This should include all the information mentioned in the last bullet.
+    \item Convert the \texttt{.py} file to a PDF using a tool such as \url{https://www.i2pdf.com/source-code-to-pdf} and include it in your submission.
+    \item Using libraries is okay as long as they do not do the probability computation end-to-end (ie, you can use libraries to construct the count matrices or equivalent datastructures to that will be used to later compute conditional and joint probabilities in inference and evaluation)
+    \item You must use Numpy (or PyTorch) in the implementation. Inefficient loops will be penalized.
+\end{itemize}
+\end{tcolorbox}
+
+
+\end{document}
