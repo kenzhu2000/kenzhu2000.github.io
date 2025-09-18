@@ -1,0 +1,76 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage[usenames]{xcolor}
+\usepackage{tcolorbox}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 3302/5307 Programming Language Concepts}
+\rhead{Homework 5: Untyped Lambda Calculus}
+\lfoot{2025 Kenny Zhu Wonjun Park}
+\rfoot{Plagiarism will not be tolerated. We are here to help.}
+
+% New command for blank spaces after questions
+\newcommand{\answerbox}{
+    \vspace{7cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxbig}{
+    \vspace{20cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxsmall}{
+    \vspace{3cm} % Adjust the space size as needed
+}
+
+\newcommand{\studentinfo}{
+    $$\begin{array}{cc}
+        \noindent \text{Name:} \underline{\hspace{5cm}} &
+            \text{UTA ID:} \underline{\hspace{5cm}}\\
+    \end{array}$$
+}
+
+
+
+%----Documentation----%
+\begin{document}
+
+\title{CSE 3302/5307 Programming Language Concepts}
+\author{Homework 5 - Fall 2025}
+\date{Due Date: Sep. 22, 2025, 9:00PM Central Time}
+\maketitle
+\thispagestyle{fancy}
+
+\studentinfo
+
+%----Homeworks----%
+\section*{Problem1 - 30\%}
+
+Prove the \textbf{exchange lemma}: If $\Gamma, x:t_1,y:t_2, \Gamma'\vdash e:t, $ then $\Gamma, y:t_2, x:t_1, \Gamma' \vdash e:t.$ (proof by induction on derivation of $\Gamma, x:t_1, y:t_2, \Gamma' \vdash e:t$).
+\answerboxbig
+
+
+\section*{Problem2 - 30\%}
+
+Prove the \textbf{weakening lemma}: If $\Gamma \vdash e:t$ then $\Gamma,x:t' \vdash e:t$ (provided x not in Dom($\Gamma$)). Hint: you may need to use the Exchange lemma.
+\answerboxbig
+
+
+\section*{Problem3 - 40\%}
+
+Prove the \textbf{substitution lemma}: If $\Gamma,x:t' \vdash e:t$ and $\Gamma \vdash v:t'$ then $\Gamma \vdash e[v/x]:t$. Hint: you may need to use the Exchange and Weakening lemmas.
+\answerboxbig
+
+
+\end{document}
