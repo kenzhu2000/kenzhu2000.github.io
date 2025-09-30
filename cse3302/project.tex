@@ -3,6 +3,7 @@
 \usepackage{listings}
 \usepackage{color}
 \usepackage{amsmath,amssymb,amsthm}
+\usepackage{tocloft}
 
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
@@ -44,26 +45,35 @@
 \usepackage{stmaryrd} % for double brackets
 
 \title{
-  \textbf{CS383 Course Project Specification} \\
-  \textbf{\normalsize Version 5.0} \\
+  \textbf{CSE3302/CSE5307 Course Project Specification} \\
   {\normalsize Last Modified on \today}}
 \author{
   \normalsize
   \begin{tabular}{rcl}
-    Course Instructor: & Kenny Zhu & \texttt{kzhu@cs.sjtu.edu.cn} \\
-    Teaching Assistant: & Bran Li& \texttt{likaijian@sjtu.edu.cn} \\
-    					& Yvonne Huang& \texttt{yvonne\_huang@sjtu.edu.cn}
-  \end{tabular}}
-\date{}
+    Course Instructor: & Kenny Zhu & \texttt{kenny.zhu@uta.edu} \\
+    Teaching Assistant: & Wonjun Park & \texttt{wxp7177@mavs.uta.edu} \\
+  \end{tabular}
+}
 
 \newcommand{\btt}{\mathbf{tt}}
 \newcommand{\bff}{\mathbf{ff}}
 \newcommand{\To}{\ \textcolor{blue}{\Downarrow}\ }
 \newcommand{\result}[1]{\textcolor{blue}{\texttt{#1}}}
 
+\renewcommand{\cftsecfont}{\bfseries} % Bold section titles in ToC
+\renewcommand{\cftsecpagefont}{\bfseries} % Bold page numbers for sections
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % Add dots between section title and page number
+\setlength{\cftbeforesecskip}{0.5em} % Adjust vertical spacing before sections
+\setlength{\cftsecindent}{1.5em} % Indent section titles
+
+
 \begin{document}
 
 \maketitle
+
+% \tableofcontents
+
+% \newpage
 
 \section{Introduction}
 
@@ -189,7 +199,7 @@ Keywords cannot be bound to anything.
     &  |  & t\ \texttt{list} \\
     &  |  & t\ \texttt{ref} \\
     &  |  & t \times t \\
-    &  |  & t \to t \\
+    &  |  & t \rightarrow t \\
 \end{array}\]
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
@@ -210,10 +220,10 @@ The set of all types $\mathbf{Typ}$ is the smallest set satisfying the following
   \item $\forall t\in\mathbf{Typ}, t\ \texttt{list}\in\mathbf{Typ}$
   \item $\forall t\in\mathbf{Typ}, t\ \texttt{ref}\in\mathbf{Typ}$
   \item $\forall t_1,t_2\in\mathbf{Typ}, t_1\times t_2\in\mathbf{Typ}$
-  \item $\forall t_1,t_2\in\mathbf{Typ}, t_1\to t_2\in\mathbf{Typ}$
+  \item $\forall t_1,t_2\in\mathbf{Typ}, t_1\rightarrow t_2\in\mathbf{Typ}$
 \end{itemize}
 
-Type environment $\Gamma:\mathbf{Var}\to \mathbf{Typ}$ is a mapping from names to arbitrary types.
+Type environment $\Gamma:\mathbf{Var}\rightarrow \mathbf{Typ}$ is a mapping from names to arbitrary types.
 The replacement of $x$ with $t$ in $\Gamma$, i.e. $\Gamma[x:t]$, is defined as follows.
 \[
 \Gamma[x:t](y) =
@@ -235,7 +245,7 @@ Typing rules:
 			\frac{\Gamma(x) = t}{\Gamma\vdash x:t}
 			\\
 			\tag{\sc T-Fn}
-			\frac{\Gamma[x:t_1]\vdash e:t_2}{\Gamma\vdash \texttt{fn}\ x\ \texttt{=>}\ e : t_1\to t_2}
+			\frac{\Gamma[x:t_1]\vdash e:t_2}{\Gamma\vdash \texttt{fn}\ x\ \texttt{=>}\ e : t_1\rightarrow t_2}
 			\\
 			\tag{\sc T-Rec}
 			\frac{\Gamma[x:t]\vdash e:t}{\Gamma\vdash \texttt{rec}\ x\ \texttt{=>}\ e : t}
@@ -295,7 +305,7 @@ Typing rules:
 			{\Gamma\vdash e_1\ \texttt{::}\ e_2 : t\ \texttt{list}}
 			\\\\
 			\tag{\sc T-App}
-			\frac{\Gamma\vdash e_1:t_2\to t_1 \quad \Gamma\vdash e_2:t_2}
+			\frac{\Gamma\vdash e_1:t_2\rightarrow t_1 \quad \Gamma\vdash e_2:t_2}
 			{\Gamma\vdash e_1\ e_2 : t_1}
 			\\\\
 			\tag{\sc T-Let}
@@ -374,7 +384,7 @@ There is no explicit type annotations in SimPL. So principal type inference is n
 			{\Gamma\vdash e_1\ bop\ e_2 : \texttt{bool}, q_1\cup q_2 \cup \{t_1=int, t_2=int\}}
 			\\\\
 			\tag{\sc CT-Fn}
-			\frac{\Gamma,x:a\vdash e:t,q}{\Gamma\vdash \texttt{fn}\ x:a\ \texttt{=>}\ e:b : a\to b,q\cup \{t=b\}}
+			\frac{\Gamma,x:a\vdash e:t,q}{\Gamma\vdash \texttt{fn}\ x:a\ \texttt{=>}\ e:b : a\rightarrow b,q\cup \{t=b\}}
 			\\
 			\end{align*}
 	\end{minipage}}
@@ -405,6 +415,7 @@ You need to think of how to deal with other cases.
 	&\frac{\Gamma \vdash e_2[e_1/x]:t_2,q_1 \quad \Gamma \vdash e_1:t_1}
 	{\Gamma\vdash \texttt{let}\ x\ \texttt{=}\ e_1\ \texttt{in}\ e_2\ \texttt{end} : t_2, q_1}&(CT-LetPoly)\\
 \end{align*}
+\newpage
 
 \section{Semantics}
 
@@ -416,12 +427,12 @@ $M\in\mathbf{Mem}$ is the memory, and
 $p\in\mathbb{N}$ is the memory pointer.
 \begin{align*}
 \mathbf{State} &= \mathbf{Env} \times \mathbf{Mem} \times \mathbb{N} \\
-  \mathbf{Env} &= \mathbf{Var} \to \mathbf{Val}\cup\mathbf{Rec} \\
-  \mathbf{Mem} &= \mathbb{N} \to \mathbf{Val}
+  \mathbf{Env} &= \mathbf{Var} \rightarrow \mathbf{Val}\cup\mathbf{Rec} \\
+  \mathbf{Mem} &= \mathbb{N} \rightarrow \mathbf{Val}
 \end{align*}
 
 Both the environment and the memory are updateable mappings.
-Given an updateable mapping $f:X\to Y$, the updated mapping $f[x\mapsto y]$,
+Given an updateable mapping $f:X\rightarrow Y$, the updated mapping $f[x\mapsto y]$,
 where $x\in X, y\in Y$, is defined as \[f[x\mapsto y](x') = \begin{cases}
   y & \text{if}\ x=x' \\
   f(x) & \text{otherwise.}
@@ -438,212 +449,212 @@ $\mathbf{Val}$ consists of integers, booleans, lists, references, pairs, and fun
   \mathcal{V}_{t\ \texttt{list}}^{(i+1)} &= \{\texttt{cons}\}\times\mathcal{V}_t\times\mathcal{V}_{t\ \texttt{list}}^{(i)} \\
   \mathcal{V}_{t\ \texttt{ref}} &= \{\texttt{ref}\}\times\mathbb{N} \\
   \mathcal{V}_{t_1\times t_2} &= \{\texttt{pair}\}\times\mathcal{V}_{t_1}\times\mathcal{V}_{t_2} \\
-  \mathcal{V}_{t_1\to t_2} &= \textcolor{red}{{\mathcal{V}_{t_1}}^{\mathcal{V}_{t_2}}} \subseteq \{\texttt{fun}\}\times\mathbf{Env}\times\mathbf{Var}\times\mathbf{Exp} \\
+  \mathcal{V}_{t_1\rightarrow t_2} &= \textcolor{red}{{\mathcal{V}_{t_1}}^{\mathcal{V}_{t_2}}} \subseteq \{\texttt{fun}\}\times\mathbf{Env}\times\mathbf{Var}\times\mathbf{Exp} \\
   \mathbf{Rec} &= \{\texttt{rec}\}\times\mathbf{Env}\times\mathbf{Var}\times\mathbf{Exp}
 \end{align*}
 
 \subsection{Rules}
 
-Judgement form: $E,M,p;e\To M',p';v$ where $E\in\mathbf{Env}, M,M'\in\mathbf{Mem}, p\in\mathbb{N}, e\in\mathbf{Exp}, v\in\mathbf{Val}$
+Judgement form: $E,M,p;e\rightarrow M',p';v$ where $E\in\mathbf{Env}, M,M'\in\mathbf{Mem}, p\in\mathbb{N}, e\in\mathbf{Exp}, v\in\mathbf{Val}$
 
 \begin{align*}
 \tag{\sc E-Int}
 \frac{\mathbf{n}=\mathcal{N}\llbracket n\rrbracket}
-{E,M,p;n\To M,p;\mathbf{n}}
+{E,M,p;n\rightarrow M,p;\mathbf{n}}
 \\
 \tag{\sc E-Name1}
-\frac{E(x)=(\texttt{rec},E_1,x_1,e_1) \quad E_1,M,p;\texttt{rec}\ x_1\ \texttt{=>}\ e_1\To M',p';v}
-{E,M,p;x\To M',p';v}
+\frac{E(x)=(\texttt{rec},E_1,x_1,e_1) \quad E_1,M,p;\texttt{rec}\ x_1\ \texttt{=>}\ e_1\rightarrow M',p';v}
+{E,M,p;x\rightarrow M',p';v}
 \\
 \tag{\sc E-Name2}
 \frac{E(x)=v}
-{E,M,p;x\To M,p;v}
+{E,M,p;x\rightarrow M,p;v}
 \\
 \tag{\sc E-True}
 \frac{}
-{E,M,p;\texttt{true}\To M,p;\btt}
+{E,M,p;\texttt{true}\rightarrow M,p;\btt}
 \\
 \tag{\sc E-False}
 \frac{}
-{E,M,p;\texttt{false}\To M,p;\bff}
+{E,M,p;\texttt{false}\rightarrow M,p;\bff}
 \\
 \tag{\sc E-Nil}
 \frac{}
-{E,M,p;\texttt{nil}\To M,p;\texttt{nil}}
+{E,M,p;\texttt{nil}\rightarrow M,p;\texttt{nil}}
 \\
 \tag{\sc E-Unit}
 \frac{}
-{E,M,p;\texttt{()}\To M,p;\texttt{unit}}
+{E,M,p;\texttt{()}\rightarrow M,p;\texttt{unit}}
 \\
 \tag{\sc E-Group}
-\frac{E,M,p;e\To M,p;v}
-{E,M,p;\texttt{(}e\texttt{)}\To M,p;v}
+\frac{E,M,p;e\rightarrow M,p;v}
+{E,M,p;\texttt{(}e\texttt{)}\rightarrow M,p;v}
 \end{align*}
 
 \begin{align*}
 \tag{\sc E-Ref}
-\frac{E,M,p+1;e\To M'',p';v \quad M'=M''[p\mapsto v]}
-{E,M,p;\texttt{ref}\ e\To M',p';(\texttt{ref},p)}
+\frac{E,M,p+1;e\rightarrow M'',p';v \quad M'=M''[p\mapsto v]}
+{E,M,p;\texttt{ref}\ e\rightarrow M',p';(\texttt{ref},p)}
 \\
 \tag{\sc E-Assign}
-\frac{E,M,p;e_1\To M',p';(\texttt{ref},p_1) \quad E,M',p';e_2\To M''',p'';v \quad M''=M'''[p_1\mapsto v]}
-{E,M,p;e_1\ \texttt{:=}\ e_2\To M'',p'';\texttt{unit}}
+\frac{E,M,p;e_1\rightarrow M',p';(\texttt{ref},p_1) \quad E,M',p';e_2\rightarrow M''',p'';v \quad M''=M'''[p_1\mapsto v]}
+{E,M,p;e_1\ \texttt{:=}\ e_2\rightarrow M'',p'';\texttt{unit}}
 \\
 \tag{\sc E-Deref}
-\frac{E,M,p;e\To M',p';(\texttt{ref},p_1) \quad v=M'(p_1)}
-{E,M,p;\texttt{!}e\To M',p';v}
+\frac{E,M,p;e\rightarrow M',p';(\texttt{ref},p_1) \quad v=M'(p_1)}
+{E,M,p;\texttt{!}e\rightarrow M',p';v}
 \end{align*}
 
 \begin{align*}
 \tag{\sc E-Fn}
 \frac{}
-{E,M,p;\texttt{fn}\ x\ \texttt{=>}\ e\To M,p;(\texttt{fun},E,x,e)}
+{E,M,p;\texttt{fn}\ x\ \texttt{=>}\ e\rightarrow M,p;(\texttt{fun},E,x,e)}
 \\
 \tag{\sc E-Rec}
-\frac{E[x\mapsto(\texttt{rec},E,x,e)],M,p;e\To M',p';v}
-{E,M,p;\texttt{rec}\ x\ \texttt{=>}\ e\To M',p';v}
+\frac{E[x\mapsto(\texttt{rec},E,x,e)],M,p;e\rightarrow M',p';v}
+{E,M,p;\texttt{rec}\ x\ \texttt{=>}\ e\rightarrow M',p';v}
 \\
 \tag{\sc E-App}
-\frac{E,M,p;e_1\To M',p';(\texttt{fun},E_1,x,e) \quad E,M',p';e_2\To M'',p'';v_2 \quad E_1[x\mapsto v_2],M'',p'';e\To M''',p''';v}
-{E,M,p;e_1\ e_2\To M''',p''',v}
+\frac{E,M,p;e_1\rightarrow M',p';(\texttt{fun},E_1,x,e) \quad E,M',p';e_2\rightarrow M'',p'';v_2 \quad E_1[x\mapsto v_2],M'',p'';e\rightarrow M''',p''';v}
+{E,M,p;e_1\ e_2\rightarrow M''',p''',v}
 \end{align*}
 
 \begin{align*}
 \tag{\sc E-Pair}
-\frac{E,M,p;e_1\To M',p';v_1 \quad E,M',p';e_2\To M'',p'';v_2}
-{E,M,p;\texttt{(}e_1\texttt{,}\ e_2\texttt{)}\To M'',p'';(\texttt{pair},v_1,v_2)}
+\frac{E,M,p;e_1\rightarrow M',p';v_1 \quad E,M',p';e_2\rightarrow M'',p'';v_2}
+{E,M,p;\texttt{(}e_1\texttt{,}\ e_2\texttt{)}\rightarrow M'',p'';(\texttt{pair},v_1,v_2)}
 \\
 \tag{\sc E-Cons}
-\frac{E,M,p;e_1\To M',p';v_1 \quad E,M',p';e_2\To M'',p'';v_2}
-{E,M,p;e_1\ \texttt{::}\ e_2\To M'',p'';(\texttt{cons},v_1,v_2)}
+\frac{E,M,p;e_1\rightarrow M',p';v_1 \quad E,M',p';e_2\rightarrow M'',p'';v_2}
+{E,M,p;e_1\ \texttt{::}\ e_2\rightarrow M'',p'';(\texttt{cons},v_1,v_2)}
 \end{align*}
 
 \begin{align*}
 \tag{\sc E-Neg}
-\frac{E,M,p;e\To M',p';v \quad v'=-v}
-{E,M,p;\texttt{\textasciitilde}e\To M',p';v'}
+\frac{E,M,p;e\rightarrow M',p';v \quad v'=-v}
+{E,M,p;\texttt{\textasciitilde}e\rightarrow M',p';v'}
 \\
 \tag{\sc E-Add}
-\frac{E,M,p;e_1\To M',p';v_1 \quad E,M',p';e_2\To M'',p'';v_2 \quad v=v_1+v_2}
-{E,M,p;e_1\ \texttt{+}\ e_2\To M'',p'';v}
+\frac{E,M,p;e_1\rightarrow M',p';v_1 \quad E,M',p';e_2\rightarrow M'',p'';v_2 \quad v=v_1+v_2}
+{E,M,p;e_1\ \texttt{+}\ e_2\rightarrow M'',p'';v}
 \\
 \tag{\sc E-Sub}
-\frac{E,M,p;e_1\To M',p';v_1 \quad E,M',p';e_2\To M'',p'';v_2 \quad v=v_1-v_2}
-{E,M,p;e_1\ \texttt{-}\ e_2\To M'',p'';v}
+\frac{E,M,p;e_1\rightarrow M',p';v_1 \quad E,M',p';e_2\rightarrow M'',p'';v_2 \quad v=v_1-v_2}
+{E,M,p;e_1\ \texttt{-}\ e_2\rightarrow M'',p'';v}
 \\
 \tag{\sc E-Mul}
-\frac{E,M,p;e_1\To M',p';v_1 \quad E,M',p';e_2\To M'',p'';v_2 \quad v=v_1 v_2}
-{E,M,p;e_1\ \texttt{*}\ e_2\To M'',p'';v}
+\frac{E,M,p;e_1\rightarrow M',p';v_1 \quad E,M',p';e_2\rightarrow M'',p'';v_2 \quad v=v_1 v_2}
+{E,M,p;e_1\ \texttt{*}\ e_2\rightarrow M'',p'';v}
 \\
 \tag{\sc E-Div}
-\frac{E,M,p;e_1\To M',p';v_1 \quad E,M',p';e_2\To M'',p'';v_2 \quad v_2\ne 0 \quad v=v_1\ \mathtt{div}\ v_2}
-{E,M,p;e_1\ \texttt{/}\ e_2\To M'',p'';v}
+\frac{E,M,p;e_1\rightarrow M',p';v_1 \quad E,M',p';e_2\rightarrow M'',p'';v_2 \quad v_2\ne 0 \quad v=v_1\ \mathtt{div}\ v_2}
+{E,M,p;e_1\ \texttt{/}\ e_2\rightarrow M'',p'';v}
 \\
 \tag{\sc E-Mod}
-\frac{E,M,p;e_1\To M',p';v_1 \quad E,M',p';e_2\To M'',p'';v_2 \quad v_2\ne 0 \quad v=v_1\ \mathtt{mod}\ v_2}
-{E,M,p;e_1\ \texttt{\%}\ e_2\To M'',p'';v}
+\frac{E,M,p;e_1\rightarrow M',p';v_1 \quad E,M',p';e_2\rightarrow M'',p'';v_2 \quad v_2\ne 0 \quad v=v_1\ \mathtt{mod}\ v_2}
+{E,M,p;e_1\ \texttt{\%}\ e_2\rightarrow M'',p'';v}
 \end{align*}
 
 \begin{align*}
 \tag{\sc E-Less1}
-\frac{E,M,p;e_1\To M',p';v_1 \quad E,M',p';e_2\To M'',p'';v_2 \quad v_1<v_2}
-{E,M,p;e_1\ \texttt{<}\ e_2\To M'',p'';\btt}
+\frac{E,M,p;e_1\rightarrow M',p';v_1 \quad E,M',p';e_2\rightarrow M'',p'';v_2 \quad v_1<v_2}
+{E,M,p;e_1\ \texttt{<}\ e_2\rightarrow M'',p'';\btt}
 \\
 \tag{\sc E-Less2}
-\frac{E,M,p;e_1\To M',p';v_1 \quad E,M',p';e_2\To M'',p'';v_2 \quad v_1\ge v_2}
-{E,M,p;e_1\ \texttt{<}\ e_2\To M'',p'';\bff}
+\frac{E,M,p;e_1\rightarrow M',p';v_1 \quad E,M',p';e_2\rightarrow M'',p'';v_2 \quad v_1\ge v_2}
+{E,M,p;e_1\ \texttt{<}\ e_2\rightarrow M'',p'';\bff}
 \\
 \tag{\sc E-LessEq1}
-\frac{E,M,p;e_1\To M',p';v_1 \quad E,M',p';e_2\To M'',p'';v_2 \quad v_1\le v_2}
-{E,M,p;e_1\ \texttt{<=}\ e_2\To M'',p'';\btt}
+\frac{E,M,p;e_1\rightarrow M',p';v_1 \quad E,M',p';e_2\rightarrow M'',p'';v_2 \quad v_1\le v_2}
+{E,M,p;e_1\ \texttt{<=}\ e_2\rightarrow M'',p'';\btt}
 \\
 \tag{\sc E-LessEq2}
-\frac{E,M,p;e_1\To M',p';v_1 \quad E,M',p';e_2\To M'',p'';v_2 \quad v_1>v_2}
-{E,M,p;e_1\ \texttt{<=}\ e_2\To M'',p'';\bff}
+\frac{E,M,p;e_1\rightarrow M',p';v_1 \quad E,M',p';e_2\rightarrow M'',p'';v_2 \quad v_1>v_2}
+{E,M,p;e_1\ \texttt{<=}\ e_2\rightarrow M'',p'';\bff}
 \\
 \tag{\sc E-Greater1}
-\frac{E,M,p;e_1\To M',p';v_1 \quad E,M',p';e_2\To M'',p'';v_2 \quad v_1>v_2}
-{E,M,p;e_1\ \texttt{>}\ e_2\To M'',p'';\btt}
+\frac{E,M,p;e_1\rightarrow M',p';v_1 \quad E,M',p';e_2\rightarrow M'',p'';v_2 \quad v_1>v_2}
+{E,M,p;e_1\ \texttt{>}\ e_2\rightarrow M'',p'';\btt}
 \\
 \tag{\sc E-Greater2}
-\frac{E,M,p;e_1\To M',p';v_1 \quad E,M',p';e_2\To M'',p'';v_2 \quad v_1\le v_2}
-{E,M,p;e_1\ \texttt{>}\ e_2\To M'',p'';\bff}
+\frac{E,M,p;e_1\rightarrow M',p';v_1 \quad E,M',p';e_2\rightarrow M'',p'';v_2 \quad v_1\le v_2}
+{E,M,p;e_1\ \texttt{>}\ e_2\rightarrow M'',p'';\bff}
 \\
 \tag{\sc E-GreaterEq1}
-\frac{E,M,p;e_1\To M',p';v_1 \quad E,M',p';e_2\To M'',p'';v_2 \quad v_1\ge v_2}
-{E,M,p;e_1\ \texttt{>=}\ e_2\To M'',p'';\btt}
+\frac{E,M,p;e_1\rightarrow M',p';v_1 \quad E,M',p';e_2\rightarrow M'',p'';v_2 \quad v_1\ge v_2}
+{E,M,p;e_1\ \texttt{>=}\ e_2\rightarrow M'',p'';\btt}
 \\
 \tag{\sc E-GreaterEq2}
-\frac{E,M,p;e_1\To M',p';v_1 \quad E,M',p';e_2\To M'',p'';v_2 \quad v_1<v_2}
-{E,M,p;e_1\ \texttt{>=}\ e_2\To M'',p'';\bff}
+\frac{E,M,p;e_1\rightarrow M',p';v_1 \quad E,M',p';e_2\rightarrow M'',p'';v_2 \quad v_1<v_2}
+{E,M,p;e_1\ \texttt{>=}\ e_2\rightarrow M'',p'';\bff}
 \\
 \tag{\sc E-Eq1}
-\frac{E,M,p;e_1\To M',p';v_1 \quad E,M',p';e_2\To M'',p'';v_2 \quad v_1=v_2}
-{E,M,p;e_1\ \texttt{=}\ e_2\To M'',p'';\btt}
+\frac{E,M,p;e_1\rightarrow M',p';v_1 \quad E,M',p';e_2\rightarrow M'',p'';v_2 \quad v_1=v_2}
+{E,M,p;e_1\ \texttt{=}\ e_2\rightarrow M'',p'';\btt}
 \\
 \tag{\sc E-Eq2}
-\frac{E,M,p;e_1\To M',p';v_1 \quad E,M',p';e_2\To M'',p'';v_2 \quad v_1\ne v_2}
-{E,M,p;e_1\ \texttt{=}\ e_2\To M'',p'';\bff}
+\frac{E,M,p;e_1\rightarrow M',p';v_1 \quad E,M',p';e_2\rightarrow M'',p'';v_2 \quad v_1\ne v_2}
+{E,M,p;e_1\ \texttt{=}\ e_2\rightarrow M'',p'';\bff}
 \\
 \tag{\sc E-Neq1}
-\frac{E,M,p;e_1\To M',p';v_1 \quad E,M',p';e_2\To M'',p'';v_2 \quad v_1\ne v_2}
-{E,M,p;e_1\ \texttt{<>}\ e_2\To M'',p'';\btt}
+\frac{E,M,p;e_1\rightarrow M',p';v_1 \quad E,M',p';e_2\rightarrow M'',p'';v_2 \quad v_1\ne v_2}
+{E,M,p;e_1\ \texttt{<>}\ e_2\rightarrow M'',p'';\btt}
 \\
 \tag{\sc E-Neq2}
-\frac{E,M,p;e_1\To M',p';v_1 \quad E,M',p';e_2\To M'',p'';v_2 \quad v_1=v_2}
-{E,M,p;e_1\ \texttt{<>}\ e_2\To M'',p'';\bff}
+\frac{E,M,p;e_1\rightarrow M',p';v_1 \quad E,M',p';e_2\rightarrow M'',p'';v_2 \quad v_1=v_2}
+{E,M,p;e_1\ \texttt{<>}\ e_2\rightarrow M'',p'';\bff}
 \end{align*}
 
 \begin{align*}
 \tag{\sc E-Not1}
-\frac{E,M,p;e\To M',p';\btt}
-{E,M,p;\texttt{not}\ e\To M',p';\bff}
+\frac{E,M,p;e\rightarrow M',p';\btt}
+{E,M,p;\texttt{not}\ e\rightarrow M',p';\bff}
 \\
 \tag{\sc E-Not2}
-\frac{E,M,p;e\To M',p';\bff}
-{E,M,p;\texttt{not}\ e\To M',p';\btt}
+\frac{E,M,p;e\rightarrow M',p';\bff}
+{E,M,p;\texttt{not}\ e\rightarrow M',p';\btt}
 \\
 \tag{\sc E-AndAlso1}
-\frac{E,M,p;e_1\To M',p';\btt \quad E,M',p';e_2\To M'',p'';v}
-{E,M,p;e_1\ \texttt{andalso}\ e_2\To M'',p'';v}
+\frac{E,M,p;e_1\rightarrow M',p';\btt \quad E,M',p';e_2\rightarrow M'',p'';v}
+{E,M,p;e_1\ \texttt{andalso}\ e_2\rightarrow M'',p'';v}
 \\
 \tag{\sc E-AndAlso2}
-\frac{E,M,p;e_1\To M',p';\bff}
-{E,M,p;e_1\ \texttt{andalso}\ e_2\To M',p';\bff}
+\frac{E,M,p;e_1\rightarrow M',p';\bff}
+{E,M,p;e_1\ \texttt{andalso}\ e_2\rightarrow M',p';\bff}
 \\
 \tag{\sc E-OrElse1}
-\frac{E,M,p;e_1\To M',p';\btt}
-{E,M,p;e_1\ \texttt{orelse}\ e_2\To M',p';\btt}
+\frac{E,M,p;e_1\rightarrow M',p';\btt}
+{E,M,p;e_1\ \texttt{orelse}\ e_2\rightarrow M',p';\btt}
 \\
 \tag{\sc E-OrElse2}
-\frac{E,M,p;e_1\To M',p';\bff \quad E,M',p';e_2\To M'',p'';v}
-{E,M,p;e_1\ \texttt{orelse}\ e_2\To M'',p'';v}
+\frac{E,M,p;e_1\rightarrow M',p';\bff \quad E,M',p';e_2\rightarrow M'',p'';v}
+{E,M,p;e_1\ \texttt{orelse}\ e_2\rightarrow M'',p'';v}
 \end{align*}
 
 \begin{align*}
 \tag{\sc E-Seq}
-\frac{E,M,p;e_1\To M',p';v_1 \quad E,M',p';e_2\To M'',p'';v_2}
-{E,M,p;e_1 \texttt{;} e_2\To M'',p'';v_2}
+\frac{E,M,p;e_1\rightarrow M',p';v_1 \quad E,M',p';e_2\rightarrow M'',p'';v_2}
+{E,M,p;e_1 \texttt{;} e_2\rightarrow M'',p'';v_2}
 \\
 \tag{\sc E-Let}
-\frac{E,M,p;e_1\To M',p';v_1 \quad E[x\mapsto v_1],M',p';e_2\To M'',p'';v_2}
-{E,M,p;\texttt{let}\ x\ \texttt{=}\ e_1\ \texttt{in}\ e_2\ \texttt{end}\To M'',p'';v_2}
+\frac{E,M,p;e_1\rightarrow M',p';v_1 \quad E[x\mapsto v_1],M',p';e_2\rightarrow M'',p'';v_2}
+{E,M,p;\texttt{let}\ x\ \texttt{=}\ e_1\ \texttt{in}\ e_2\ \texttt{end}\rightarrow M'',p'';v_2}
 \\
 \tag{\sc E-Cond1}
-\frac{E,M,p;e_1\To M',p';\btt \quad E,M',p';e_2\To M'',p'';v}
-{E,M,p;\texttt{if}\ e_1\ \texttt{then}\ e_2\ \texttt{else}\ e_3\To M'',p'';v}
+\frac{E,M,p;e_1\rightarrow M',p';\btt \quad E,M',p';e_2\rightarrow M'',p'';v}
+{E,M,p;\texttt{if}\ e_1\ \texttt{then}\ e_2\ \texttt{else}\ e_3\rightarrow M'',p'';v}
 \\
 \tag{\sc E-Cond2}
-\frac{E,M,p;e_1\To M',p';\bff \quad E,M',p';e_3\To M'',p'';v}
-{E,M,p;\texttt{if}\ e_1\ \texttt{then}\ e_2\ \texttt{else}\ e_3\To M'',p'';v}
+\frac{E,M,p;e_1\rightarrow M',p';\bff \quad E,M',p';e_3\rightarrow M'',p'';v}
+{E,M,p;\texttt{if}\ e_1\ \texttt{then}\ e_2\ \texttt{else}\ e_3\rightarrow M'',p'';v}
 \\
 \tag{\sc E-Loop1}
-\frac{E,M,p;e_1\To M',p';\btt \quad E,M',p';e_2\ \texttt{;}\ \texttt{while}\ e_1\ \texttt{do}\ e_2\To M'',p'';v}
-{E,M,p;\texttt{while}\ e_1\ \texttt{do}\ e_2\To M'',p'';v}
+\frac{E,M,p;e_1\rightarrow M',p';\btt \quad E,M',p';e_2\ \texttt{;}\ \texttt{while}\ e_1\ \texttt{do}\ e_2\rightarrow M'',p'';v}
+{E,M,p;\texttt{while}\ e_1\ \texttt{do}\ e_2\rightarrow M'',p'';v}
 \\
 \tag{\sc E-Loop2}
-\frac{E,M,p;e_1\To M',p';\bff}
-{E,M,p;\texttt{while}\ e_1\ \texttt{do}\ e_2\To M',p';\texttt{unit}}
+\frac{E,M,p;e_1\rightarrow M',p';\bff}
+{E,M,p;\texttt{while}\ e_1\ \texttt{do}\ e_2\rightarrow M',p';\texttt{unit}}
 \end{align*}
 
 \subsection{Supplementary Details}
@@ -664,13 +675,52 @@ Judgement form: $E,M,p;e\To M',p';v$ where $E\in\mathbf{Env}, M,M'\in\mathbf{Mem
 \end{itemize}
 
 \section{Examples}
+SimPL has support for control structures (branching, looping, recursion), variable definition, and type inference, among other features.
 
-\lstinputlisting[language=ML]{examples/plus.spl}
-\lstinputlisting[language=ML]{examples/factorial.spl}
-\lstinputlisting[language=ML]{examples/gcd1.spl}
-\lstinputlisting[language=ML]{examples/gcd2.spl}
-\lstinputlisting[language=ML]{examples/sum.spl}
+\begin{lstlisting}[language=ML]
+let add = fn x => fn y => x + y
+in  add 1 2
+end
+(* ==> 3 *)
+\end{lstlisting}
 
+\begin{lstlisting}[language=ML]
+(fn p =>
+  if (fst p) > (snd p)
+  then fst p
+  else snd p
+) (1, 2)
+(* ==> 2 *)
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=ML]
+let fact = rec f =>
+  fn x =>
+    if x = 1 then 1
+    else x * (f (x - 1))
+in
+  fact 4
+end
+(* ==> 24 *)
+\end{lstlisting}
+
+
+
+\begin{lstlisting}[language=ML]
+let gcd = fn x => fn y =>
+            let a = ref x in
+              let b = ref y in
+                let c = ref 0 in
+                  while !b <> 0 do (c := !a; a := !b; b := !c % !b);
+                  !a
+                end
+              end
+            end
+in  gcd 68 51
+end
+(* ==> 17 *)
+\end{lstlisting}
 
 \section{Implementation}
 
@@ -717,12 +767,27 @@ They are predefined names in the topmost environment, work in the same way as us
 \section{Bonus}
 
 \begin{itemize}
-  \item Mutually recursive combinator
-  \item Infinite streams
-  \item Garbage collection (of ref cells)
-  \item Tail recursion
-  \item Lazy evaluation
-  \item Other features or optimizations
+  \item Implement both the given skeleton code and the project in Python 3 or ML. (+30 points)
 \end{itemize}
+
+\section{Deliverables}
+\begin{itemize}
+  \item A single zip file containing the complete project with all "TODO" items filled in. While `Interpreter.java` can be modified during development for convenience (e.g., testing), the submitted version should leave it unchanged. Your submission will be evaluated based on both the existing test cases (must be left unchanged) and additional test cases that will not be provided in advance.
+  \item The extracted zip file should produce a folder named LastName-SimPL.
+  \item A single PDF report that clearly explains your implementation (via code snippets of the classes) and explanation of:
+    \begin{itemize}
+      \item One library function (i.e., from src/simpl/interpreter/lib)
+      \item One Primitive Computable Function (i.e., from src/simpl/interpreter/pcf)
+      \item Three values (i.e., from src/simpl/interpreter)
+      \item Four expressions, including at least two from pure lambda calculus (i.e., from src/simpl/parser/ast)
+      \item Four types, including at least two from pure lambda calculus (i.e., from src/simpl/typing)
+    \end{itemize}
+The report should clearly demonstrate your comprehension of each component and should be straightforward to complete given your work in the project. Include any bonus features implemented, along with relevant code snippets for context.
+
+  \item Any instances of plagiarism, either among submissions or from online sources, will result in a score of zero.
+
+\end{itemize}
+
+
 
 \end{document}
