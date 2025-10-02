@@ -1,0 +1,153 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage[usenames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 3302/5307 Programming Language Concepts}
+\rhead{Homework 7: Simply-typed Extensions II}
+\lfoot{2025 Kenny Zhu Wonjun Park}
+\rfoot{Plagiarism will not be tolerated. We are here to help.}
+
+% New command for blank spaces after questions
+\newcommand{\answerbox}{
+    \vspace{7cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxbig}{
+    \vspace{20cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxsmall}{
+    \vspace{3cm} % Adjust the space size as needed
+}
+
+% New command for personal info at the end of the document
+\newcommand{\studentinfo}{
+    $$\begin{array}{cc}
+        \noindent \text{Name:} \underline{\hspace{5cm}} &
+            \text{UTA ID:} \underline{\hspace{5cm}}\\
+    \end{array}$$
+}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    language=C,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{orange},
+    numbers=none, % Hides line numbers
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    rulecolor=\color{black},
+}
+
+
+%----Documentation----%
+\begin{document}
+
+\title{CSE 3302/5307 Programming Language Concepts}
+\author{Homework 7 - Fall 2025}
+\date{Due Date: Oct. 6, 2025, 9:00PM Central Time}
+\maketitle
+\thispagestyle{fancy}
+
+\studentinfo
+
+%----Homeworks----%
+
+\section*{Problem1 - 30\%}
+
+	We've seen how to define natural numbers using church encoding in untyped lambda calculus:
+	\begin{align*}
+		\mathbf{0} &= \lambda f.\lambda x.\ x \\
+		\mathbf{1} &= \lambda f.\lambda x.\ f\ x \\
+		&\dots \\
+		\mathbf{n} &= \lambda f.\lambda x.\ f^n\ x \\
+		&\dots
+	\end{align*}
+	Note that church encoding cannot represent negative integers.
+	
+	\begin{enumerate}[(a)]
+		\item Propose a method to extend church numerals to representation of integers. Give a concrete example for representation of integer \textbf{-5} with your proposed method. Hint: you may try to use pairs.
+		
+		\item Define a function $nat2int$ that converts a natural number to your representation of correspondent integer.
+		
+		\item Based on this definition of integers, define the following arithmetic operations in lambda calculus(you can directly use operations on natural numbers defined before like add, etc. ): 
+		\begin{enumerate}[(1)]
+			\item negation: neg n
+			\item addition: addint m n
+			\item subtraction: subint m n
+		\end{enumerate}
+	\end{enumerate}
+\answerboxbig
+
+
+	% Force a new page and guarantee vertical space even at the top of the page
+\newpage
+\section*{Problem 2 - 30\%}
+
+Given the definition of Fibonacci number
+\[F_0 = 0, F_1 = 1, F_i = F_{i-1} + F_{i-2}\]
+
+\begin{enumerate}[(a)]
+	\item Use \textit{fix} to write a lambda function called \textit{fib}: int $\rightarrow$ int to compute the n-th Fibonacci number.
+	
+	\item We want to extend simple \textit{let} expression to recursive \textit{let rec} expression:
+	\[letrec\ f = \lambda x.\ e_{1}\ in\ e_{2}\]
+	where f itself can appear in $e_{1}$. 
+	
+	Example usage of \textit{letrec} for factorial:
+	\[fact = \lambda n. (letrec\ fact= (\lambda i.\ if\ i=0\ then\ 1\ else\ i*(fact\ (i-1))) in\ fact\ n)\]
+	
+	\begin{enumerate}[(1)]
+		\item Define semantic and typing rules for expression \textit{letrec} ;
+		\item Use \textit{letrec} to redefine our Fibonacci function.
+	\end{enumerate}
+\end{enumerate}
+
+\answerboxbig
+
+\newpage
+\section*{Problem 3 - 40\%}
+
+	Given the following $\lambda$ expression:
+ 
+	\begin{verbatim}
+	let x = 2 in
+	  let y = 4 in
+	    let f1 = \x.\y.x+2*y in
+	      let f2 = \x.\y.2*x-y in
+	      f2 (f1 y x) 3
+	\end{verbatim}
+	
+	Using the environment model for lambda calculus with let,
+	
+	\begin{enumerate}[(a)]
+		\item Define closures. (Be careful and refer to lecture slides);
+		 
+		\item Show detailed multi-step evaluation process of the $\lambda$ expression above.
+	\end{enumerate}
+ 
+	(The environment should be clearly shown in each step)
+
+\answerboxbig
+
+\end{document}
