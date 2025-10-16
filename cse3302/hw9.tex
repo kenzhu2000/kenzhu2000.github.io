@@ -1,0 +1,173 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage[usenames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{enumitem}   % For customizing the enumerate environment
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 3302/5307 Programming Language Concepts}
+\rhead{Homework 9: Memory Management}
+\lfoot{2025 Kenny Zhu Wonjun Park}
+\rfoot{Plagiarism will not be tolerated. We are here to help.}
+
+\lstset{
+  language=[Objective]Caml,
+  basicstyle=\ttfamily,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{green},
+  showstringspaces=false,
+  numbers=left,
+  numberstyle=\tiny,
+  breaklines=true,
+  frame=single
+}
+
+% New command for blank spaces after questions
+\newcommand{\answerbox}{
+    \vspace{7cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxbig}{
+    \vspace{20cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxsmall}{
+    \vspace{3cm} % Adjust the space size as needed
+}
+
+\newcommand{\studentinfo}{
+    $$\begin{array}{cc}
+        \noindent \text{Name:} \underline{\hspace{5cm}} &
+            \text{UTA ID:} \underline{\hspace{5cm}}\\
+    \end{array}$$
+}
+
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{placeins}
+
+\lstset{
+    language=C,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{orange},
+    numbers=none, % Hides line numbers
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    rulecolor=\color{black},
+}
+
+
+%----Documentation----%
+\begin{document}
+
+\title{CSE 3302/5307 Programming Language Concepts}
+\author{Homework 9 - Fall 2025}
+\date{Due Date: Oct. 20, 2025, 9:00PM Central Time}
+\maketitle
+\thispagestyle{fancy}
+
+\studentinfo
+
+%----Homeworks----%
+
+\section*{Problem1 - 50\%}
+
+\FloatBarrier % This ensures no floating objects (figures) appear before this point
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.95\textwidth]{Example.png}
+    \caption{Heap Configuration}
+    \label{fig:example}
+\end{figure}
+
+\noindent
+Consider the heap configuration shown for allocated memory words. The heap is in total 100B in this case and one memory word is 4B.
+
+\begin{enumerate}[label=\alph*)]
+    \item Compute the amount of memory leaked for this configuration
+    \item Mark the nodes that will be added to the free\_list after reference counting
+    \item Compute the amount of memory leaked after each of reference counting and mark and sweep
+    \item How does mark and sweep detect the cycle although it is not in the reference graph?
+    \item Mention a set of conditions under which reference counting could be viewed to be significantly better than mark and sweep
+\end{enumerate}
+
+\newpage 
+\mbox{}
+\newpage
+
+
+\section*{Problem2 - 20\%}
+
+In Cheney's algorithm, the memory words in the from\_space are mapped in a consistent and contiguous sense to the to\_space. If that's the case, why is it necessary to store the forward addresses while mapping?
+
+\answerboxbig
+
+
+\section*{Problem3 - 30\%}
+
+Here is a definition of the less-than-or-equal-to judgement for natural numbers:
+
+Judgement Form:  $\vdash leq\ n_1\ n_2$
+
+Rules:
+\[
+  \frac{n_2\ nat}{\vdash leq\ Z\ n_2}
+  \tag{\sc Z-Leq}
+\]
+\[
+  \frac{\vdash leq\ n_1\ n_2}{\vdash leq\ (S\ n_1)\ (S\ n_2)}
+  \tag{\sc S-Leq}
+\]
+
+\begin{enumerate}[label=\alph*)]
+
+    \item Use the $leq$ judgement to define a new judgement with the form
+    \[ \vdash ascend\ l \]
+    that is valid whenever the elements of $l$ are in ascending order
+    (duplicates are allowed). For example, these judgements are valid:
+    \[
+    \vdash ascend\ cons (Z, cons (Z, cons (S\ S\ S\ Z, cons (S\ S\ S\ S\ S\ S\ Z, nil))))
+    \]
+    \[ \vdash ascend\ nil \]
+    \[ \vdash ascend\ cons (S\ S\ Z, nil) \]
+    This judgement is not valid:
+    \[ \vdash ascend\ cons (Z, cons (S\ S\ Z, cons (S\ Z, nil))) \]
+
+    \item Consider the judgement $\vdash dup\ l_1\ l_2$ and its rules:
+    \[
+    \frac{}{\vdash dup\ nil\ nil}
+    \tag{\sc Nil-Dup}
+    \]
+    \[
+    \frac{\vdash dup\ l_1\ l_2}
+    {\vdash dup\ cons(n,l_1)\ cons(n,cons(n,l_2))}
+    \tag{\sc Cons-Dup}
+    \]
+    Prove: If $\vdash ascend\ l_1$ and $\vdash dup\ l_1\ l_2$ then $\vdash ascend\ l_2$.
+
+\end{enumerate}
+
+\newpage 
+\mbox{}
+\newpage
+
+\end{document}
