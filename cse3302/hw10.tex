@@ -1,0 +1,120 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage[usenames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{enumitem}   % For customizing the enumerate environment
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 3302/5307 Programming Language Concepts}
+\rhead{Homework 10: Type Inference I}
+\lfoot{2025 Kenny Zhu Wonjun Park}
+\rfoot{Plagiarism will not be tolerated. We are here to help.}
+
+\lstset{
+  language=[Objective]Caml,
+  basicstyle=\ttfamily,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{green},
+  showstringspaces=false,
+  numbers=left,
+  numberstyle=\tiny,
+  breaklines=true,
+  frame=single
+}
+
+% New command for blank spaces after questions
+\newcommand{\answerbox}{
+    \vspace{7cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxbig}{
+    \vspace{20cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxsmall}{
+    \vspace{3cm} % Adjust the space size as needed
+}
+
+\newcommand{\studentinfo}{
+    $$\begin{array}{cc}
+        \noindent \text{Name:} \underline{\hspace{5cm}} &
+            \text{UTA ID:} \underline{\hspace{5cm}}\\
+    \end{array}$$
+}
+
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{placeins}
+
+\lstset{
+    language=C,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{orange},
+    numbers=none, % Hides line numbers
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    rulecolor=\color{black},
+}
+
+
+%----Documentation----%
+\begin{document}
+
+\title{CSE 3302/5307 Programming Language Concepts}
+\author{Homework 10 - Fall 2025}
+\date{Due Date: Oct. 27, 2025, 9:00PM Central Time}
+\maketitle
+\thispagestyle{fancy}
+
+\studentinfo
+
+%----Homeworks----%
+
+\section*{Problem1 - 60\%}
+
+Write down the principal solutions for the following sets of constraints:
+
+\begin{enumerate}
+  \item $\{X = Int,\ Y = X\rightarrow X\}$
+  \item $\{Int\rightarrow Int = X\rightarrow Z\}$
+  \item $\{X\rightarrow Y = Y\rightarrow Z,\ Z = U\rightarrow W\}$
+  \item $\{Int = Int\rightarrow X\}$
+  \item $\{X = Int\rightarrow X\}$
+  \item $\{\}$
+\end{enumerate}
+
+\answerboxbig
+
+\section*{Problem2 - 40\%}
+
+Proof \textbf{Progress Theorem}: If e is closed and well-typed(i.e. $\Sigma; . \vdash e:t$ for some $\Sigma$ and $t$), then either e is a value or for any store M such that $\Sigma; . \vdash M$, there exists an expression $e'$ and store $M'$, such that $(M, e)\rightarrow (M',e')$. (Restrict e without sequence, while loop, and error)
+
+\answerboxbig
+
+\newpage 
+\mbox{}
+\newpage 
+
+
+
+
+\end{document}
