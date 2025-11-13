@@ -1,0 +1,184 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage{listings}
+\usepackage[usenames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{enumerate,fullpage,proof}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newenvironment{sol}
+  {\par\vspace{3mm}\noindent{\it Solution}.}
+  {\qed}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 3302/5307 Programming Language Concepts}
+\rhead{Homework 13: OOP}
+\lfoot{2025 Kenny Zhu Wonjun Park}
+\rfoot{Plagiarism will not be tolerated. We are here to help.}
+
+\lstset{
+  language=[Objective]Caml,
+  basicstyle=\ttfamily,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{green},
+  showstringspaces=false,
+  numbers=left,
+  numberstyle=\tiny,
+  breaklines=true,
+  frame=single
+}
+
+% New command for blank spaces after questions
+\newcommand{\answerbox}{
+    \vspace{7cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxbig}{
+    \vspace{20cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxsmall}{
+    \vspace{3cm} % Adjust the space size as needed
+}
+
+\newcommand{\studentinfo}{
+    $$\begin{array}{cc}
+        \noindent \text{Name:} \underline{\hspace{5cm}} &
+            \text{UTA ID:} \underline{\hspace{5cm}}\\
+    \end{array}$$
+}
+
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{placeins}
+
+\lstset{
+    language=C,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{orange},
+    numbers=none, % Hides line numbers
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    rulecolor=\color{black},
+}
+
+
+\begin{document}
+
+\title{CSE 3302/5307 Programming Language Concepts}
+\author{Homework 13 - Fall 2025}
+\date{Due Date: Nov. 17, 2025, 9:00PM Central Time}
+\maketitle
+\thispagestyle{fancy}
+
+%----Homeworks----%
+
+\textbf{Please include your source code file and a screenshot of execution result for each program problem in your submit.}
+
+\section*{Problem 1 - 40\%}
+
+Use Ada\footnote{You can use this online website: \href{https://www.tutorialspoint.com/compile_ada_online.php}{\textbf{https://www.tutorialspoint.com/compile\_ada\_online.php}}} language to implement a max heap (of int type) data type by array, it should have following methods:
+	\begin{itemize}
+		\item empty:whether it is an empty heap
+		\item size:return the size of the heap
+		\item push:add a element into heap
+		\item pop:remove the top element from heap
+		\item top:access to the top element in heap
+	\end{itemize}
+	For testing: 
+	
+	1.push 3
+	
+	2.push 1
+	
+	3.push 2
+	
+	4.call size(), print size
+	
+	5.call top(), print result
+	
+	6.call pop()
+	
+	7.repeat 5
+
+	8.call empty()
+	
+	9.repeat 4
+
+\answerboxbig
+
+
+\section*{Problem 2 - 60\%}
+
+Suppose we have two strings: $x=CTACCG$ and $y=TACATG$. After an alignment, we have:
+
+	\begin{align*}
+		&\ 1\ \ 2\ \ 3\ \ 4\ \ 5\ \ 6\ \ 7\\
+		&\ C\ T\ A\ C\ C\ -\ G\\
+		&-\ T\ A\ C\ A\ \ T\ G\\
+	\end{align*}
+
+	Here "$-$" means empty. In order to compare the distance between two strings, we usually use edit distance. There are two kind of penalties in edit distance.
+	\begin{itemize}
+		\item Gap: If in alignment, we match a character with empty(such as position 1 and 6), there will be a gap penalty.
+		
+		\item Mismatch: If in alignment, we match a character with a different character(such as position 5), there will be a mismatch penalty.
+	\end{itemize} 
+
+	The alignment cost $C$ is define as:
+	
+	\begin{equation*}
+		C = \sum_{gap\ pair}Gap\ Penalty + \sum_{mismatch\ pair}Mismatch\ Penalty
+	\end{equation*}
+
+	Suppose in this case, the gap penalty is $a$ and the mismatch penalty is $b$, then the cost for this alignment is:
+	\begin{equation*}
+		C = 2a+b
+	\end{equation*}
+
+	In \textbf{String Similarity} problem, we want to find the minimum alignment and its cost for two strings. We can use dynamic programming to solve this problem in $O(mn)$ space and $O(mn)$ time, where $m$ and $n$ are the length of the string. Actually there is a better algorithm called \textbf{Hirschberg Algorithm} which can solve this problem in $O(m+n)$ space and $O(mn)$ time.
+	
+	~\\
+	The idea of Hirschberg Algorithm is we can combine divide and conquer with dynamic programming. Suppose we have two strings: $x_{1,...,n}$ and $y_{1,...,m}$. First we divide string $x$ into two sub strings: $x_{left} = x_{1,...,n/2}$ and $x_{right} = x_{n/2+1,...,n}$. Then we divide string $y$ at position $k$ into two sub strings: $y_{left} = y_{1,...,k}$ and $y_{right} = y_{k+1,...,m}$. We calculate the costs for $(x_{left}, y_{left})$ and $(x_{right}, y_{right})$ by divide and conquer. 
+	\begin{equation*}
+		C_k=C(x_{left}, y_{left}) + C(x_{right}, y_{right})
+	\end{equation*}
+	We traverse $k$ from $0$ to $m$ to find the optimal $k_{opt}$ which leads to the minimum cost.
+	\begin{equation*}
+		k_{opt} = \min_{k=0,...,m}C_k
+	\end{equation*}
+	
+	In this problem, you are to find the lowest alignment cost between 2 string sequences. There are only uppercase letters in strings. The mismatch penalty of two letters are the distance between their order in ASCII. For example, $Distance(A, E) = 4$. The gap penalty is fixed as $7$. 
+	\begin{enumerate}[a)]
+	\item Implement a Hirschberg Algorithm to solve this problem with Smalltalk\footnote{You can use this online website: \href{https://www.tutorialspoint.com/execute_smalltalk_online.php}{\textbf{https://www.tutorialspoint.com/execute\_smalltalk\_online.php}}}.
+	
+	\item Test your program with following inputs:
+	\begin{align*}
+		&x=CTACPG\\
+		&y=TACATG
+	\end{align*}
+	Your program should print the lowest cost and the aligned strings(add "$-$" into the strings to represent empty)
+	\end{enumerate}
+
+\answerboxbig
+
+
+\bibliographystyle{plain}
+\end{document}
