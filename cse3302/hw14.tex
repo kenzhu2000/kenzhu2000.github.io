@@ -1,0 +1,158 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage{listings}
+\usepackage[usenames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{enumerate,fullpage,proof}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newenvironment{sol}
+  {\par\vspace{3mm}\noindent{\it Solution}.}
+  {\qed}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 3302/5307 Programming Language Concepts}
+\rhead{Homework 14: Logic}
+\lfoot{2025 Kenny Zhu Wonjun Park}
+\rfoot{Plagiarism will not be tolerated. We are here to help.}
+
+\lstset{
+  language=[Objective]Caml,
+  basicstyle=\ttfamily,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{green},
+  showstringspaces=false,
+  numbers=left,
+  numberstyle=\tiny,
+  breaklines=true,
+  frame=single
+}
+
+% New command for blank spaces after questions
+\newcommand{\answerbox}{
+    \vspace{7cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxbig}{
+    \vspace{20cm} % Adjust the space size as needed
+}
+\newcommand{\answerboxsmall}{
+    \vspace{3cm} % Adjust the space size as needed
+}
+
+\newcommand{\studentinfo}{
+    $$\begin{array}{cc}
+        \noindent \text{Name:} \underline{\hspace{5cm}} &
+            \text{UTA ID:} \underline{\hspace{5cm}}\\
+    \end{array}$$
+}
+
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{placeins}
+
+\lstset{
+    language=C,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{orange},
+    numbers=none, % Hides line numbers
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    rulecolor=\color{black},
+}
+
+
+\begin{document}
+
+\title{CSE 3302/5307 Programming Language Concepts}
+\author{Homework 14 - Fall 2025}
+\date{Due Date: Nov. 24, 2025, 9:00PM Central Time}
+\maketitle
+\thispagestyle{fancy}
+
+%----Homeworks----%
+
+\noindent\textbf{Reminder: there will be a 5\% bonus on top of your final total score of this course, if more than 90\% of the students finish the Course Evaluation
+this week!}
+
+\section*{Problem 1 - 40\%}
+
+\begin{lstlisting}[language=Prolog]
+bigger(elephant, horse).
+bigger(horse, donkey).
+bigger(donkey. dog).
+bigger(donkey, monkey).
+\end{lstlisting}
+
+	We try to get familiar with the usage of SWI-Prolog and basic operations in this problem. Feel free to use other tools and follow the same steps.
+	\begin{enumerate}[(a)]
+		\item Download \href{http://www.swi-prolog.org/}{SWI-Prolog} and install (as well as the VSCode extension if needed).
+		\item Consult the file \textit{animals.pl} (shown above) in SWI-Prolog. If there is an error, point out the line in which it occurs and fix it. 
+		\item Re-consult the file. Enter the query as follows:
+		
+		\begin{verbatim}
+			?- bigger(elephant, horse).
+			?- bigger(elephant, monkey).
+		\end{verbatim}
+		\item Show the result of queries. For the second query, do we have the transitivity of bigger-relation as expected?
+		\item Add rules called \textit{is\_bigger} to make sure the bigger-relation is transitive. An example output:
+		\begin{verbatim}
+			?- is_bigger(elephant, monkey).
+			true
+		\end{verbatim}
+	\end{enumerate}
+	\textbf{Remark:} 
+    Submit one PDF report that includes the code and screenshot for the output.
+
+\answerboxbig
+
+
+\section*{Problem 2 - 60\%}
+
+\textbf{Eight queens problem}
+\begin{figure}[h]  
+\centering\includegraphics[width=3.5cm]{eightqueens.png}
+\label{fig1}
+\caption{A possible solution}   
+\end{figure}
+
+The Eight queens puzzle is the problem of placing eight chess queens on an 8x8 chessboard so that no two queens threaten each other. Thus, a solution requires that no two queens share the same row, column, or diagonal. 
+
+We represent the positions of the queens as a list of numbers 1..N. For example, we represent solution for the picture above as [5,3,1,7,2,8,6,4], which means that the queen in the first column is in row 5, the queen in the second column is in row 3, etc..
+
+
+Implement the solution in Prolog. You can try to generalize this original problem by allowing for an arbitrary dimension N of the chessboard. An example output:
+
+\begin{verbatim}
+> queens(8, Qs)
+Qs = [1, 5, 8, 6, 3, 7, 2, 4]
+Qs = [1, 6, 8, 3, 7, 4, 2, 5]
+...
+\end{verbatim}	
+
+\textbf{Remark:} 
+Please include your code file and a screenshot of execution result for this problem in your submit. 
+
+\answerboxbig
+
+
+\bibliographystyle{plain}
+\end{document}
