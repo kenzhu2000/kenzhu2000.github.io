@@ -1,0 +1,191 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage{listings}
+\usepackage[usenames]{xcolor}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 4392/5369 Special Topic: Natural Language Processing}
+\rhead{Homework 1: Introduction}
+\lfoot{2026 Kenny Zhu}
+%----Documentation----%
+\begin{document}
+
+\title{CSE 4392/5369 Special Topic: Natural Language Processing}
+\author{Homework 1 - Spring 2026}
+\date{Due Date: Jan 19, 2026, 11:59 PM}
+\maketitle
+\thispagestyle{fancy}
+
+%----Homeworks----%
+
+\section*{Problem 1 - 50\%}
+
+Please read the following carefully and put your name and ID number
+in all the places indicated to acknowledge that you have understood it.
+
+\subsection*{Honor Code Acknowledgement:}
+\textit{I pledge, on my honor, to uphold UT Arlington’s tradition of academic integrity, a tradition that
+values hard work and honest effort in the pursuit of academic excellence.\\
+\newline
+I promise that I will submit only work that I personally create or contribute to group collaborations,
+and I will appropriately reference any work from other sources. I will follow the highest standards
+of integrity and uphold the spirit of the Honor Code.}\\
+\newline
+As a student enrolled in CSE 4392/5369, I will adhere to the UT Arlington Honor Code given above.\\
+\newline
+Name:\\
+Student ID:\\
+
+\subsection*{Assignment Policy Acknowledgement:}
+\textit{There will be several homework assignments in this course. Most of the tasks will require
+handwritten or typed solutions. Some assignments may have programming tasks. The solution to
+programming tasks can be programmed in base versions of specific programming language which will be specify in homeworks. 
+\textbf{All homework submissions must be submitted via Canvas. No other method of
+submission accepted under any circumstances.} All homework scores (other than the lowest
+one) will contribute to your final grade. If you find yourself in an emergency and cannot deliver
+homework on time, immediately inform the instructor. Also, while working with other persons on
+non-graded example problems from the textbook is a good way to help you develop your
+understanding and insight into the techniques of problem solving, homework solutions must be
+your work only. Violations of this will not be tolerated and result in severe penalties for all parties
+involved, in strict compliance to official UTA policy.}\\
+\newline
+\textit{The points each assignment graded out of will be provided as part of its description. Assignments
+submitted late will be automatically penalized, at a rate of \textbf{30\% of assignment max points per
+day late. Late submission will not be accepted 2 days after due date.} Note that for some
+assignments, submissions may not be accepted after the deadline (such assignments will
+be announced in class beforehand). The submission due time (and the time the link will be
+available till) will be shown in homeworks and Canvas. Exceptions will only be made for documented emergencies,
+in strict adherence to UTA policy. Computer/Network crashes, Submission of Incomplete files,
+Submission of Incorrect Files, Submitting at Incorrect Link are NOT acceptable excuses for late
+submissions. \textbf{No exceptions will be made.} To avoid problems with such crashes and last-minute
+problems, students are encouraged to submit as early as possible. They are also advised to
+ensure that their file was uploaded correctly before submitting it. You can always revise your
+submission till the deadline. If you are unable to work on/submit an assignment due to a valid
+documented reason (illness, critical family emergencies, military service obligations, observance
+of major religious holidays, and certain university service commitments) one makeup assignment
+may be provided that will be due during finals week.}\\
+\newline
+As a student enrolled in CSE 4392/5369, I have read and understood the assignment policy
+described above.\\
+\newline
+Name:\\
+Student ID:\\
+
+\subsection*{Academic Dishonesty Policy Acknowledgement:}
+\textit{If you are caught colluding or copying in the assignments or exams the following consequences will
+be applied.}\\
+\textit{Per offence:}
+\begin{itemize}
+    \item You will be given a score of 0 points for that assignment or exam.
+    \item Your final grade will be reduced by 2 letter grades (Up to a minimum of F)
+    \item An academic integrity violation form will be filed.
+    \begin{itemize}
+        \item If you agree to sign the form
+        \begin{itemize}
+            \item You will be placed on disciplinary probation for 1 year and a 7 year reportable
+            disciplinary record will be created.
+            \item Additional violations may result in increasing sanctions up to and including
+            suspension or expulsion.
+        \end{itemize}
+        \item If you do not agree to sign the form
+        \begin{itemize}
+            \item You will be temporarily given a grade of Incomplete (I)
+            \item The Office of Academic Integrity will conduct a formal investigation based on
+            evidence provided
+            \item Based on decision, either the grade will be calculated with the penalty and with
+            the consequences discussed above or grade will be calculated without
+            penalties and no forms being filed.
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\textit{This policy is not up for discussion/negotiation \textbf{under any circumstances}.}
+\newline
+As a student enrolled in CSE 4392/5369, I have read and understood the academic dishonesty policy
+described above.\\
+\newline
+Name:\\
+Student ID:\\
+
+
+\section*{Problem 2 - 10\%}
+Find a team mate for your Project! 
+Please write down the names of your team members (including yourself):\\
+Team Member 1 (my name):\\
+Team Member 2 (my team mate's name, optional):\\
+Team Member 3 (my team mate's name, optional):
+
+\section*{Problem 3 -- 20\%}
+
+This problem focuses on understanding different types of ambiguity in natural language, as discussed in class.
+
+\begin{enumerate}
+    \item \textbf{Types of Ambiguity}
+    
+    Based on the four types of ambiguity introduced in class (e.g., lexical ambiguity, syntactic ambiguity, semantic ambiguity, and discourse ambiguity), complete the following tasks:
+    
+    \begin{itemize}
+        \item For each type of ambiguity, provide \textbf{two example sentences}.
+        \item For each example, briefly explain the different possible interpretations and why it is classified as this type of ambiguity.
+    \end{itemize}
+
+    \item \textbf{Reflection Question}
+    
+    Answer the following questions based on your examples:
+    \begin{itemize}
+        \item Which type of ambiguity do you think is the most difficult for NLP systems to handle? Why?
+    \end{itemize}
+\end{enumerate}
+
+\section*{Problem 4 -- 20\%}
+
+This problem aims to help you become familiar with common NLP tasks and their real-world applications.
+
+\begin{enumerate}
+    \item \textbf{Understanding NLP Tasks}
+    
+    From the given list of NLP tasks (Text Classification, Named Entity Recognition, Machine Translation, Text Generation, Question Answering, 
+    Speech Recognition, Text Summarization, Sentiment Analysis), choose \textbf{five} different NLP tasks.  
+    For each selected task, briefly answer the following questions:
+    \begin{itemize}
+        \item What is the input to this task?
+        \item What is the output of this task?
+        \item Describe one real-world application scenario where this task is used.
+    \end{itemize}
+
+    \item \textbf{Experiencing Existing NLP Systems}
+    
+    From the five tasks you selected above, choose \textbf{two} tasks and explore existing NLP tools or systems.
+    For each chosen task:
+    \begin{itemize}
+        \item Provide one or two example inputs.
+        \item Show the corresponding outputs produced by the system.
+    \end{itemize}
+
+    \item \textbf{Reflection Question}
+    
+    Based on the NLP tasks you selected, which task do you think is the most complex, and why?
+\end{enumerate}
+
+\vspace{0.8em}
+\noindent{\color{red}\footnotesize
+\textbf{Submission Format:}
+Submit the \texttt{.pdf} version of your homework (typed submissions are preferred;
+Scanned images must be readable) via Canvas. File must be named
+\texttt{lastname\_studentID\_hw1.pdf}.
+}
+
+\end{document}
