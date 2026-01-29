@@ -1,0 +1,66 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage[usenames]{xcolor}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 3302 Programming Language}
+\rhead{Homework2: Inductive Proof}
+\lfoot{2026 Kenny Zhu}
+%----Documentation----%
+\begin{document}
+
+\title{CSE 3302 Programming Language}
+\author{Homework2 - Fall 2026}
+\date{Due Date: Feb.2, 2026, 11:59 PM}
+\maketitle
+\thispagestyle{fancy}
+
+%----Homeworks----%
+
+\section*{Problem1 - 30\%}
+
+Prove by induction: If $add\ n_{1}\ n_{2}\ n_{3}$, then $add\ n_{2}\ n_{1}\ n_{3}$
+(the commutative law of addition),
+where $add\ n_{1}\ n_{2}\ n_{3}$ is the judgment form for addition
+defined in the lecture (slide page 23).\\
+(\textbf{Hint}: You may begin by proving the following lemma:
+If $n\ nat$, then $add\ n\ Z\ n$.)
+
+\section*{Problem2 - 30\%}
+
+Prove \textbf{Lemma 2} using \emph{induction on the derivation of} $\mbox{len}\ l\ n$, instead of append.\\
+(slide page 35).
+
+\section*{Problem3 - 40\%}
+
+\begin{enumerate}[(a)]
+    \item Give an inductive definition of the judgment form
+    $\mbox{leq}\ n_1\ n_2$, which indicates that $n_1$ is less than
+    or equal to $n_2$, and $n_1$ and $n_2$ are defined by judgement form 
+    $n~ \mbox{nat}$ in the lecture.
+
+    \item Prove by induction: If $n_1~ \mbox{nat}$, $n_2~ \mbox{nat}$, 
+	$\mbox{leq}\ n_1\ n_2$
+    and $\mbox{leq}\ n_2\ n_1$, then $n_1 = n_2$.
+\end{enumerate}
+
+\vspace{0.8em}
+\noindent{\color{red}\footnotesize
+\textbf{Submission Format:}
+Submit only the \texttt{.pdf} version of your homework (typed submissions are preferred;
+Scanned images must be readable). File must be named
+\texttt{lastname\_studentID\_hw2.pdf}.
+}
+
+\end{document}
