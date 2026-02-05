@@ -1,0 +1,77 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage[usenames]{xcolor}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 3302 Programming Language}
+\rhead{Homework 3 :Untyped Lambda Calculus}
+\lfoot{2026 Kenny Zhu}
+%----Documentation----%
+\begin{document}
+
+\title{CSE 3302 Programming Language}
+\author{Homework 3 - Spring 2026}
+\date{Due Date: Feb. 9, 2026, 11:59 PM}
+\maketitle
+\thispagestyle{fancy}
+
+%----Homeworks----%
+
+\section*{Problem 1 - 30\%}
+
+Evaluate the following $\lambda$ expressions using call-by-value and call-by-name operational semantics ($e \rightarrow e'$) with \textbf{just one step}. 
+(Hint: you may or may not be able to take a step on the given expression.)
+Show the complete derivation tree of this one step for all three experessions 
+if you can take step.
+\begin{enumerate}[(a)]
+    \item $(\lambda v.\lambda w.w)\ ((\lambda x.x)\ (y\ \lambda z.z))$
+    \item $(\lambda x.\ x\ x)\ (\lambda y.\ y\ y)$
+    \item $(\lambda x. \lambda y. x)\ ((\lambda z.z)\ (\lambda u.u))$
+\end{enumerate}
+
+\section*{Problem 2 - 40\%}
+
+Prove by induction: 
+If $e_1$ is closed and $e_1 \rightarrow ^*e_2$ then $e_2$ is closed.\\
+(Hint: We need to first prove lemma: if $e_1$ is closed and $e_1 \rightarrow e_2$, then $e_2$ is closed. To prove this lemma, you may need another lemma on substitution.)
+
+\section*{Problem 3 - 30\%}
+
+Recall the definition of natural numbers by $n\ \mbox{nat}$ judgment taught in the lecture.
+\begin{enumerate}[(a)]
+    \item Give an inductive definition of the judgment form
+    $\mbox{fib}\ n_1\ n_2$, which indicates the $n_1^{th}$ Fibonacci number is $n_2$.
+    \item Give an inductive definition of the judgment form
+    $\mbox{fibsum}\ n_1\ n_2$, which indicates the sum of the first $n_1$ Fibonacci
+    numbers is $n_2$.
+    \item Prove by induction:
+    If $\mbox{fibsum}\ n\ m$ then $\mbox{fib}\
+    \mbox{succ}(\mbox{succ}(n))\ \mbox{succ}(m)$, that is
+    $$\sum_{i=1}^n F_i = F_{n+2} - 1.$$
+\end{enumerate}
+
+\vspace{20pt}
+\vspace{0.8em}
+\noindent{\color{red}\footnotesize
+\textbf{Submission Format:}
+Submit only the \texttt{.pdf} version of your homework (typed submissions are preferred;
+Scanned images must be readable). File must be named
+\texttt{lastname\_studentID\_hw3.pdf}.
+}
+
+
+\end{document}
