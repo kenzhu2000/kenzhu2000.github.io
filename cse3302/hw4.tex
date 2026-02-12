@@ -1,0 +1,54 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage[usenames]{xcolor}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 3302 Programming Language}
+\rhead{Homework 4: Untyped Lambda Calculus \uppercase\expandafter{\romannumeral2}}
+\lfoot{2026 Kenny Zhu}
+%----Documentation----%
+\begin{document}
+
+\title{CSE 3302 Programming Language}
+\author{Homework 4 - Spring 2026}
+\date{Due Date: Feb. 16, 2026, 11:59 PM}
+\maketitle
+\thispagestyle{fancy}
+
+%----Homeworks----%
+
+\section*{Problem 1 - 30\%}
+
+Prove the \textbf{exchange lemma}: If $\Gamma, x:t_1,y:t_2, \Gamma'\vdash e:t, $ then $\Gamma, y:t_2, x:t_1, \Gamma' \vdash e:t.$ (proof by induction on derivation of $\Gamma, x:t_1, y:t_2, \Gamma' \vdash e:t$).
+
+
+\section*{Problem 2 - 35\%}
+
+Prove the \textbf{weakening lemma}: If $\Gamma \vdash e:t$ then $\Gamma,x:t' \vdash e:t$ (provided x not in Dom($\Gamma$)).
+
+
+\section*{Problem 3 - 35\%}
+
+Prove the \textbf{substitution lemma}: If $\Gamma,x:t' \vdash e:t$ and $\Gamma \vdash v:t'$ then $\Gamma \vdash e[v/x]:t$.
+
+
+\vspace{20pt}
+\vspace{0.8em}
+\noindent{\color{red}\footnotesize
+\textbf{Submission Format:}
+Submit only the \texttt{.pdf} version of your homework (typed submissions are preferred;
+Scanned images must be readable). File must be named
+\texttt{lastname\_studentID\_hw4.pdf}.
+}
+\end{document}
