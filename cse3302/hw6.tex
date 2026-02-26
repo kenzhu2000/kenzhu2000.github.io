@@ -57,7 +57,7 @@ Refer to Slides 21. Provide the complete derivation tree of the following expres
 \begin{verbatim}
 let x = 1 in
   let f = \y. y + x in
-    let g = \x. (f x) + 1 in
+    let g = (\x. f x) + 1 in
       g (f x)
 \end{verbatim}
 
