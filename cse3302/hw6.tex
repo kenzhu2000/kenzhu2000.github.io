@@ -1,0 +1,94 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage[usenames]{xcolor}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 3302}
+\rhead{Homework 6:Extentions to Sim-Typed LC\uppercase\expandafter{\romannumeral2}}
+\lfoot{2026 Kenny Zhu}
+%----Documentation----%
+\begin{document}
+
+\title{CSE 3302 Programming Language}
+\author{Homework 6 - Fall 2026}
+\date{Due Date: March 2, 2026, 11:59 PM}
+\maketitle
+\thispagestyle{fancy}
+
+%----Homeworks----%
+
+
+\section*{Problem 1 - 40\%}
+
+Given the definition of Fibonacci number
+\[F_0 = 0, F_1 = 1, F_i = F_{i-1} + F_{i-2}\]
+\begin{enumerate}[(a)]
+\item Use \textit{fix} to write a lambda function called \textit{fib}: int $\rightarrow$ int to compute the n-th Fibonacci number.
+\item We want to extend simple \textit{let} expression to recursive \textit{let rec} expression:
+\[letrec\ f = \lambda x.\ e_{1}\ in\ e_{2}\]
+where f itself can appear in $e_{1}$. 
+
+Example usage of \textit{letrec} for factorial:
+\[fact = \lambda n. (letrec\ fact= (\lambda i.\ if\ i=0\ then\ 1\ else\ i*(fact\ (i-1))) in\ fact\ n)\]
+
+\begin{enumerate}[(1)]
+\item Define semantic and typing rules for expression \textit{letrec} ;
+\item Use \textit{letrec} to redefine our Fibonacci function.
+
+\end{enumerate}
+
+\end{enumerate}
+
+
+\section*{Problem 2 - 30\%}
+
+Refer to Slides 21. Provide the complete derivation tree of the following expression:
+\begin{verbatim}
+let x = 1 in
+  let f = \y. y + x in
+    let g = \x. (f x) + 1 in
+      g (f x)
+\end{verbatim}
+
+\vspace{2.8em}
+
+\section*{Problem 3 - 30\%}
+
+Given the following $\lambda$ expression:
+\begin{verbatim}
+let x = 2 in
+  let y = 4 in
+    let f1 = \x.\y.x+2*y in
+      let f2 = \x.\y.2*x-y in
+      f2 (f1 y x) 3
+\end{verbatim}
+
+Using the environment model for lambda calculus with let,
+    
+(a) Define closures. (Be careful and refer to lecture slides);
+ 
+(b) Show detailed multi-step evaluation process of the $\lambda$ expression above.
+
+\vspace{20pt}
+\vspace{0.8em}
+\noindent{\color{red}\footnotesize
+\textbf{Submission Format:}
+Submit only the \texttt{.pdf} version of your homework (typed submissions are preferred;
+Scanned images must be readable). File must be named
+\texttt{lastname\_studentID\_hw5.pdf}.
+}
+
+
+\end{document}
+
