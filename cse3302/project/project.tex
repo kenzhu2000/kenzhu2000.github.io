@@ -3,6 +3,7 @@
 \usepackage{listings}
 \usepackage{color}
 \usepackage{amsmath,amssymb,amsthm}
+\usepackage{tocloft}
 
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
@@ -44,22 +45,27 @@
 \usepackage{stmaryrd} % for double brackets
 
 \title{
-  \textbf{CSE3302-004/CSE5307-001 Course Project Specification} \\
-  \textbf{\normalsize Version 5.0} \\
-  {\normalsize Last Modified on \today}}
+  \textbf{CSE3302 Programming Language Project Specification} \\
+  }
 \author{
   \normalsize
   \begin{tabular}{rcl}
     Course Instructor: & Kenny Zhu & \texttt{kenny.zhu@uta.edu} \\
-    Teaching Assistant: & Sinong Wang & \texttt{sinong.wang@uta.edu} \\
-    					% & Yvonne Huang& \texttt{yvonne\_huang@sjtu.edu.cn}
-  \end{tabular}}
-\date{}
+    Teaching Assistant: & Peter (Weiran) Zhang & \texttt{wxz9630@mavs.uta.edu} \\
+  \end{tabular}
+}
 
 \newcommand{\btt}{\mathbf{tt}}
 \newcommand{\bff}{\mathbf{ff}}
 \newcommand{\To}{\ \textcolor{blue}{\Downarrow}\ }
 \newcommand{\result}[1]{\textcolor{blue}{\texttt{#1}}}
+
+\renewcommand{\cftsecfont}{\bfseries} % Bold section titles in ToC
+\renewcommand{\cftsecpagefont}{\bfseries} % Bold page numbers for sections
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % Add dots between section title and page number
+\setlength{\cftbeforesecskip}{0.5em} % Adjust vertical spacing before sections
+\setlength{\cftsecindent}{1.5em} % Indent section titles
+\date{Due Date: April 27, 2026, 11:59 PM}
 
 \begin{document}
 
@@ -189,7 +195,7 @@ Keywords cannot be bound to anything.
     &  |  & t\ \texttt{list} \\
     &  |  & t\ \texttt{ref} \\
     &  |  & t \times t \\
-    &  |  & t \to t \\
+    &  |  & t \rightarrow t \\
 \end{array}\]
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
@@ -210,10 +216,10 @@ The set of all types $\mathbf{Typ}$ is the smallest set satisfying the following
   \item $\forall t\in\mathbf{Typ}, t\ \texttt{list}\in\mathbf{Typ}$
   \item $\forall t\in\mathbf{Typ}, t\ \texttt{ref}\in\mathbf{Typ}$
   \item $\forall t_1,t_2\in\mathbf{Typ}, t_1\times t_2\in\mathbf{Typ}$
-  \item $\forall t_1,t_2\in\mathbf{Typ}, t_1\to t_2\in\mathbf{Typ}$
+  \item $\forall t_1,t_2\in\mathbf{Typ}, t_1\rightarrow t_2\in\mathbf{Typ}$
 \end{itemize}
 
-Type environment $\Gamma:\mathbf{Var}\to \mathbf{Typ}$ is a mapping from names to arbitrary types.
+Type environment $\Gamma:\mathbf{Var}\rightarrow \mathbf{Typ}$ is a mapping from names to arbitrary types.
 The replacement of $x$ with $t$ in $\Gamma$, i.e. $\Gamma[x:t]$, is defined as follows.
 \[
 \Gamma[x:t](y) =
@@ -235,7 +241,7 @@ Typing rules:
 			\frac{\Gamma(x) = t}{\Gamma\vdash x:t}
 			\\
 			\tag{\sc T-Fn}
-			\frac{\Gamma[x:t_1]\vdash e:t_2}{\Gamma\vdash \texttt{fn}\ x\ \texttt{=>}\ e : t_1\to t_2}
+			\frac{\Gamma[x:t_1]\vdash e:t_2}{\Gamma\vdash \texttt{fn}\ x\ \texttt{=>}\ e : t_1\rightarrow t_2}
 			\\
 			\tag{\sc T-Rec}
 			\frac{\Gamma[x:t]\vdash e:t}{\Gamma\vdash \texttt{rec}\ x\ \texttt{=>}\ e : t}
@@ -295,7 +301,7 @@ Typing rules:
 			{\Gamma\vdash e_1\ \texttt{::}\ e_2 : t\ \texttt{list}}
 			\\\\
 			\tag{\sc T-App}
-			\frac{\Gamma\vdash e_1:t_2\to t_1 \quad \Gamma\vdash e_2:t_2}
+			\frac{\Gamma\vdash e_1:t_2\rightarrow t_1 \quad \Gamma\vdash e_2:t_2}
 			{\Gamma\vdash e_1\ e_2 : t_1}
 			\\\\
 			\tag{\sc T-Let}
@@ -374,7 +380,7 @@ There is no explicit type annotations in SimPL. So principal type inference is n
 			{\Gamma\vdash e_1\ bop\ e_2 : \texttt{bool}, q_1\cup q_2 \cup \{t_1=int, t_2=int\}}
 			\\\\
 			\tag{\sc CT-Fn}
-			\frac{\Gamma,x:a\vdash e:t,q}{\Gamma\vdash \texttt{fn}\ x:a\ \texttt{=>}\ e:b : a\to b,q\cup \{t=b\}}
+			\frac{\Gamma,x:a\vdash e:t,q}{\Gamma\vdash \texttt{fn}\ x:a\ \texttt{=>}\ e:b : a\rightarrow b,q\cup \{t=b\}}
 			\\
 			\end{align*}
 	\end{minipage}}
@@ -405,6 +411,7 @@ You need to think of how to deal with other cases.
 	&\frac{\Gamma \vdash e_2[e_1/x]:t_2,q_1 \quad \Gamma \vdash e_1:t_1}
 	{\Gamma\vdash \texttt{let}\ x\ \texttt{=}\ e_1\ \texttt{in}\ e_2\ \texttt{end} : t_2, q_1}&(CT-LetPoly)\\
 \end{align*}
+\newpage
 
 \section{Semantics}
 
@@ -416,12 +423,12 @@ $M\in\mathbf{Mem}$ is the memory, and
 $p\in\mathbb{N}$ is the memory pointer.
 \begin{align*}
 \mathbf{State} &= \mathbf{Env} \times \mathbf{Mem} \times \mathbb{N} \\
-  \mathbf{Env} &= \mathbf{Var} \to \mathbf{Val}\cup\mathbf{Rec} \\
-  \mathbf{Mem} &= \mathbb{N} \to \mathbf{Val}
+  \mathbf{Env} &= \mathbf{Var} \rightarrow \mathbf{Val}\cup\mathbf{Rec} \\
+  \mathbf{Mem} &= \mathbb{N} \rightarrow \mathbf{Val}
 \end{align*}
 
 Both the environment and the memory are updateable mappings.
-Given an updateable mapping $f:X\to Y$, the updated mapping $f[x\mapsto y]$,
+Given an updateable mapping $f:X\rightarrow Y$, the updated mapping $f[x\mapsto y]$,
 where $x\in X, y\in Y$, is defined as \[f[x\mapsto y](x') = \begin{cases}
   y & \text{if}\ x=x' \\
   f(x) & \text{otherwise.}
@@ -438,7 +445,7 @@ $\mathbf{Val}$ consists of integers, booleans, lists, references, pairs, and fun
   \mathcal{V}_{t\ \texttt{list}}^{(i+1)} &= \{\texttt{cons}\}\times\mathcal{V}_t\times\mathcal{V}_{t\ \texttt{list}}^{(i)} \\
   \mathcal{V}_{t\ \texttt{ref}} &= \{\texttt{ref}\}\times\mathbb{N} \\
   \mathcal{V}_{t_1\times t_2} &= \{\texttt{pair}\}\times\mathcal{V}_{t_1}\times\mathcal{V}_{t_2} \\
-  \mathcal{V}_{t_1\to t_2} &= \textcolor{red}{{\mathcal{V}_{t_1}}^{\mathcal{V}_{t_2}}} \subseteq \{\texttt{fun}\}\times\mathbf{Env}\times\mathbf{Var}\times\mathbf{Exp} \\
+  \mathcal{V}_{t_1\rightarrow t_2} &= \textcolor{red}{{\mathcal{V}_{t_1}}^{\mathcal{V}_{t_2}}} \subseteq \{\texttt{fun}\}\times\mathbf{Env}\times\mathbf{Var}\times\mathbf{Exp} \\
   \mathbf{Rec} &= \{\texttt{rec}\}\times\mathbf{Env}\times\mathbf{Var}\times\mathbf{Exp}
 \end{align*}
 
@@ -665,12 +672,54 @@ Judgement form: $E,M,p;e\To M',p';v$ where $E\in\mathbf{Env}, M,M'\in\mathbf{Mem
 
 \section{Examples}
 
-\lstinputlisting[language=ML]{examples/plus.spl}
-\lstinputlisting[language=ML]{examples/factorial.spl}
-\lstinputlisting[language=ML]{examples/gcd1.spl}
-\lstinputlisting[language=ML]{examples/gcd2.spl}
-\lstinputlisting[language=ML]{examples/sum.spl}
+\begin{lstlisting}[language=ML]
+let add = fn x => fn y => x + y
+in  add 1 2
+end
+(* ==> 3 *)
+\end{lstlisting}
 
+\begin{lstlisting}[language=ML]
+let fact = rec f => fn x => if x=1 then 1 else x * (f (x-1))
+in  fact 4
+end
+(* ==> 24 *)
+\end{lstlisting}
+
+\begin{lstlisting}[language=ML]
+let gcd = rec g => fn a => fn b =>
+            if b=0 then a else g b (a % b)
+in  gcd 34986 3087
+end
+(* ==> 1029 *)
+\end{lstlisting}
+
+\begin{lstlisting}[language=ML]
+let gcd = fn x => fn y =>
+            let a = ref x in
+              let b = ref y in
+                let c = ref 0 in
+                  (while !b <> 0 do c := !a; a := !b; b := !c % !b);
+                  !a
+                end
+              end
+            end
+in  gcd 34986 3087
+end
+(* ==> 1029 *)
+\end{lstlisting}
+
+\begin{lstlisting}[language=ML]
+let
+  sum = rec sum =>
+  		fn a => if a=nil
+                then 0
+                else hd a + sum (tl a)
+in
+  sum (1::2::3::nil)
+end
+(* ==> 6 *)
+\end{lstlisting}
 
 \section{Implementation}
 
@@ -724,5 +773,24 @@ They are predefined names in the topmost environment, work in the same way as us
   \item Lazy evaluation
   \item Other features or optimizations
 \end{itemize}
+
+\section{Deliverables}
+\begin{itemize}
+  \item A single zip file (\texttt{LastName\_StudentId\_SimPL.zip}) containing the complete project, including the runnable JAR file specified in Section 7.1, with all \texttt{TODO} items and other missing implementations properly completed. While \texttt{Interpreter.java} may be temporarily modified during development for convenience (e.g., testing), the submitted version must be restored to the original skeleton version. Your submission will be evaluated based on both the existing test cases (which must be left unchanged) and additional hidden test cases that will not be provided in advance.
+  \item A single PDF report that clearly explains your implementation (via code snippets of the classes) and includes explanations of:
+    \begin{itemize}
+      \item One library function from \texttt{src/simpl/interpreter/lib}
+      \item One function from \texttt{src/simpl/interpreter/pcf}
+      \item Three values from \texttt{src/simpl/interpreter}
+      \item Four expressions from \texttt{src/simpl/parser/ast}, including at least two from pure lambda calculus
+      \item Four types from \texttt{src/simpl/typing}
+    \end{itemize}
+The report should clearly demonstrate your comprehension of each component and should be straightforward to complete given your work in the project. Include any bonus features implemented, along with relevant code snippets for context.
+
+  \item Any instances of plagiarism, either among submissions or from online sources, will result in a score of zero.
+
+\end{itemize}
+
+
 
 \end{document}

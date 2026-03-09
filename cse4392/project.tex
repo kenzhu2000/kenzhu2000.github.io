@@ -1,0 +1,399 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tocloft}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{
+  backgroundcolor=\color{white},
+  basicstyle=\ttfamily,
+  breakatwhitespace=false,
+  breaklines=true,
+  captionpos=b,
+  commentstyle=\color{mygreen},
+  deletekeywords={...},
+  escapeinside={\%*}{*)},
+  extendedchars=true,
+  frame=single,
+  keepspaces=true,
+  keywordstyle=\color{blue},
+  morekeywords={*,...},
+  numbers=left,
+  numbersep=9pt,
+  numberstyle=\tiny\color{mygray},
+  rulecolor=\color{black},
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  stepnumber=1,
+  stringstyle=\color{mymauve},
+  tabsize=2,
+  title=\lstname
+}
+
+\usepackage{fourier}
+\usepackage{stmaryrd}
+
+\title{
+  \textbf{CSE 4392 / CSE 5369 NLP Research Project Specification} \\
+}
+\author{
+  \normalsize
+  \begin{tabular}{rcl}
+    Course Instructor: & Kenny Zhu & \texttt{kenny.zhu@uta.edu} \\
+    Teaching Assistant: & Peter Zhang & \texttt{wxz9630@mavs.uta.edu} \\
+  \end{tabular}
+}
+
+\renewcommand{\cftsecfont}{\bfseries}
+\renewcommand{\cftsecpagefont}{\bfseries}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\setlength{\cftbeforesecskip}{0.5em}
+\setlength{\cftsecindent}{1.5em}
+
+\newcommand{\result}[1]{\textcolor{blue}{\texttt{#1}}}
+\date{Due Date: May 6, 2026, 11:59 PM}
+
+\begin{document}
+
+\maketitle
+
+% \tableofcontents
+% \newpage
+
+\section{Introduction}
+
+The course project for this class is an \emph{NLP research project}.
+Each team must design and develop a system or model
+that solves an interesting problem in Natural Language Processing (NLP).
+The project should be research-oriented rather than purely engineering-oriented:
+you are expected to formulate a clear problem, motivate its importance, implement
+your own method, and evaluate it empirically. The goal is to simulate a small-scale research workflow similar to an NLP conference submission.\\
+
+\noindent A complete project submission must include:
+\begin{itemize}
+  \item a working implementation,
+  \item the code and data used in the project,
+  \item and a research paper written in ACL format.
+\end{itemize}
+
+
+
+\section{Project Objective}
+
+Your project must address a concrete NLP task or research question.
+Examples include, but are not limited to:
+
+\begin{itemize}
+  % \item text classification,
+  % \item sequence labeling,
+  % \item parsing,
+  % \item information extraction,
+  % \item summarization,
+  % \item question answering,
+  % \item machine translation,
+  % \item dialogue systems,
+  % \item evaluation of language models,
+  % \item interpretability / explainability for NLP models,
+  % \item low-resource or multilingual NLP,
+  % \item speech or multimodal language processing.
+  \item Text Classification
+  \item Named Entity Recognition (NER)
+  \item Machine Translation
+  \item Text Generation
+  \item Question Answering 
+  \item Speech Recognition
+  \item Text Summarization
+  \item Sentiment Analysis
+  \item Information Extraction
+  \item Dialogue Systems
+  % \item Language Understanding (Modeling)
+\end{itemize}
+
+\section{Core Requirements}
+
+\subsection{Original Implementation}
+
+The project must be \textbf{your own implementation}.
+You may build on public libraries and frameworks,
+but the overall system, experimental pipeline, and research design must be your own work.
+
+\begin{itemize}
+  \item Copying an existing repository and only changing configuration files is not sufficient.
+  \item Re-implementing a baseline from a paper is allowed, provided that you also contribute
+  your own analysis, comparison, extension, or improvement.
+  \item You must clearly state which components are borrowed from public toolkits
+  and which parts were implemented by you.
+\end{itemize}
+
+\subsection{Research Component}
+
+Your project must contain a genuine research component.
+At minimum, your paper should answer the following questions:
+
+\begin{itemize}
+  \item What problem are you solving?
+  \item Why is this problem important or interesting?
+  \item What data do you need and how will you obtain it?
+  \item What method or system did you design?
+  \item How does it compare with one or more baselines?
+  % \item What can we learn from the experimental results?
+  \item How will you evaluate your method and what insights do you expect to gain?
+\end{itemize}
+
+\noindent A project that only demonstrates software usage without a research question will not receive full credit.
+
+\subsection{Experimental Evaluation}
+
+Every project must include an empirical evaluation.
+
+\begin{itemize}
+  \item You must evaluate your method on data that is clearly described in the paper.
+  \item You must report appropriate metrics for the task.
+  \item You must include at least one baseline for comparison.
+  \item You should provide analysis beyond a single result table whenever possible.
+\end{itemize}
+
+\noindent Examples of further analysis include:
+error analysis, ablation study, qualitative examples, comparison across data conditions,
+or discussion of failure cases.
+
+\section{Suggested Project Workflow}
+
+A strong project will typically include the following stages:
+
+\begin{enumerate}[label=\arabic*.]
+  \item \textbf{Problem Definition} \\
+  Define the NLP task clearly and precisely.
+
+  \item \textbf{Related Work Review} \\
+  Summarize prior methods and identify what gap or perspective your project addresses.
+
+  \item \textbf{Data Preparation} \\
+  Collect, clean, annotate, or preprocess the data as needed.
+
+  \item \textbf{Method Design} \\
+  Design and implement your model, algorithm, or system.
+
+  \item \textbf{Baseline Construction} \\
+  Implement or adapt one or more baseline methods for comparison.
+
+  \item \textbf{Evaluation} \\
+  Run experiments, compute metrics, and analyze the results.
+
+  \item \textbf{Paper Writing} \\
+  Present the problem, method, experiments, and findings in ACL paper format.
+\end{enumerate}
+
+\section{Paper Requirements}
+
+\subsection{Format}
+
+You must write your final paper in \textbf{ACL format} using the official ACL style files and templates; see the official ACL paper formatting guidelines here: \url{https://acl-org.github.io/ACLPUB/formatting.html} \\
+
+\noindent Your paper should resemble a conference-style research paper and will typically include, but is not limited to, the following sections:
+
+\begin{itemize}
+  \item Abstract
+  \item Introduction
+  \item Method
+  \item Experiments and Evaluation
+  \item Results and Analysis
+  \item Related Work
+  \item Conclusion
+  \item Limitations
+  \item References
+\end{itemize}
+
+\subsection{Length}
+
+The paper should target the ACL long paper style:
+\begin{itemize}
+  \item \textbf{8 pages of main content}, in ACL format,
+  \item plus additional pages for references,
+  \item and optional appendix / supplementary material if needed.
+\end{itemize}
+
+\noindent Your goal is to produce a paper of approximately conference-paper quality and scope.
+
+\subsection{Writing Expectations}
+
+Your paper must:
+
+\begin{itemize}
+  \item clearly describe the background, motivation, and contributions,
+  \item explain the method in sufficient technical detail,
+  \item describe the dataset(s) and preprocessing,
+  \item report experimental settings and evaluation metrics,
+  \item include quantitative results,
+  \item include interpretation or analysis of the results,
+  \item discuss the limitations of your work,
+  \item cite prior work appropriately.
+\end{itemize}
+
+\section{Implementation Requirements}
+
+\subsection{Programming Language and Tools}
+
+You may use any reasonable programming language or framework for implementation,
+such as Python, Java, PyTorch, TensorFlow, or other NLP toolkits.
+
+\subsection{Reproducibility}
+
+Your submission must be organized so that the grader can understand and reproduce your work. \\
+
+\noindent At minimum, your code package should include:
+\begin{itemize}
+  \item source code,
+  \item \texttt{README.md} file,
+  \item instructions for the full pipeline (e.g., data preparation, training, inference, and evaluation),
+  \item dependency information,
+  \item and a description of where the data comes from.
+\end{itemize} 
+
+\noindent If your experiments require substantial computation, provide:
+\begin{itemize}
+  \item preprocessed data if allowed,
+  \item saved checkpoints if helpful,
+  \item and enough scripts so that the pipeline is understandable.
+\end{itemize}
+
+\subsection{Data}
+
+You must submit the data used in the project whenever legally and practically possible.
+
+\begin{itemize}
+  \item If the dataset is public, provide download instructions and the exact version used.
+  \item If the dataset is too large to submit directly, provide scripts and instructions for obtaining it.
+  \item If you create your own data, clearly document how it was collected and labeled.
+\end{itemize}
+
+\section{Deliverables}
+
+Each team should submit a single \texttt{.zip} file named \texttt{LastName\_StudentID\_Project.zip}; all team members' names and student IDs must be listed in the top-level \texttt{README.md}.\\
+
+\noindent Your final submission must contain the following:
+
+\begin{itemize}
+  \item \textbf{Paper:} a PDF paper in ACL format, along with the LaTeX source files and any required style/template files.
+  \item \textbf{Source Code:} all code needed to implement and run the project.
+  \item \textbf{Data:} the dataset, processed data, or instructions/scripts to obtain the data.
+  \item \textbf{README:} clear instructions for setup and execution, as well as the names and student IDs of all team members.
+\end{itemize}
+
+\noindent Before submission, make sure:
+\begin{itemize}
+  \item the paper compiles correctly,
+  \item the code is organized,
+  \item the instructions are complete,
+  \item and all files are named clearly.
+\end{itemize}
+A good submission folder may look like this:
+
+\begin{lstlisting}[language=bash]
+LastName_StudentID_Project/
+|-- paper/
+|   |-- project_paper.pdf
+|   `-- source_tex_files/
+|-- code/
+|   |-- src/
+|   |-- scripts/
+|   |-- train.py
+|   |-- eval.py
+|   |-- model.py
+|   |-- requirements.txt
+|   `-- ...
+|-- data/
+|   |-- README.md
+|   `-- ...
+|-- results/
+|   |-- tables/
+|   `-- figures/
+`-- README.md
+\end{lstlisting}
+
+\section{Project Grading Criteria}
+
+The project will be graded based on the following dimensions:
+
+\begin{enumerate}[label=\arabic*.]
+  \item \textbf{Problem Quality and Motivation} \\
+  Is the problem meaningful, well-defined, and appropriate for NLP research?
+
+  \item \textbf{Technical Depth} \\
+  Does the project demonstrate real modeling, system design, or algorithmic effort?
+
+  \item \textbf{Implementation Quality} \\
+  Is the system complete, organized, and reproducible?
+
+  \item \textbf{Experimental Design} \\
+  Are the baselines, metrics, and comparisons appropriate?
+
+  \item \textbf{Analysis and Insight} \\
+  Does the paper go beyond reporting numbers and provide interpretation?
+
+  \item \textbf{Paper Quality} \\
+  Is the paper well-structured, clearly written, and formatted in ACL style?
+\end{enumerate}
+
+\section{Project Milestones}
+
+The project will involve the following key milestones:
+
+\begin{itemize}
+  \item \textbf{Milestone 1: Proposal (Jan. 28)} \\
+  Project topic, task definition, motivation, and initial related work.
+
+  \item \textbf{Milestone 2: Progress Check (Mar. 23)} \\
+  Current progress on data preparation, method development, and preliminary experiments.
+
+  \item \textbf{Milestone 3: Final Submission (May. 6)} \\
+  Final paper, code, data, and documentation.
+\end{itemize}
+
+\noindent The instructor or TA may announce concrete deadlines separately.
+
+\section{Academic Integrity}
+
+All submitted work must be the original work of your team.
+
+\begin{itemize}
+  \item You must properly cite papers, codebases, datasets, and external resources.
+  \item Plagiarism, fabricated results, or undisclosed copying of code/text will result in a score of zero and may trigger additional academic penalties.
+\end{itemize}
+
+\section{Use of External Models and LLMs}
+
+You may use pretrained models, APIs, or large language models as part of your project,
+but you must clearly document their role. \\
+
+\noindent For example, you should specify:
+\begin{itemize}
+  \item whether the model is used as a baseline, feature extractor, or core method,
+  \item whether prompting, fine-tuning, or retrieval augmentation is involved,
+  \item and what part of the implementation is still your own contribution.
+\end{itemize}
+
+\noindent Projects that rely entirely on black-box models with little methodological contribution
+may receive limited credit unless accompanied by strong experimental analysis or a novel research question.
+
+\section{Reference Information}
+
+You are strongly encouraged to consult the ACL 2026 main conference submission information
+for the expected paper style, length, and research presentation standard:
+
+\begin{center}
+\url{https://2026.aclweb.org/calls/main_conference_papers/#paper-submission-information}
+\end{center}
+
+\noindent This course project does not necessarily require an actual ACL submission,
+but your report should be written to resemble a serious ACL-style research paper.
+
+\end{document}
