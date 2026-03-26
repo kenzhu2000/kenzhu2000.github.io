@@ -1,0 +1,78 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage{listings}
+\usepackage{bbm}
+\usepackage[usenames]{xcolor}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 4392/5369}
+\rhead{Homework 8: Expectation Maximization}
+\lfoot{2026 Kenny Zhu}
+%----Documentation----%
+\begin{document}
+
+\title{CSE 4392/5369 Special Topic: Natural Language Processing}
+\author{Homework 8 - Spring 2026}
+\date{Due Date: March 30, 2026, 11:59 PM}
+\maketitle
+\thispagestyle{fancy}
+
+%----Homeworks----%
+
+Welcome to this week's assignment for the Natural Language Processing (NLP) course focusing on Expectation Maximization (EM) algorithms. In this assignment, you will dive into the application of EM for part-of-speech (POS) tagging using the Wall Street Journal (WSJ) POS tagging dataset.
+\section*{Problem 1 - 100\%}
+
+Your task is to implement the Expectation Maximization algorithm for POS tagging using the WSJ POS tagging dataset. EM is a powerful iterative algorithm used to estimate parameters of probabilistic models when there are hidden variables involved. In the context of POS tagging, EM helps to infer the most likely POS tags for words in a corpus based on observed data.
+
+You will be provided with the Wall Street Journal (WSJ) POS tagging dataset (\textbf{the same as last week's homework}).
+\begin{itemize}
+    \item Training Data: \href{https://drive.google.com/file/d/16H4D4nsntZVA4sXslWAy2nl8BX_gxofM/view?usp=sharing}{WSJ-2\_21.pos}
+    \item Test Data: \href{https://drive.google.com/file/d/1yl_ea9VznZuauavGMLfLHxzcZf2yPil3/view?usp=sharing}{WSJ-24.pos}
+\end{itemize}
+
+\subsection*{Instructions:}
+\begin{enumerate}
+    \item \textbf{Data Preprocessing:} Begin by preprocessing the dataset.
+    \item \textbf{Initialization:} Initialize the parameters of the model, including initial state probabilities, transition probabilities, and emission probabilities.
+    \item \textbf{Expectation Step:} Use the forward-backward algorithm to compute the expected counts of the hidden states (POS tags) given the observed data (words).
+    \item \textbf{Maximization Step:} Update the model parameters based on the expected counts obtained in the previous step.
+    \item \textbf{Convergence:} Repeat the expectation-maximization steps until the model converges, i.e., the log-likelihood of the data no longer increases significantly.
+    \item \textbf{Evaluation:} Evaluate the performance of the model by comparing the predicted POS tags with the ground truth labels.
+\end{enumerate}
+
+\subsection*{Deliverables:}
+\begin{enumerate}
+    \item Python code implementing the Expectation Maximization algorithm for POS tagging.
+    \item Report documenting your approach, including details of preprocessing, initialization, EM algorithm implementation, evaluation results, and analysis of the model's performance.
+\end{enumerate}
+
+
+\vspace{0.8em}
+\noindent{\color{red}\footnotesize
+\textbf{Submission Format:}
+Submit one zip file via Canvas containing only
+the \texttt{.pdf} version of your homework (typed submissions are preferred;
+scanned images must be readable), the corresponding
+source files, and a \texttt{README} file describing how to run the code.
+The zip file must be named
+\texttt{lastname\_studentID\_hw8.zip}.
+}
+
+\end{document}
+
+
+
