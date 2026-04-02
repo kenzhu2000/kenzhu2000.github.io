@@ -1,0 +1,68 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage{listings}
+\usepackage{bbm}
+\usepackage[usenames]{xcolor}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 4392/5369}
+\rhead{Homework 9: Recurrent Neural Networks}
+\lfoot{2026 Kenny Zhu}
+%----Documentation----%
+\begin{document}
+
+\title{CSE 4392/5369 Special Topic: Natural Language Processing}
+\author{Homework 9 - Spring 2026}
+\date{Due Date: April 6, 2026, 11:59 PM}
+\maketitle
+\thispagestyle{fancy}
+
+%----Homeworks----%
+
+This week we explored Recurrent Neural Networks (RNNs) and their variations, focusing on their implementation in Natural Language Processing (NLP). We covered the fundamentals of RNNs and their limitations like the vanishing gradient problem, and introduced Long Short-Term Memory (LSTM) networks as a solution. Moreover, we discussed Bidirectional RNNs (BiRNNs), which process input sequences in both forward and backward directions to capture context from past and future inputs.
+
+\subsection*{Question 1 - 50\%}
+Provide a step-by-step proof of the following formula for RNNs.
+$$\frac{\partial L }{\partial \mathbf{W}} = -\frac{1}{n}\sum_{t=1}^{n}\sum_{k=1}^{t}  \frac{\partial L_t }{\partial  \mathbf{h}_t}\left ( \prod_{j=k+1}^{t}  \frac{\partial \mathbf{h}_j  }{\partial  \mathbf{h}_{j-1}} \right ) \frac{\partial \mathbf{h}_k }{\partial \mathbf{W}},$$
+Then discuss intuitively how you expect the formula to change for Bidirectional RNNs. 
+
+
+\subsection*{Question 2 - 50\%}
+
+Compare LSTMs and RNNs with PyTorch for fake news detection by employing the following \href{https://www.kaggle.com/datasets/emineyetm/fake-news-detection-datasets/data}{Fake News Dataset}.
+Submit a report documenting your work, results, and brief analysis. The report should include at least one table comparing the two architectures.
+\begin{itemize}
+    \item Dataset: \href{https://www.kaggle.com/datasets/emineyetm/fake-news-detection-datasets/data}{Fake News Dataset}
+\end{itemize}
+
+
+\vspace{0.8em}
+\noindent{\color{red}\footnotesize
+\textbf{Submission Format:}
+Submit one zip file via Canvas containing only
+the \texttt{.pdf} version of your homework (typed submissions are preferred;
+scanned images must be readable), the corresponding
+source files, and a \texttt{README} file describing how to run the code.
+The zip file must be named
+\texttt{lastname\_studentID\_hw9.zip}.
+}
+
+
+\end{document}
+
+
+

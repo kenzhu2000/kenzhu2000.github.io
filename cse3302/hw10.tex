@@ -1,0 +1,90 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage{listings}
+\usepackage[usenames]{xcolor}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 3302 Programming Language}
+\rhead{Homework10: Type Inference II}
+\lfoot{2026 Kenny Zhu}
+%----Documentation----%
+\begin{document}
+
+\title{CSE 3302 Programming Language}
+\author{Homework 10 - Spring 2026}
+\date{Due Date: April 6, 2026, 11:59 PM}
+\maketitle
+\thispagestyle{fancy}
+
+%----Homeworks----%
+
+\section*{Problem 1 - 30\%}
+
+Prove the Lemma: If $(S,q) \rightarrow (S', q')$ then:
+\begin{enumerate}
+    \item T is complete for $(S, q)$ iff T is complete for $(S',q')$
+    
+    \item T is principal for $(S,q)$ iff T is principal for $(S',q')$
+\end{enumerate}
+
+
+\section*{Problem 2 - 40\%}
+
+Given the following variant of untyped lambda calculus:
+	\begin{verbatim}
+	e::=
+	x                           (variables)
+	| c                         (constants)
+	| \x.e
+	| e1 e2
+	| e1 bop e2                 (binary op)
+	| uop e                     (unary op)
+	| let x = e1 in e2
+	| if e1 then e2 else e3
+	| letfun f(x) = e1 in e2    (defining a recursive function f(x) for use in e2)
+	| {e1, e2}
+	| e.1
+	| e.2
+	| inl e
+	| inr e
+	| case e1 of inl x => e2 | inr x => e3
+	| nil
+	| e1 :: e2
+	| case e1 of nil => e2 | x1 :: x2 => e3
+	| (e)
+	\end{verbatim}
+
+	\begin{itemize}
+    \item Inductively define the constraint generation judgement:
+	\[G \vdash u \Rightarrow e : t,\ q\]
+    \end{itemize}
+
+
+\section*{Problem 3 - 30\%}
+	Prove the Lemma: Every step reduces the size of q (Page 21)
+
+
+\vspace{20pt}
+\vspace{0.8em}
+\noindent{\color{red}\footnotesize
+\textbf{Submission Format:}
+Submit only the \texttt{.pdf} version of your homework (typed submissions are preferred;
+Scanned images must be readable). File must be named
+\texttt{lastname\_studentID\_hw10.pdf}.
+}
+
+\end{document}
