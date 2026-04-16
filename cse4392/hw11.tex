@@ -1,0 +1,81 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage{listings}
+\usepackage{bbm}
+\usepackage[usenames]{xcolor}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 4392/5369}
+\rhead{Homework 11: Information Retrieval}
+\lfoot{2026 Kenny Zhu}
+%----Documentation----%
+\begin{document}
+
+\title{CSE 4392/5369 Special Topic: Information Retrieval}
+\author{Homework 11 - Spring 2026}
+\date{Due Date: April 20, 2026, 11:59 PM}
+\maketitle
+\thispagestyle{fancy}
+
+%----Homeworks----%
+
+\subsection*{Question 1 - 100\%}
+
+In this assignment, you will build a mini information retrieval system over a document collection. The goal is to understand the basic IR pipeline, including inverted index construction, Boolean retrieval, and ranked retrieval with tf-idf.
+\begin{itemize}
+    \item Dataset: \href{https://archive.ics.uci.edu/static/public/113/twenty%2Bnewsgroups.zip}{Twenty Newsgroups Dataset}
+
+\end{itemize}
+\begin{enumerate}
+    \item Implement the preprocessing and indexing pipeline. Your system should read all documents, tokenize the text, convert tokens to lowercase, remove punctuation, and build an inverted index. Each term in the vocabulary should map to a sorted postings list of document IDs in which the term appears.
+
+    \item Implement two retrieval modes on the same document collection:
+    \begin{itemize}
+        \item Boolean retrieval for two-term AND queries (e.g., \texttt{information AND retrieval});
+        \item Ranked retrieval for free-text queries using tf-idf scoring.
+    \end{itemize}
+    For ranked retrieval, compute a relevance score for each document based on the sum of tf-idf weights of the query terms appearing in the document, and return the top 5 documents ranked by score in descending order.
+
+    \item Write a short report that includes:
+    \begin{itemize}
+        \item a description of your implementation, along with a brief discussion of your findings and an explanation of the observed results;
+        \item one example of a Boolean query and its returned results;
+        \item one example of a ranked query and its top returned documents;
+        \item brief answers to the following questions:
+        \begin{enumerate}
+            \item What is the difference between Boolean retrieval and ranked retrieval?
+            \item In what kind of search scenario is tf-idf ranking more useful than Boolean retrieval?
+        \end{enumerate}
+    \end{itemize}
+\end{enumerate}
+
+\vspace{0.8em}
+\noindent{\color{red}\footnotesize
+\textbf{Submission Format:}
+Submit one zip file via Canvas containing only
+the \texttt{.pdf} version of your homework (typed submissions are preferred;
+scanned images must be readable), the corresponding
+source files, and a \texttt{README} file describing how to run the code.
+The zip file must be named
+\texttt{lastname\_studentID\_hw11.zip}.
+}
+
+
+\end{document}
+
+
+
