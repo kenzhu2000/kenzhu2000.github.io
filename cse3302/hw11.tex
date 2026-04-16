@@ -1,0 +1,59 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage{listings}
+\usepackage[usenames]{xcolor}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 3302 Programming Language}
+\rhead{Homework 11: Subtyping}
+\lfoot{2026 Kenny Zhu}
+%----Documentation----%
+\begin{document}
+
+\title{CSE 3302 Programming Language}
+\author{Homework 11 - Spring 2026}
+\date{Due Date: April 13, 2026, 11:59 PM}
+\maketitle
+\thispagestyle{fancy}
+
+%----Homeworks----%
+
+\section*{Problem 1 - 40\%}
+
+Remember in hw5, we extended tuples to records. Now we extend subtypes to records. Please give some subtyping rules for record type, then draw a derivation showing that $\{x:Nat, y:Nat, z:Nat\}$ is a subtype of $\{y:Nat\}$.
+
+
+
+\section*{Problem 2 - 60\%}
+
+Prove Lemma [Inversion of the subtype relation]:
+	
+	1. If $S <= T_1 \rightarrow T_2$, then $S$ has the form $S_1 \rightarrow S_2$, with $T_1 <= S_1$ and $S_2 <= T_2$.
+	
+	2. If $S <= \{l_i:T_i^{i \in l...n}\}$, then $S$ has the form $\{k_j:S_j^{j \in l...m}\}$, with at least the labels $\{l_i^{i \in l...n}\}$ (i.e., $\{l_i^{i \in l...n}\} \subseteq \{k_j^{j \in l...m}\}$) and with $S_j <= T_i$ for each common label $l_i=k_j$.
+
+
+\vspace{20pt}
+\vspace{0.8em}
+\noindent{\color{red}\footnotesize
+\textbf{Submission Format:}
+Submit only the \texttt{.pdf} version of your homework (typed submissions are preferred;
+Scanned images must be readable). File must be named
+\texttt{lastname\_studentID\_hw11.pdf}.
+}
+
+\end{document}
