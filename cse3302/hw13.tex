@@ -1,0 +1,104 @@
+%----PrefaceImport----%
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper,margin=1in,headsep=25pt]{geometry}
+\usepackage{lipsum,hyperref}
+\usepackage{enumerate,fullpage,proof}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage{listings}
+\usepackage[usenames]{xcolor}
+
+\lstset{
+    language=Prolog,
+    basicstyle=\ttfamily,
+    frame=single,
+    backgroundcolor=\color{lightgray!20}
+}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+
+\pagestyle{fancy}
+\pagenumbering{Alph}
+\setlength{\headheight}{36.0pt}
+\headsep = 25pt
+\fancyhf{}
+\lhead{CSE 3302 Programming Language}
+\rhead{Homework 13: Logic Programming}
+\lfoot{2026 Kenny Zhu}
+%----Documentation----%
+\begin{document}
+
+\title{CSE 3302 Programming Language}
+\author{Homework 13 - Spring 2026}
+\date{Due Date: April 27, 2026, 11:59 PM}
+\maketitle
+\thispagestyle{fancy}
+
+%----Homeworks----%
+
+\section*{Problem1 - 40\%}
+
+\begin{lstlisting}[language=Prolog]
+bigger(elephant, horse).
+bigger(horse, donkey).
+bigger(donkey. dog).
+bigger(donkey, monkey).
+\end{lstlisting}
+	
+We try to get familiar with the usage of SWI-Prolog and basic operations in this problem. Feel free to use other tools and follow the same steps.
+\begin{enumerate}[(a)]
+    \item Download \href{http://www.swi-prolog.org/}{SWI-Prolog} and install.
+    \item Consult the file \textit{animals.pl} (shown above) in SWI-Prolog. If there is an error, point out the line in which it occurs and fix it. 
+    \item Re-consult the file. Enter the query as follows:
+    
+    \begin{verbatim}
+        ?- bigger(elephant, horse).
+        ?- bigger(elephant, monkey).
+    \end{verbatim}
+    \item Show the result of queries. For the second query, do we have the transitivity of bigger-relation as expected?
+    \item Add rules called \textit{is\_bigger} to make sure the bigger-relation is transitive. An example output:
+    \begin{verbatim}
+        ?- is_bigger(elephant, monkey).
+        true
+    \end{verbatim}
+\end{enumerate}
+\textbf{Remark:} 
+Please include your code file and a screenshot of execution result for this problem in your submit.
+
+\newpage
+
+\section*{Problem2 - 60\%}
+
+\textbf{Eight queens problem}
+\begin{figure}[h]  
+\centering\includegraphics[width=3.5cm]{eightqueens.png}
+\label{fig1}
+\caption{A possible solution}   
+\end{figure}
+
+The Eight queens puzzle is the problem of placing eight chess queens on an 8x8 chessboard so that no two queens threaten each other. Thus, a solution requires that no two queens share the same row, column, or diagonal. 
+
+We represent the positions of the queens as a list of numbers 1..N. For example, we represent solution for the picture above as [5,3,1,7,2,8,6,4], which means that the queen in the first column is in row 5, the queen in the second column is in row 3, etc..
+
+
+Implement the solution in Prolog. You can try to generalize this original problem by allowing for an arbitrary dimension N of the chessboard. An example output:
+
+\begin{verbatim}
+> queens(8, Qs)
+Qs = [1, 5, 8, 6, 3, 7, 2, 4]
+Qs = [1, 6, 8, 3, 7, 4, 2, 5]
+...
+\end{verbatim}	
+
+\textbf{Remark:} 
+Please include your code file and a screenshot of execution result for this problem in your submit.
+
+\vspace{3.8em}
+\noindent{\color{red}\footnotesize
+\textbf{Submission Format:}
+Submit one zip file via Canvas containing the \texttt{.pdf} version of your homework (including screenshots of the execution results and brief explanations for each program) and the corresponding source files. The zip file must be named \texttt{lastname\_studentID\_hw13.zip}.
+}
+
+\end{document}
